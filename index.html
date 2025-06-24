@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="pwKvYalfLxSFwpDlCsan4yS_mEsUdJvUDrI2wKiIHXk" />
+    <meta property="og:title" content="Tommy Website">
+    <meta property="og:description" content="Create stunning AI-generated images with ease using Tommy APP.">
+    <meta property="og:image" content="https://iili.io/3IFLCH7.png">
+    <meta property="og:url" content="https://tommydev27.github.io/tommy.fb-web/">
+    <meta property="og:type" content="website">
+    <meta property="fb:app_id" content="1245016886587008">
+    <title>Tommy Website</title>
+    <link rel="stylesheet" href="https://static.xx.fbcdn.net/rsrc.php/v5/y2/l/0,cross/nC2XYYUISfm.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://static.xx.fbcdn.net/rsrc.php/v5/y8/l/0,cross/Z39OoPuXzgz.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+ <style>
+    @font-face {
+      font-family: 'FBDink';
+      src: url('https://static.xx.fbcdn.net/assets/?font=fbdink') format('truetype');
+    }
+
+    body {
+    font-family:'CustomFont','Arial','Segoe UI','Noto Sans',sans-serif;
+      margin: 0;
+      padding: 12px;
+      background: #ebf5f6;
+    }
+    @font-face {
+  font-family: 'CustomFont';
+  src: url('CustomFont.woff2') format('woff2');
+}
+
+
+    .native-text {
+      font-family: 'FBDink', Arial, sans-serif;
+      line-height: 1.0;
+    }
+
+      #notes {
+        width: 100%;
+        height: 150px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 8px 8px;
+        border-radius: 10px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+        box-sizing: border-box;
+        user-select: text !important;
+        -webkit-user-select: text !important;
+        -webkit-touch-callout: none !important;
+        position: relative !important;
+        text-align: justify;
+        text-justify: inter-word;
+        font-size: 19px;
+        border: 1px solid #3e8ede;
+        box-shadow: 2px 2px 2px #b1b1b1, -3px -3px 5px white;
+      }
+      
+      #notes span {
+        color: black;
+        display: inline-block;
+        word-break: break-word;
+        white-space: pre-wrap;
+        line-height: 1.1;
+      }
+      
+      body.dark-mode #notes span {
+        color: #ffffff !important;
+      }
+
+    .keyboard-wrapper {
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      margin-top: 10px;
+      background: #616161;
+      border: 1px solid #262626;
+      border-radius: 6px;
+      padding: 2px;
+      max-width: 100%;
+      box-sizing: border-box;
+      border: 2px solid #333;
+      box-shadow: 1px 2px 5px #5c5a5a, -1px -1px 5px white;
+    }
+    
+    .keyboard-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;  
+      max-height: 250px;
+      overflow-y: auto;
+      width: fit-content; 
+      gap: 0px;
+    }
+    .keyboard-wrapper, .keyboard-bar {
+      text-align: center !important;
+    }
+    
+     .key {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2px;
+      padding: 14px 0px;
+      font-size: 22px;
+      width: 100%;
+      max-width: 50px;
+      height: 0px;
+      color: #514d4d;
+      background: linear-gradient(to bottom right, #e8e8e8, #ffffff); 
+      border: 2px solid #c4c2c290;
+      border-radius: 5px; 
+      cursor: pointer;
+    }
+    
+    .key:hover {
+      background: #2d2d2d;
+      border: 2px solid #fb4f4f;
+      color: #fff267;
+    }
+
+    .tambahan-container {
+      margin-top: 0px;
+    }
+
+    .key, span, button {
+        pointer-events: auto !important;
+        user-select: none !important;
+          -webkit-user-select: none !important;
+          -webkit-touch-callout: none !important;
+        z-index: 10 !important;
+          position: relative !important;
+        }
+    
+     body * {
+          position: relative !important;
+        }
+        
+      #notes-container {
+        width: 100%;
+        font-family: 'VT323', monospace;
+        font-weight: bold;
+        color: #bf0000;
+        padding: 5px 0px;
+        font-size: 13px;
+        margin-top: 4px;
+      }
+      
+    .keyboard-extra {
+      display: flex;
+      width: 100%;
+      padding: 0px;
+      justify-content: center;
+      margin-top: 5px;
+      gap: 3px;
+    }
+    
+    .key-btn {
+      text-align: justify;
+      text-justify: inter-word;
+      color: white;
+      font-weight: bold;
+      border: 2px solid #24242490;
+      border-radius: 5px;
+      background: #616161;
+      box-shadow: 1px 2px 4px #b8b8b8, -1px -1px 1px white;
+      cursor: pointer;
+      height: 28px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .key-btn:hover {
+      background: #333;
+      color: #fff267;
+    }
+    @keyframes blink-red-blue {
+      0% { background: red; color: white; }
+      50% { background: #a1cffd; color: white; }
+      100% { background: red; color: white; }
+    }
+    
+    .key-btn.blink {
+      animation: blink-red-blue 0.4s ease-in-out 2;
+    }
+    
+    
+    .tambahan-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 1px;
+      border: 2px solid #c4c2c290;
+      border-radius: 10px;
+      margin: 10px 0;
+      background:  #616161;
+      direction: ltr;
+    }
+    
+    .tambahan-container button {
+      flex: 0 0 auto;
+      width: 80px;
+      color: #4e4e4e;
+      height: 30px;
+      background-color: #e9f4fc;
+      border: 3px solid #c4c2c290;
+      border-radius: 8px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .tambahan-container button:hover {
+      background-color: #434242;
+      color: #02d1ff;
+        border: 3px solid #fc5c5c;
+    }
+    
+    .tambahan-container button span {
+      line-height: 1;
+      font-size: 16px;
+    }
+    
+    .button, a {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      outline: none;
+      touch-action: manipulation;
+    }
+    
+    .key, span, button {
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      -webkit-touch-callout: none !important;
+      pointer-events: auto !important;
+      z-index: 10 !important;
+      position: relative !important;
+    }
+    
+    * {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+      #notes {
+        user-select: auto !important;
+        pointer-events: auto !important;
+        z-index: 10 !important;
+        position: relative !important;
+      }
+  
+      body * {
+        position: relative !important;
+      }
+  
+      #counter-info {
+        padding: 2px 2px;
+        display: flex;
+        font-weight: bold;
+        background: ;
+        top: -10px;
+        border-radius: 8px;
+        right: 0px;
+        white-space: nowrap;
+        box-shadow: 1px 2px 2px #8b8b8b, -5px -2px 5px white;
+      }
+      
+      .parent-container {
+        position: relative;
+      }
+      
+      .counter-box {
+        font-family: ;
+        max-width: 58px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;  
+        position: absolute;
+        font-size: 12px;
+        color: #282828; 
+        padding: 5px 5px;
+        border-radius: 8px;
+        font-weight: bold;
+        background: ;
+        border: 1px solid #f04369;
+      
+      }
+
+      #copy-btn, #clear-btn {
+        padding: 4px 8px;
+        margin-top: 8px;
+        font-size: 13px;
+        font-weight: bold;
+        background: #616161;
+        border: 2px solid #3e8ede;
+        box-shadow: 2px 2px 2px #d3d3d3,
+        -3px -2px 4px white;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+    
+      #clear-btn {
+        background: ;
+      }
+        #clear-btn:hover {
+        background: #2d2d2d;
+        border: 2px solid #fa6c6c;
+        color: #76eefb;
+      }
+      
+        #copy-btn:hover {
+        background: #2d2d2d;
+            border: 2px solid #fa6c6c;
+            color: #76eefb;
+      }
+      
+        #copy-message {
+          display: ;
+          margin-top: -2px;
+          font-size: 14px;
+          vertical-align: middle;
+        }
+              
+        .checkmark {
+          margin-bottom: -3px;
+          stroke: white;
+          stroke-width: 4;
+          padding: 1px;
+          background-color: green;
+          border-radius: 50px;
+          stroke-linecap: round;
+          fill: none;
+          animation: none;
+        }
+        
+        .checkmark__circle {
+          stroke-dasharray: 157;
+          stroke-dashoffset: 157;
+          animation: dash 0.9s ease-out forwards;
+        }
+        
+        .checkmark__check {
+          stroke-dasharray: 36;
+          stroke-dashoffset: 36;
+          animation: dash-check 0.4s 0.6s ease forwards;
+        }
+        
+        #copy-message:not(.show) .checkmark__circle,
+        #copy-message:not(.show) .checkmark__check {
+          stroke-dashoffset: 157; /* reset saat tidak tampil */
+        }
+        
+        @keyframes dash {
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+        
+        @keyframes dash-check {
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+        
+      .control-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+    
+      .control-row > * {
+        flex: 1;
+        border: 2px solid #e3e3e3;
+        min-width: 90px;
+        margin-top: 8px;
+        padding: 3px 10px;
+        background: #424242;
+        color: #f6bf50;
+        border-radius: 10px;
+        box-shadow: 2px 2px 2px #d3d3d3,
+        -3px -2px 4px white;
+        font-weight: bold;
+        box-sizing: border-box;
+        border: 2px solid #3e8ede;
+      }
+      
+       .control-row :hover {
+        background: #2d2d2d;
+        border: 2px solid #fa6c6c;
+        color: #fff267;
+        
+      }
+  
+      .keyboard-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 6px; /* Jarak antar keyboard dan tombol ekstra */
+        }
+      
+      .keyboard-bar {
+        display: flex;
+        
+        }
+      .enter-icon {
+        color: #79fa40; /* Biru terang */
+        font-weight: bold;
+      }
+      
+      .backspace-icon {
+        color: #fadc4c; /* Hijau terang */
+        font-weight: bold;
+      }
+
+ </style>
+    <style>
+    #darkModeToggle {
+      position: fixed;
+      display: flex;
+      width: 30px;
+      border-radius: 30px;
+      height: 10px;
+      border: none;
+      background: #cccccc;
+      align-items: center;
+      justify-content: start;
+    }
+    #darkModeToggle::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: red;
+      border-radius: 50%;
+      margin-left: 1px;
+    }
+
+  
+    body.dark-mode {
+      background-color: #121212;
+      color: #e4e4e4;
+    }
+    
+    body.dark-mode * {
+      box-shadow: none !important;
+    }
+    
+    body.dark-mode #notes {
+      background-color: #1e1e1e;
+      color: white;
+    }
+    
+    body.dark-mode #darkModeToggle {
+      background: #4e4e4e;
+    }
+    
+    body.dark-mode #darkModeToggle::before {
+      transform: translateX(20px);
+      background: #1da1f2;
+    }
+    
+    body.dark-mode h1 {
+      color: #ff6b6b !important;
+    }
+    
+    body.dark-mode h2 {
+      color: #3df840 !important;
+    }
+    
+    body.dark-mode label {
+      color: #1dd1a1 !important;
+    }
+    
+    body.dark-mode span {
+      color: #333 !important;
+    }
+    
+    body.dark-mode .native-text {
+      color: white !important;
+      background: #2e2d3a !important;
+    }
+    
+    body.dark-mode button {
+      color: #3df840 !important;
+    }
+    
+    body.dark-mode .counter-box {
+      color: #ffffff !important;
+      background-color: #2a2a2a !important;
+      border-color: red !important;
+    }
+    
+    body.dark-mode a {
+      color: #22d607;
+    }
+    
+    body.dark-mode #btn-bloc,
+    body.dark-mode #btn-bloc .native-text {
+      background:  #ebf5f6  !important;
+      color: #333  !important;
+    }
+
+    
+    #preloader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100vh;
+    
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 50s ease;
+    }
+    
+    .dot-loader {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .dot-loader span {
+      width: 8px;
+      height: 8px;
+      background: #1b74e4;
+      border-radius: 50%;
+      opacity: 0;
+      animation: blink 1.5s infinite;
+    }
+    
+    .dot-loader span:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    
+    .dot-loader span:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+    
+    .dot-loader span:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+    
+    .dot-loader span:nth-child(4) {
+      animation-delay: 0.9s;
+    }
+    
+    .dot-loader span:nth-child(5) {
+      animation-delay: 1.2s;
+    }
+    
+    @keyframes blink {
+      0% { opacity: 0; }
+      20% { opacity: 1; }
+      40% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    
+
+.strike {
+  text-decoration: line-through;
+  color: inherit; /* pastikan warnanya tidak jadi hitam atau tidak terlihat */
+}
+
+#fake-caret {
+  position: absolute;
+  width: 1.5px;
+  height: 1em;
+  background: black;
+  animation: blink 1s step-start infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+
+  </style>
+  </head>
+      <body>
+
+    <div id="preloader">
+      <div style="position: absolute; top: -48px; left: 40px; transform: translateX(-50%);">
+        <span class="native-text" style="color:#1b74e4; font-size: 40px; vertical-align: 1px; font-weight: normal;">󰟰</span>
+      </div>
+    
+      <div style="display: flex; justify-content: center; align-items: center; margin-left: -46px;">
+        <div class="dot-loader">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+      <div id="main-container">
+       <div style="display: flex; gap: 12px; color: #007bff; font-size: 20px; ">
+        <span class="native-text" style="color:#575252; font-size: 15px !important; font-weight: bold; ">Tommy website</span>
+        
+        <span class="native-text" style="color:#1b74e4; font-size: 16px; margin-top: 0px; vertical-align: 1px; font-weight: normal; margin-left: -9px;">󱢏</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: -5px;">
+          <h2 style="color:#3f5ff7; font-size: 10px; font-weight: bold; margin: 0;">
+            Design: Tommy web · v1.0.0 ©
+          </h2>
+          
+          <div id="counter-info">
+            <span class="counter-box" id="char-count">0 Karakter</span> 
+            </div>
+          <div id="counter-info">
+            <span class="counter-box" id="line-count">0 Paragraf</span>
+                  </div>
+          <div style=" top: -10px; right: 0px; text-align: center;">
+            <button id="darkModeToggle" title="Toggle Mode Gelap"></button>
+            <div style="font-size: 10px; color: gray; margin-top: 0px;">mode●</div>
+          </div>
+
+          </div>
+        </div>
+
+      <div id="notes" contenteditable="true" class="native-text">
+        <span id="fake-caret"></span>
+        
+      </div>
+    </div>
+  
+      <div id="notes-container">
+        <div style="display: flex; align-items: center; gap: 30px;">
+          <label for="block-select">Insert Unicode Character</label>
+          <span id="copy-message" style="display: flex; align-items: center; gap: 4px;">
+             Di salin!
+            <svg id="check-icon" viewBox="0 0 52 52" class="checkmark" style="width: 13px; height: 13px;">
+              <path class="checkmark__circle" d="M26,1 a25,25 0 1,0 0.00001,0" />
+              <path class="checkmark__check" d="M14 27 l7 7 l17 -17" />
+            </svg>
+          </span>
+        </div>
+
+        <div class="control-row">
+        <select id="block-select">
+        <option value="0041-007A">Latin Letters (A–Z, a–z)</option>
+        <option value="1F0A0-1F0FF">Playing Cards</option>
+        <option value="1F300-1F5FF">Misc Symbols & Pictographs</option>
+        <option value="1F600-1F64F">Emoticons (Emoji)</option>
+        <option value="1F680-1F6FF">Transport & Map</option>
+        <option value="1F700-1F77F">Alchemical Symbols</option>
+        <option value="1F900-1F9FF">Supplemental Symbols & Pictographs</option>
+        <option value="1FA70-1FAFF">Symbols & Pictographs Extended-A</option>
+        <option value="FF00-FFEF">Halfwidth and Fullwidth Forms</option>
+        <option value="0000-007F">Basic Latin</option>
+        <option value="0080-00FF">Latin-1 Supplement</option>
+        <option value="0100-017F">Latin Extended-A</option>
+        <option value="0180-024F">Latin Extended-B</option>
+        <option value="0250-02AF">IPA Extensions</option>
+        <option value="02B0-02FF">Spacing Modifier Letters</option>
+        <option value="0300-036F">Combining Diacritical Marks</option>
+        <option value="0370-03FF">Greek and Coptic</option>
+        <option value="0400-04FF">Cyrillic</option>
+        <option value="0500-052F">Cyrillic Supplement</option>
+        <option value="0530-058F">Armenian</option>
+        <option value="0590-05FF">Hebrew</option>
+        <option value="0600-06FF">Arabic</option>
+        <option value="0700-074F">Syriac</option>
+        <option value="0750-077F">Arabic Supplement</option>
+        <option value="0780-07BF">Thaana</option>
+        <option value="07C0-07FF">NKo</option>
+        <option value="0800-083F">Samaritan</option>
+        <option value="0840-085F">Mandaic</option>
+        <option value="0860-086F">Syriac Supplement</option>
+        <option value="08A0-08FF">Arabic Extended-A</option>
+        <option value="0900-097F">Devanagari</option>
+        <option value="0980-09FF">Bengali</option>
+        <option value="0A00-0A7F">Gurmukhi</option>
+        <option value="0A80-0AFF">Gujarati</option>
+        <option value="0B00-0B7F">Oriya</option>
+        <option value="0B80-0BFF">Tamil</option>
+        <option value="0C00-0C7F">Telugu</option>
+        <option value="0C80-0CFF">Kannada</option>
+        <option value="0D00-0D7F">Malayalam</option>
+        <option value="0D80-0DFF">Sinhala</option>
+        <option value="0E00-0E7F">Thai</option>
+        <option value="0E80-0EFF">Lao</option>
+        <option value="0F00-0FFF">Tibetan</option>
+        <option value="1000-109F">Myanmar</option>
+        <option value="10A0-10FF">Georgian</option>
+        <option value="1100-11FF">Hangul Jamo</option>
+        <option value="1200-137F">Ethiopic</option>
+        <option value="1380-139F">Ethiopic Supplement</option>
+        <option value="13A0-13FF">Cherokee</option>
+        <option value="1400-167F">Unified Canadian Aboriginal Syllabics</option>
+        <option value="1680-169F">Ogham</option>
+        <option value="16A0-16FF">Runic</option>
+        <option value="1700-171F">Tagalog</option>
+        <option value="1720-173F">Hanunoo</option>
+        <option value="1740-175F">Buhid</option>
+        <option value="1760-177F">Tagbanwa</option>
+        <option value="1780-17FF">Khmer</option>
+        <option value="1800-18AF">Mongolian</option>
+        <option value="18B0-18FF">Unified Canadian Aboriginal Syllabics Extended</option>
+        <option value="1900-194F">Limbu</option>
+        <option value="1950-197F">Tai Le</option>
+        <option value="1980-19DF">New Tai Lue</option>
+        <option value="19E0-19FF">Khmer Symbols</option>
+        <option value="1A00-1A1F">Buginese</option>
+        <option value="1A20-1AAF">Tai Tham</option>
+        <option value="1AB0-1AFF">Combining Diacritical Marks Extended</option>
+        <option value="1B00-1B7F">Balinese</option>
+        <option value="1B80-1BBF">Sundanese</option>
+        <option value="1BC0-1BFF">Batak</option>
+        <option value="1C00-1C4F">Lepcha</option>
+        <option value="1C50-1C7F">Ol Chiki</option>
+        <option value="1C80-1C8F">Cyrillic Extended-C</option>
+        <option value="1C90-1CBF">Georgian Extended</option>
+        <option value="1CC0-1CCF">Sundanese Supplement</option>
+        <option value="1CD0-1CFF">Vedic Extensions</option>
+        <option value="1D00-1D7F">Phonetic Extensions</option>
+        <option value="1D80-1DBF">Phonetic Extensions Supplement</option>
+        <option value="1DC0-1DFF">Combining Diacritical Marks Supplement</option>
+        <option value="1E00-1EFF">Latin Extended Additional</option>
+        <option value="1F00-1FFF">Greek Extended</option>
+        <option value="2000-206F">General Punctuation</option>
+        <option value="2070-209F">Superscripts and Subscripts</option>
+        <option value="20A0-20CF">Currency Symbols</option>
+        <option value="20D0-20FF">Combining Diacritical Marks for Symbols</option>
+        <option value="2100-214F">Letterlike Symbols</option>
+        <option value="2150-218F">Number Forms</option>
+        <option value="2190-21FF">Arrows</option>
+        <option value="2200-22FF">Mathematical Operators</option>
+        <option value="2300-23FF">Miscellaneous Technical</option>
+        <option value="2400-243F">Control Pictures</option>
+        <option value="2440-245F">Optical Character Recognition</option>
+        <option value="2460-24FF">Enclosed Alphanumerics</option>
+        <option value="2500-257F">Box Drawing</option>
+        <option value="2580-259F">Block Elements</option>
+        <option value="25A0-25FF">Geometric Shapes</option>
+        <option value="2600-26FF">Miscellaneous Symbols</option>
+        <option value="2700-27BF">Dingbats</option>
+        <option value="27C0-27EF">Miscellaneous Mathematical Symbols-A</option>
+        <option value="27F0-27FF">Supplemental Arrows-A</option>
+        <option value="2800-28FF">Braille Patterns</option>
+        <option value="2900-297F">Supplemental Arrows-B</option>
+        <option value="2980-29FF">Miscellaneous Mathematical Symbols-B</option>
+        <option value="2A00-2AFF">Supplemental Mathematical Operators</option>
+        <option value="2B00-2BFF">Miscellaneous Symbols and Arrows</option>
+        <option value="2C00-2C5F">Glagolitic</option>
+        <option value="2C60-2C7F">Latin Extended-C</option>
+        <option value="2C80-2CFF">Coptic</option>
+      </select>
+
+    <button id="copy-btn">Copy Catatan</button>
+    <button id="clear-btn">Clear</button>
+    
+        </div>
+
+      <div id="symbol-bar" class="tambahan-container">
+        <button id="btn-bloc">
+          <span class="native-text">󰎈 󱢏 󰞦</span>
+        </button>
+         <button id="btn-block27"><span>☆ ★ ✡</span>
+        </button>
+        <button id="btn-block25">
+          <span>♼ ♽ ♾</span>
+        </button>
+        <button id="btn-block26">
+          <span>㉿ ㊊ ㊋</span>
+        </button>
+        <button id="btn-block13">
+          <span>䷇䷨䷔</span>
+        </button>
+         <button id="btn-block24">
+            <span>▄ ▅ ▆</span>
+          </button>
+          <button id="btn-block20">
+            <span>🂱 🂲 🂳</span>
+           </button>
+          <button id="btn-block6">
+            <span>⌨ ☑ ⎙</span>
+          </button>
+            <button id="btn-block9">
+            <span>⣼⣇⡇</span>
+          </button>
+          <button id="btn-block16">
+            <span>𝇜𝅘𝅥𝅘𝅥𝅮</span>
+          </button>
+          <button id="btn-block17">
+            <span>⟫ ⟩ ❱ ❭</span>
+          </button>
+          <button id="btn-block1">
+            <span>🅐🅑🅒</span>
+          </button>
+          <button id="btn-block2">
+            <span>⓵⓶⓷</span>
+          </button>
+          <button id="btn-block3">
+            <span>🅰🅱🅲</span>
+          </button>
+          <button id="btn-block4">
+            <span>🄐🄑🄒</span>
+          </button>
+          <button id="btn-block5">
+            <span>ＡＢＣ</span>
+          </button>
+          <button id="btn-block7">
+            <span>𝒜ℬ𝒞</span>
+          </button>
+          <button id="btn-block8">
+            <span>𝑨𝑩𝑪</span>
+          </button>
+          <button id="btn-block11">
+            <span>𝘼𝘽𝘾</span>
+          </button>
+          <button id="btn-block12">
+            <span>𝗔𝗕𝗖</span>
+          </button>
+          <button id="btn-block14">
+            <span>𝔄𝔅ℭ</span>
+          </button>
+          <button id="btn-block10">
+            <span>𝐀 ƛ 𝕒</span>
+          </button>
+           <button id="btn-block19">
+            <span>Ꭺ ᗩ 卂</span>
+          </button>
+          <button id="btn-block22">
+            <span>ムるど</span>
+          </button>
+          <button id="btn-block15">
+            <span>𝙰ᴀᵃ</span>
+          </button>
+        
+          <button id="btn-block18">
+            <span>ᗅΛԺ</span>
+          </button>
+          <button id="btn-block21">
+            <span>ᕱꀷꋫ</span>
+          </button>
+        </div>
+      <div class="keyboard-extra">
+
+      <button class="key-btn" id="btn-block119">
+        <span class="native-text">Aa</span>
+      </button>
+              
+      <button class="key-btn" id="btn-block118">
+        <span class="native-text">😃</span>
+      </button>
+      <button class="key-btn" onclick="moveCaretDown()">↓</button>
+      <button class="key-btn" onclick="moveCaretUp()">↑</button>
+       <button class="key-btn" onclick="moveCaretLeft()">←</button>
+       <button class="key-btn" onclick="moveCaretRight()">→</button>
+        <button class="key-btn" onclick="insertText(' ')">⎵</button>
+        <button class="key-btn" onclick="backspace()">
+          <span class="backspace-icon">⌫</span>
+        </button>
+      </div>
+
+<style>
+  .slider-container {
+    width: 100%;
+    margin-top: -1px;
+    margin-right: 8px; 
+  }
+
+  .styled-slider {
+    width: 100%;
+    height: 19px;
+    -webkit-appearance: none;
+    background: transparent;
+  }
+
+  .styled-slider::-webkit-slider-runnable-track {
+    height: 12px;
+    background: #cad7da;
+    border-radius: 34px;
+  }
+
+  .styled-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #2c3e50;
+    border-radius: 50%;
+    margin-top: -1px;
+    border: 1px solid white;
+  }
+
+  .line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ccc;
+    margin: 0 6px;
+  }
+  
+    #percent-value,
+    #strike-value {
+      text-align: right;
+      font-size: 8px;
+      margin-top: -2px;
+      color: #888;
+    }
+    
+      body.dark-mode .key-btn .backspace-icon,
+      body.dark-mode .key-btn .enter-icon {
+        color: #e90d37 !important;
+      }
+      
+      body.dark-mode .key-btn {
+        background: none !important;
+        border: 2px solid #5335a6 !important;
+      }
+
+  </style>
+
+   <div class="keyboard-extra">
+      <div class="slider-container">
+
+    <input
+      type="range"
+      id="caret-slider"
+      class="styled-slider"
+      min="0"
+      max="100"
+      value="0"
+      oninput="updateStrikeByPercentage()">
+    <div id="percent-value">Garis Teks Atas bawah: 0%</div>
+  </div>
+
+  <!-- Slider 2: Garis Tengah -->
+<div class="slider-container">
+    <input
+      type="range"
+      id="strike-slider"
+      class="styled-slider"
+      min="0"
+      max="100"
+      value="0"
+      oninput="updateStrikethroughPercentage()">
+    <div id="strike-value">Digaris Tengah: 0%</div>
+  </div>
+
+        <button class="key-btn" onclick="insertText('\n')">
+         <span class="enter-icon">↲ Enter</span>
+        </button>
+      </div>
+
+
+      <div class="keyboard-wrapper">
+        <div id="keyboard" class="keyboard-bar"></div>
+          </div>
+
+<script>
+
+function renderMultipleEmojiRanges(ranges) {
+  const chars = [];
+  for (const range of ranges) {
+    const [start, end] = range.split('-').map(hex => parseInt(hex, 16));
+    for (let code = start; code <= end; code++) {
+      chars.push(String.fromCodePoint(code));
+    }
+  }
+  renderCharsFromString('Emoji', chars.join(' '));
+}
+
+function renderCharsFromString(label, str) {
+  const list = str.trim().split(/\s+/);
+  const keyboard = document.getElementById('keyboard');
+  keyboard.innerHTML = '';
+  keyboard.style.display = 'block';
+  for (const char of list) {
+    const span = document.createElement('span');
+    span.className = 'key native-text';
+    span.textContent = char;
+    span.title = label + ': ' + char;
+    span.addEventListener('click', () => {
+      insertText(char);
+    });
+    keyboard.appendChild(span);
+  }
+}
+
+function insertText(str) {
+  insertTextAtFakeCaret(str);
+}
+
+
+
+const notes = document.getElementById("notes");
+const slider = document.getElementById("caret-slider");
+const percentLabel = document.getElementById("percent-value");
+
+function updateStrikeByPercentage() {
+  const percentage = parseInt(slider.value, 10);
+  percentLabel.textContent = `Digaris: ${percentage}%`;
+
+  // Ambil semua karakter dari node asli (tanpa glitch)
+  const charNodes = [];
+  const walker = document.createTreeWalker(notes, NodeFilter.SHOW_ELEMENT, null, false);
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    if (
+      node.classList &&
+      node.classList.contains("native-text") &&
+      node.id !== "fake-caret"
+    ) {
+      charNodes.push(node);
+    }
+  }
+
+  // Ambil teks bersih tanpa glitch
+  let total = 0;
+  charNodes.forEach((node) => {
+    node.textContent = node.textContent.replace(/̳̿/g, ''); // bersihkan glitch lama
+    total += node.textContent.length;
+  });
+
+  const maxGlitch = Math.min(100, total);
+  const strikeLength = Math.floor((percentage / 100) * maxGlitch);
+
+  // Tambahkan glitch ke jumlah karakter yang ditentukan
+  let count = 0;
+  for (const node of charNodes) {
+    let newText = '';
+    for (const ch of node.textContent) {
+      if (count < strikeLength) {
+        newText += ch + '̳̿';
+        count++;
+      } else {
+        newText += ch;
+      }
+    }
+    node.textContent = newText;
+  }
+
+  updateCounter();
+}
+
+function updateStrikethroughPercentage() {
+  const slider = document.getElementById("strike-slider");
+  const label = document.getElementById("strike-value");
+  const percentage = parseInt(slider.value, 10);
+  label.textContent = `Digaris Tengah: ${percentage}%`;
+
+  const nodes = [...notes.querySelectorAll(".native-text")];
+  let total = 0;
+
+  // Bersihkan efek garis tengah lama
+  nodes.forEach(node => {
+    node.style.textDecoration = "";
+    total += node.textContent.length;
+  });
+
+  const maxStrike = Math.floor((percentage / 100) * total);
+  let count = 0;
+
+  for (const node of nodes) {
+    if (node.id === "fake-caret") continue;
+    const chars = [...node.textContent];
+    const fragment = document.createDocumentFragment();
+
+    for (const ch of chars) {
+      const span = document.createElement("span");
+      span.className = "native-text";
+      span.textContent = ch;
+      if (count < maxStrike) {
+        span.style.textDecoration = "line-through";
+      }
+      fragment.appendChild(span);
+      count++;
+    }
+
+    node.replaceWith(fragment);
+  }
+
+  updateCounter();
+}
+function resetStrikeSlider() {
+  const slider = document.getElementById("strike-slider");
+  const label = document.getElementById("strike-value");
+  slider.value = 0;
+  label.textContent = "Digaris Tengah: 0%";
+  updateStrikethroughPercentage();
+}
+
+
+function updateCounter() {
+  let charCount = 0;
+  const walker = document.createTreeWalker(notes, NodeFilter.SHOW_TEXT, null, false);
+  while (walker.nextNode()) {
+    charCount += walker.currentNode.textContent.length;
+  }
+
+  const raw = notes.innerHTML;
+  const brMatches = raw.match(/<br\s*\/?>/gi) || [];
+  const hasContent = raw.replace(/<br\s*\/?>/gi, '').trim() !== "";
+  const paragraphCount = brMatches.length + (hasContent ? 1 : 0);
+
+  document.getElementById("char-count").textContent = charCount + " Karakter";
+  document.getElementById("line-count").textContent = paragraphCount + " Paragraf";
+}
+
+function insertTextAtFakeCaret(str) {
+  const caret = document.getElementById("fake-caret");
+  if (!caret || !caret.parentNode) return;
+
+  let node;
+  if (str === "\n") {
+    node = document.createElement("br");
+  } else {
+    node = document.createElement("span");
+    node.className = "native-text";
+    node.textContent = str;
+  }
+
+  caret.parentNode.insertBefore(node, caret.nextSibling);
+  caret.parentNode.insertBefore(caret, node.nextSibling);
+
+  updateCounter();
+  resetGlitchSlider(); // ⬅️ Ganti ini dari updateStrikeByPercentage()
+}
+function resetGlitchSlider() {
+  slider.value = 0;
+  percentLabel.textContent = "Digaris: 0%";
+  updateStrikeByPercentage();
+}
+
+
+function backspaceAtFakeCaret() {
+  const caret = document.getElementById("fake-caret");
+  if (!caret || !caret.previousSibling) return;
+
+  const prev = caret.previousSibling;
+  if (prev.nodeType === 3) {
+    prev.textContent = prev.textContent.slice(0, -1);
+  } else {
+    prev.remove();
+  }
+
+  updateCounter();
+  updateStrikeByPercentage();
+}
+
+document.getElementById("notes").addEventListener("keydown", function (e) {
+  if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
+    e.preventDefault();
+    insertTextAtFakeCaret(e.key);
+  } else if (e.key === "Enter") {
+    e.preventDefault();
+    insertTextAtFakeCaret("\n");
+  } else if (e.key === "Backspace") {
+    e.preventDefault();
+    backspaceAtFakeCaret();
+  }
+});
+
+function renderCharsFromString(label, str) {
+  const list = str.trim().split(/\s+/);
+  const keyboard = document.getElementById('keyboard');
+  keyboard.innerHTML = '';
+  keyboard.style.display = 'block';
+  for (const char of list) {
+    const span = document.createElement('span');
+    span.className = 'key native-text';
+    span.textContent = char;
+    span.title = label + ': ' + char;
+    span.addEventListener('click', () => {
+      insertTextAtFakeCaret(char);
+    });
+    keyboard.appendChild(span);
+  }
+}
+
+function insertText(str) {
+  insertTextAtFakeCaret(str);
+}
+
+function backspace() {
+  backspaceAtFakeCaret();
+}
+
+function ensureCaretInNotes() {
+  let caret = document.getElementById("fake-caret");
+  if (!caret) {
+    caret = document.createElement("span");
+    caret.id = "fake-caret";
+    caret.textContent = "\u200B";
+    caret.style.display = "inline-block";
+    caret.style.width = "1px";
+  }
+
+  if (!notes.contains(caret)) {
+    notes.appendChild(caret);
+  }
+
+  if (notes.innerHTML.trim() === "" || notes.textContent.trim() === "") {
+    notes.innerHTML = '<span><wbr></wbr></span>';
+    notes.appendChild(caret);
+  }
+}
+
+document.getElementById("block-select").addEventListener("change", function () {
+  const [startHex, endHex] = this.value.split('-');
+  const start = parseInt(startHex, 16);
+  const end = parseInt(endHex, 16);
+  const chars = [];
+
+  for (let code = start; code <= end; code++) {
+    const char = String.fromCodePoint(code);
+    if (/[\p{L}\p{N}\p{P}\p{S}]/u.test(char)) {
+      chars.push(char);
+    }
+  }
+
+  renderCharsFromString(this.value, chars.join(' '));
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const select = document.getElementById("block-select");
+  if (select) {
+    select.dispatchEvent(new Event("change"));
+  }
+  ensureCaretInNotes();
+  updateCounter();
+
+  // Tambahkan label awal tanpa efek
+  percentLabel.textContent = "Digaris: 0%";
+});
+
+
+notes.addEventListener("input", () => {
+  updateCounter();
+  updateStrikeByPercentage();
+});
+notes.addEventListener("keyup", () => {
+  updateCounter();
+  updateStrikeByPercentage();
+});
+
+document.addEventListener("click", function (e) {
+  if (!notes.contains(e.target)) {
+    notes.blur();
+  }
+});
+
+document.getElementById("clear-btn").addEventListener("click", () => {
+  notes.innerHTML = "";
+  ensureCaretInNotes();
+  updateCounter();
+  updateStrikeByPercentage();
+  notes.focus();
+});
+
+notes.addEventListener("click", () => {
+  let caret = document.getElementById("fake-caret");
+  if (!caret) {
+    caret = document.createElement("span");
+    caret.id = "fake-caret";
+    notes.appendChild(caret);
+  }
+  notes.focus();
+});
+
+document.getElementById("copy-btn").addEventListener("click", () => {
+  const temp = document.createElement("div");
+  temp.innerHTML = notes.innerHTML;
+  temp.querySelectorAll("br").forEach(br => {
+    br.replaceWith("\n");
+  });
+  const text = temp.textContent;
+
+  navigator.clipboard.writeText(text).then(() => {
+    const msg = document.getElementById("copy-message");
+    msg.style.display = "inline-block";
+    setTimeout(() => {
+      msg.style.display = "none";
+    }, 1500);
+  });
+});
+
+slider.addEventListener("input", updateStrikeByPercentage);
+
+document.getElementById("block-select").addEventListener("change", (e) => {
+  const range = e.target.value.split("-");
+  const from = parseInt(range[0], 16);
+  const to = parseInt(range[1], 16);
+  const chars = [];
+  for (let i = from; i <= to; i++) {
+    chars.push(String.fromCodePoint(i));
+  }
+  renderCharsFromString(e.target.options[e.target.selectedIndex].text, chars.join(" "));
+});
+
+document.getElementById("btn-bloc").addEventListener("click", () => {
+  renderCharsFromString("Simbol 1", "󰢜 󰂆 󰥬 󱢏 󰟺 󰟯 󰟱 󰟰 󰟪 󰟫 󰟵 󰟤 󰥼 󰦉 󰠏 󰟴 󰟳 󰟭 󰟮 󰟩 󰟨 󰟧 󰟲 󰟸 󰟦 󰟥 󰟣 󰟢 󰟡 󰟠 󰞦 󰥦 󰥖 󰥗 󰥚 󰥞 󰥧 󰥠 󰥡 󰥥 󰥤 󰥨 󰥩 󰥪 󰥫 󰥭 󰥮 󰥯 󰥰 󰥱 󰥺 󰥳 󰥴 󰥵 󰥶 󰥷 󰥸 󰦈 󰥔 󰥻 󰦄 󰥽 󰥾 󰥿 󰦀 󰦁 󰦂 󰦃 󰦅 󰦆 󰦇 󰦍 󰦌 󰦋 󰦊 󰦖 󰦏 󰦐 󰦑 󰝂 󰦕 󰦔 󰦓 󰦒 󰝃 󰝄 󰝅 󰝆 󰝇 󰝈 󰝉 󰝊 󰝋 󰝌 󰝍 󰝎 󰝏 󰝐 󰝑 󰝒 󰝓 󰝔 󰝕 󰝖 󰝗 󰝘 󰝙 󰝚 󰝛 󰝜 󰝝 󰝞 󰝟 󰝠 󰝡 󰝢 󰝣 󰝤 󰝥 󰝦 󰝧 󰝨 󰝩 󰝪 󰝫 󰝬 󰝭 󰝸 󰝹 󰝺 󰝻 󰝼 󰝽 󰝾 󰝿 󰞀 󰞁 󰞂 󰞃 󰞄 󰞅 󰞆 󰞇 󰞈 󰞔 󰞕 󰞖 󰞗 󰞘 󰞙 󰞚 󰞛 󰞜 󰞝 󰞞 󰞟 󰞡 󰞠 󰞣 󰞤 󰞥 󰞧 󰞨 󰞩 󰞪 󰞫 󰞬 󰞭 󰞮 󰞯 󰞰 󰞱 󰞲 󰞳 󰞴 󰞵 󰞶 󰞷 󰞸 󰞹 󰞺 󰞻 󰞼 󰞽 󰞾 󰞿 󰟀 󰟂 󰟁 󰟃 󰟄 󰟅 󰟆 󰟇 󰟈 󰟉 󰟊 󰟋 󰟌 󰟍 󰟎 󰟏 󰟐 󰟑 󰟒 󰟓 󰟔 󰟕 󰟖 󰟗 󰟘 󰟙 󰟚 󰟛 󰟜 󰟝 󰟞 󰟟 󰟠 󰟹 󰟻 󰟼 󰟽 󰟾 󰟿 󰠀 󰠁 󰠂 󰠃 󰠄 󰠅 󰠆 󰠈 󰠇 󰠉 󰠊 󰠋 󰠌 󰠍 󰠎 󰠐 󰠑 󰠒 󰠓 󰠔 󰠕 󰠖 󰠗 󰠘 󰠙 󰠚 󰠛 󰠜 󰠝 󰠞 󰠟 󰠠 󰠡 󰠢 󰠣 󰠤 󰠥 󰠦 󰠧 󰠨 󰠩 󰠪 󰠫 󰠭 󰠬 󰠮 󰠯 󰠰 󰠱 󰠲 󰠳 󰠴 󰠵 󰠶 󰠷 󰠸 󰠹 󰠺 󰠻 󰠼 󰠽 󰠾 󰠿 󰡀 󰡁 󰡄 󰟬 󰟷 󰥲 󰈃 󰊑 󰈄 󰁁 󰊑 󰂕 󰂃")
+})
+
+
+document.getElementById("btn-block25").addEventListener("click", () => {
+  renderCharsFromString("Simbol 25", "♻ ♲ ♼ ♽ ☢ ☮ ☯ ♾ ⚆ ⚇ ⚈ ⚉ ⍟ ✪ ✇ ⚙ ⛾ ⛿ ✆ ℗ ⌷ ⌸ ⌹ ⌺ ⌻ ⌼ ⌽ ⌾ ◘ ◦ ⦾ ⍉ ⦿ ☉ ☹ ❍ ☺ ☻ ☿ 〠 ㋡ ⛒ 유 ㋛ ℡ ℠ ™ ♳ ♴ ♵ ♶ ♷ ♸ ♹ ♺ ® © ⛀ ⛁ ⛂ ⛃ ⦰ ⦱ ⦲ ⦳ ⦴ ⦵ ⦶ ⦷ ⦸ ⦹ ⦺ ⦻ ⦼ ⦽ ⦾ ⦿ ⧀ ⧁ ⧂ ⧃ ⨀ ⨁ ⨂ ⨶ ⨷ ⨸ ⨭ ⨮ 🜀 🜁 🜂 🜃 🜄 🜅 🜆 🜇 🜈 🜉 🜊 🜋 🜌 🜍 🜎 🜏 🜐 🜑 🜒 🜓 🜔 🜕 🜖 🜗 🜘 🜙 🜚 🜛 🜜 🜝 🜞 🜟 🜠 🜡 🜢 🜣 🜤 🜥 🜦 🜧 🜨 🜩 🜪 🜫 🜬 🜭 🜮 🜯 🜰 🜱 🜲 🜳 🜴 🜵 🜶 🜷 🜸 🜹 🜺 🜻 🜼 🜽 🜾 🜿 🝀 🝁 🝂 🝃 🝄 🝅 🝆 🝇 🝈 🝉 🝊 🝋 🝌 🝍 🝎 🝏 🝐 🝑 🝒 🝓 🝔 🝕 🝖 🝗 🝘 🝙 🝚 🝛 🝜 🝝 🝞 🝟 🝠 🝡 🝢 🝣 🝤 🝥 🝦 🝧 🝨 🝩 🝪 🝫 🝬 🝭 🝮 🝯 🝰 🝱 🝲")
+})
+
+
+document.getElementById("btn-block26").addEventListener("click", () => {
+  renderCharsFromString("Simbol 26", "㈀ ㈁ ㈂ ㈃ ㈄ ㈅ ㈆ ㈇ ㈈ ㈉ ㈊ ㈋ ㈌ ㈍ ㈎ ㈏ ㈐ ㈑ ㈒ ㈓ ㈔ ㈕ ㈖ ㈗ ㈘ ㈙ ㈚ ㈛ ㈜ ㈝ ㈞ ㈪ ㈫ ㈬ ㈭ ㈮ ㈯ ㈰ ㈱ ㈲ ㈳ ㈴ ㈵ ㈶ ㈷ ㈸ ㈹ ㈺ ㈻ ㈼ ㈽ ㈾ ㈿ ㉀ ㉁ ㉂ ㉃ ㉄ ㉅ ㉆ ㉇ ㉈ ㉉ ㉊ ㉋ ㉌ ㉍ ㉎ ㉏ ㉐ ㉠ ㉡ ㉢ ㉣ ㉤ ㉥ ㉦ ㉧ ㉨ ㉩ ㉪ ㉫ ㉬ ㉭ ㉮ ㉯ ㉰ ㉱ ㉲ ㉳ ㉴ ㉵ ㉶ ㉷ ㉸ ㉹ ㉺ ㉻ ㉼ ㉽ ㉾ ㉿ ㊊ ㊋ ㊌ ㊍ ㊎ ㊏ ㊐ ㊑ ㊒ ㊓ ㊔ ㊕ ㊖ ㊗ ㊘ ㊙ ㊚ ㊛ ㊜ ㊝ ㊞ ㊟ ㊠ ㊡ ㊢ ㊣ ㊤ ㊥ ㊦ ㊧ ㊨ ㊩ ㊪ ㊫ ㊬ ㊭ ㊮ ㊯ ㊰ ㋀ ㋁ ㋂ ㋃ ㋄ ㋅ ㋆ ㋇ ㋈ ㋉ ㋊ ㋋ ㋌ ㋍ ㋎ ㋏ ㋐ ㋑ ㋒ ㋓ ㋔ ㋕ ㋖ ㋗ ㋘ ㋙ ㋚ ㋛ ㋜ ㋝ ㋞ ㋟ ㋠ ㋡ ㋢ ㋣ ㋤ ㋥ ㋦ ㋧ ㋨ ㋩ ㋪ ㋫ ㋬ ㋭ ㋮ ㋯ ㋰ ㋱ ㋲ ㋳ ㋴ ㋵ ㋶ ㋷ ㋸ ㋹ ㋺ ㋻ ㋼ ㋽ ㋾ ㌀ ㌁ ㌂ ㌃ ㌄ ㌅ ㌆ ㌇ ㌈ ㌉ ㌊ ㌋ ㌌ ㌍ ㌎ ㌏ ㌐ ㌑ ㌒ ㌓ ㌔ ㌕ ㌖ ㌗ ㌘ ㌙ ㌚ ㌛ ㌜ ㌝ ㌞ ㌟ ㌠ ㌡ ㌢ ㌣ ㌤ ㌥ ㌦ ㌧ ㌨ ㌩ ㌪ ㌫ ㌬ ㌭ ㌮ ㌯ ㌰ ㌱ ㌲ ㌳ ㌴ ㌵ ㌶ ㌷ ㌸ ㌹ ㌺ ㌻ ㌼ ㌽ ㌾ ㌿ ㍀ ㍁ ㍂ ㍃ ㍄ ㍅ ㍆ ㍇ ㍈ ㍉ ㍊ ㍋ ㍌ ㍍ ㍎ ㍏ ㍐ ㍑ ㍒ ㍓ ㍔ ㍕ ㍖ ㍗ ㍘ ㍙ ㍚ ㍛ ㍜ ㍝ ㍞ ㍟ ㍠ ㍡ ㍢ ㍣ ㍤ ㍥ ㍦ ㍧ ㍨ ㍩ ㍪ ㍫ ㍬ ㍭ ㍮ ㍯ ㍰ ㍱ ㍲ ㍳ ㍴ ㍵ ㍶ ㍷ ㍸ ㍹ ㍺ ㍻ ㍼ ㍽ ㍾ ㍿ ㎀ ㎁ ㎂ ㎃ ㎄ ㎅ ㎆ ㎇ ㎈ ㎉ ㎊ ㎋ ㎌ ㎍ ㎎ ㎏ ㎐ ㎑ ㎒ ㎓ ㎔ ㎕ ㎖ ㎗ ㎘ ㎙ ㎚ ㎛ ㎜ ㎝ ㎞ ㎟ ㎠ ㎡ ㎢ ㎣ ㎤ ㎥ ㎦ ㎧ ㎨ ㎩ ㎪ ㎫ ㎬ ㎭ ㎮ ㎯ ㎰ ㎱ ㎲ ㎳ ㎴ ㎵ ㎶ ㎷ ㎸ ㎹ ㎺ ㎻ ㎼ ㎽ ㎾ ㎿ ㏀ ㏁ ㏂ ㏃ ㏄ ㏅ ㏆ ㏇ ㏈ ㏉ ㏊ ㏋ ㏌ ㏍ ㏎ ㏏ ㏐ ㏑ ㏒ ㏓ ㏔ ㏕ ㏖ ㏗ ㏘ ㏙ ㏚ ㏛ ㏜ ㏝ ㏞ ㏟ ㏠ ㏡ ㏢ ㏣ ㏤ ㏥ ㏦ ㏧ ㏨ ㏩ ㏪ ㏫ ㏬ ㏭ ㏮ ㏯ ㏰ ㏱ ㏲ ㏳ ㏴ ㏵ ㏶ ㏷ ㏸ ㏹ ㏺ ㏻ ㏼ ㏽ ㏾ ㏿ ⿰ ⿱ ⿲ ⿳ ⿴ ⿵ ⿶ ⿷ ⿸ ⿹ ⿺ ⿻ 〄 〒 〓 〠 〶 〷 〾 〿 🈀 🈁 🈂 🈐 🈑 🈒 🈓 🈔 🈕 🈖 🈗 🈘 🈙 🈚 🈛 🈜 🈝 🈞 🈟 🈠 🈡 🈢 🈣 🈤 🈥 🈦 🈧 🈨 🈩 🈪 🈫 🈬 🈭 🈮 🈯 🈰 🈱 🈲 🈳 🈴 🈵 🈶 🈷 🈸 🈹 🈺 🉀 🉁 🉂 🉃 🉄 🉅 🉆 🉇 🉈 🉐 🉑 🄪 🄫 🄬 🄭 🄮 🅊 🅋 🅌 🅍 🅎 🅏 🆊 🆋 🆌 🆍 🆎 🆏 🆐 🆑 🆒 🆓 🆔 🆕 🆖 🆗 🆘 🆙")
+})
+
+document.getElementById("btn-block27").addEventListener("click", () => {
+  renderCharsFromString("Simbol 27", "✼ ✠ ☆ ★ ✡ ✴ ✺ ☼ ☸ ❋ ✽ ✻ ❆ ۞ ☀ ❃ ❂ ✿ ❀ ❁ ✲ ⋆ ⛤ ⛥ ⛦ ⛧ ❄ ❅ ❇ ❖ ✫ ✪ ✬ ✮ ✭ ✯ ✰ 𖤓 ❉ ✤ ✧ ✥ ✱ ✩ ✳ ✵ ✶ ✷ ✸ ✹ ✾ ❈ ❊ ♦ ♤ ♣ ♢ ♠ ◊ ♧ ♡ ♙ ♟ ♘ ♞ ♗ ♝ ♖ ♜ ♕ ♛ ♔ ♚ ⚀ ⚁ ⚂ ⚃ ⚄ ⚅ ♭ ♫ ♬ ♪ ♩ ✦ 𝄪 𝄆 𝄇 𝄈 𝄐 𝄑 𝄒 𝆒 𝆓 𝄫 𝄞 𝄢 𝄡 ⇆ ◁ ❚ ▷ ↻ ▶ ☰ ≡ Ξ ㊂ ≣ ⁝ ⋮ ︙ ⦙ ⁞ ⋯ … ∷ ▲ ▼ △ ▽ ⌃ ⌄ 𓃑 𓏧 ⸬ ⇍ ⇎ ⇏ ⇐ ⇑ ⇒ ⇓ ⇔ ⇕ ⇖ ⇗ ⇘ ⇙ ⇦ ⇧ ⇪ ⇫ ➔ ➙ ➘ ➚ « » ⇨ ⇚ ⇶ ⇵ ⇴ ⇳ ⇰ ⇯ ⇮ ⇭ ⇬ ⇩ ↨ ↧ ↦ ↥ ↤ ↣ ↢ ↡ ↠ ↟ ↞ ↝ ↜ ↛ ↚ ↙ ↘ ↗ ↖ ↕ ↮ ⇤ ⇥ ⇲ ⇞ ⇟ ↩ ↱ ↫ ↬ ⇝ ↰ ↲ ↳ ↴ ↵ ↯ ↷ ↺ ⇜ ↶ ↼ ↽ ↾ ↿ ⇀ ⇁ ⇂ ⇃ ⇄ ⇅ ⇇ ⇈ ⇉ ⇊ ➛ ➜ ➞ ➟ ➠ ➡ ➢ ➣ ➤ ➥ ➦ ➶ ➵ ➳ ➴ ➲ ➱ ➯ ➾ ➽ ➭ ➬ ➼ ➻ ➫ ➪ ➺ ➹ ➩ ➨ ➸ ➷ ➧ ⃕ ⪡ ⨣ ◀ ▬ ☠ ✙ ✛ ✜ ✝ ✞ ✟ ✖ ✘ ✕ ✁ ✃ ✄ ✂ 웃 ‡ ﾒ ♀ ♂ ✚ ♱ ♰ ☩ ☨ ☦ ✟ † ☣ ¤ € £ Ұ ₴ $ ₰ ₪ ₤ ¥ ₳ ₲ ₵ 元 ₣ ₱ ฿ ₡ ₮ ₭ ₩ 円 ₢ ₥ ₫ ₦ zł ﷼ ₠ ₧ ₯ ₨ Kč र ƒ ₹ ✍ ☚ ☜ ☟ ☛ ☞ ☝ ✌ ¶ § ‰ ✒ ✑ ✐ ✏ ✎ x ✈ ✇ ⌨ ☏ ☎ ☊ ⅍ ℆ № ℅ ☂ ☃ ☽ ☾ ♁ ♨ ☇ ☈ ☄ ° ℃ ℉ ϟ ☐ ☑ ☒ ✓ ✔ ✗ ☓ ∨ √ • ‣ ⁃ ❞ ❝ ∛ ∜ ✅ ❎ 〥 ⍢ 〲 〴 ϡ ⍥ ⅟ ½ ⅓ ⅕ ⅙ ⅛ ⅔ ⅖ ⅚ ⅜ ¾ ⅗ ⅝ ⅞ ⅘ % ‱ 💕 ⌀ ⌂ ⌅ ⌆ ⌇ ⌈ ⌉ ⌊ ⌋ ⌌ ⌍ ⌎ ⌏ ⌐ ⌑ ⌒ ⌓ ⌔ ⌕ ⌖ ⌗ ⌘ ⌙ ⌚ ⌛ ⌜ ⌝ ⌞ ⌟ ⌠ ⌢ ⌣ ⌤ ⌥ ⌦ ⌧ ⌫ ⌬ ⌭ ⌮ ⌳ ⌯ ⌰ ⌱ ⌲ ⌴ ⌵ ⌶ ⌿ ⍀ ⍁ ⍂ ⍃ ⍄ ⍅ ⍆ ⍇ ⍈ ⍊ ⍋ ⍌ ⍍ ⍎ ⍏ ⍐ ⍑ ⍒ ⍓ ⍔ ⍕ ⍖ ⍗ ⍘ ⍙ ⍚ ⍛ ⍜ ⍝ ⍞ ⍠ ⍡ ⍢ ⍣ ⍤ ⍦ ⍧ ⍨ ⍩ 〶 ⛅ ☔ ⛄ ⚰ ☡ ⚠ ☤ ☥ ☧ ☪ ☫ ☬ ☭ ☱ ☲ ☳ ☴ ☵ ☶ ☷ ♃ ♄ ♅ ♇ ♈ ♉ ♊ ♋ ♌ ♍ ♎ ♏ ♐ ♑ ♒ ♓ ♮ ♯ ♿ ⚊ ⚋ ⚌ ⚍ ⚎ ⚏ ⚐ ⚑ ⚒ ⚓ ⚔ ⚕ ⚖ ⚗ ⚘ ⚚ ⚛ ⚜ ⚝ ⚞ ⚟ ⚡ ⚢ ⚣ ⚤ ⚥ ⚦ ⚧ ⚨ ⚩ ⚪ ⚬ ⚭ ⚮ ⚯ ⚱ ⚲ ⚳ ⚴ ⚵ ⚶ ⚷ ⚸ ⚹ ⚺ ⚻ ⚼ ⚽ ⚾ ⚿ ⛇ ⛈ ⛆ ⛉ ⛊ ⛋ ⛌ ⛍ ⛎ ⛏ ⛐ ⛑ ⛓ ⛔ ⛕ ⛖ ⛗ ⛘ ⛙ ⛚ ⛛ ⛜ ⛝ ⛞ ⛟ ⛠ ⛡ ⛢ ⛣ ⛨ ⛩ ⛪ ⛫ ⛬ ⛭ ⛮ ⛯ ⛰ ⛱ ⛲ ⛳ ⛴ ⛵ ⛶ ⛷ ⛸ ⛹ ⛺ ⛻ ⛼ ⛽ ✉ ✊ ✋ ✌ ✎ ✨ ❌ ❏ ❐ ❑ ❒ ❓ ❔ ❕ ❗ ❘ ❙ ❛ ❜ ❟ ❠ ❡ ❢ ❣ ❤ ➕ ➖ ➗ ➘ ➝ ➞ ➟ ➮ ➰ ➿ ⟀ ⟁ ⟂ ⟃ ⟄ ⟅ ⟆ ⟇ ⟈ ⟉ ⟊ ⟋ ⟌ ⟍ ⟎ ⟏ ⟐ ⟑ ⟒ ⟓ ⟔ ⟕ ⟖ ⟗ ⟘ ⟙ ⟚ ⟛ ⟜ ⟝ ⟞ ⟟ ⟠ ⟡ ⟢ ⟣ ⟤ ⟥")
+})
+
+document.getElementById("btn-block13").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "䷀ ䷁ ䷂ ䷃ ䷄ ䷅ ䷆ ䷇ ䷈ ䷉ ䷊ ䷋ ䷌ ䷍ ䷎ ䷏ ䷐ ䷑ ䷒ ䷓ ䷔ ䷕ ䷖ ䷗ ䷘ ䷙ ䷚ ䷛ ䷜ ䷝ ䷞ ䷟ ䷠ ䷡ ䷢ ䷣ ䷤ ䷥ ䷦ ䷧ ䷨ ䷩ ䷪ ䷫ ䷬ ䷭ ䷮ ䷯ ䷰ ䷱ ䷲ ䷳ ䷴ ䷵ ䷶ ䷷ ䷸ ䷹ ䷺ ䷻ ䷼ ䷽ ䷾ ䷿ 𝌀 𝌁 𝌂 𝌃 𝌄 𝌅 𝌆 𝌇 𝌈 𝌉 𝌊 𝌋 𝌌 𝌍 𝌎 𝌏 𝌐 𝌑 𝌒 𝌓 𝌔 𝌕 𝌖 𝌗 𝌘 𝌙 𝌚 𝌛 𝌜 𝌝 𝌞 𝌟 𝌠 𝌡 𝌢 𝌣 𝌤 𝌥 𝌦 𝌧 𝌨 𝌩 𝌪 𝌫 𝌬 𝌭 𝌮 𝌯 𝌰 𝌱 𝌲 𝌳 𝌴 𝌵 𝌶 𝌷 𝌸 𝌹 𝌺 𝌻 𝌼 𝌽 𝌾 𝌿 𝍀 𝍁 𝍂 𝍃 𝍄 𝍅 𝍆 𝍇 𝍈 𝍉 𝍊 𝍋 𝍌 𝍍 𝍎 𝍏 𝍐 𝍑 𝍒 𝍓 𝍔 𝍖");
+});
+document.getElementById("btn-block24").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "▁ ▂ ▃ ▄ ▅ ▆ ▇ ▉ ▊ ▋ ▌ ▐ ▍ ▎ ▏ ▕ ░ ▒ ▓ ▔ ▀ █ ▖ ▗ ▘ ▙ ▚ ▛ ▜ ▝ ▞ ▟ ─ ━ │ ┃ ┄ ┅ ┆ ┇ ┈ ┉ ┊ ┋ ┌ ┍ ┎ ┏ ┐ ┑ ┒ ┓ └ ┕ ┖ ┗ ┘ ┙ ┚ ┛ ├ ┝ ┞ ┟ ┠ ┡ ┢ ┣ ┤ ┥ ┦ ┧ ┨ ┩ ┪ ┫ ┬ ┭ ┮ ┯ ┰ ┱ ┲ ┳ ┴ ┵ ┶ ┷ ┸ ┹ ┺ ┻ ┼ ┽ ┾ ┿ ╀ ╁ ╂ ╃ ╄ ╅ ╆ ╇ ╈ ╉ ╊ ╋ ╍ ╎ ╏ ═ ║ ╒ ╓ ╔ ╕ ╖ ╗ ╘ ╙ ╚ ╛ ╜ ╝ ╞ ╟ ╠ ╡ ╢ ╣ ╤ ╥ ╦ ╧ ╨ ╩ ╪ ╫ ╬ ╭ ╮ ╯ ╰ ╱ ╲ ╳ ╴ ╵ ╶ ╷ ╸ ╹ ╺ ╻ ╼ ╽ ╾ ╿ ▬ ❘ ❙ ❚ ❒ ❑ ❐ ❏ ⍰ ◆ ◇ ◈ 〓 ⊡ ⊠ ⊟ ⊞ □ ■ ∎ ◫ ◪ ◩ ◧ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▭ ▮ ▯ ☰ ☲ ☳ ▰ ▱ ◄ ► ▲ ▼ ◀ ▶ ◣ ◥ ◤ ◢ ◂ ▸ ▾ ▴ ◁ ▷ △ ▽ ∆ ∇ ⊲ ⊳ ⊴ ⊵ ◅ ▻ ▵ ▿ ◃ ▹ ◭ ◮ ⫷ ⫸ ⋖ ⋗ ⋪ ⋫ ⋬ ⋭ ⊿ ◬ ≜ ⑅ ◿ ◸ ◹ ◺ ◻ ◼ ◽ ◾ ◿ ○ ◌ ◍ ◎ ● ◐ ◑ ◒ ◓ ◔ ◕ ◖ ◗ ◘ ◙ ◚ ◛ ◜ ◝ ◞ ◟ ◠ ◡ ◦ ◨ ◫ ◬ ◭ ◮ ◯ ◰ ◱ ◲ ◳ ◴ ◵ ◶ 〒 ⊢ ⊣ ⊤ ⊥ ╭ ╮ ╯ ╰ ⊦ ⊧ ⊨ ⊩ ⊪ ⊫ ⊬ ⊭ ⊮ ⊯ ⊺ 〦 〧 〨 ˦ ˧ ˨ ⑁ ⑂ ∟ ⑃ ﹉ ⑇ ﹊ ﹎ ︲ ⑆ ⑇ ⑈ ⑉ ⑊ ⑄ ⑀ ︴ ﹏ ﹌ ﹋ │ ┃ ╽ ╿ ╏ ║ ╎ ┇ ︱ ┊ ︳ ┋ ┆ ╵ 〡 〢 ╹ ╍ ╷ 〣 ━ ─ ╍ ┅ ┉ ┄ ┈ ╌ ╴ ╶ ╸ ╺ ╼ ╾ ◷");
+});
+document.getElementById("btn-block20").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "🀀 🀁 🀂 🀃 🀄 🀅 🀆 🀇 🀈 🀉 🀊 🀋 🀌 🀍 🀎 🀏 🀐 🀑 🀒 🀓 🀔 🀕 🀖 🀗 🀘 🀙 🀚 🀛 🀜 🀝 🀞 🀟 🀠 🀡 🀢 🀣 🀤 🀥 🀦 🀧 🀨 🀩 🀪 🀫 🀰 🀱 🀲 🀳 🀴 🀵 🀶 🀷 🀸 🀹 🀺 🀻 🀼 🀽 🀾 🀿 🁀 🁁 🁂 🁃 🁄 🁅 🁆 🁇 🁈 🁉 🁊 🁋 🁌 🁍 🁎 🁏 🁐 🁑 🁒 🁓 🁔 🁕 🁖 🁗 🁘 🁙 🁚 🁛 🁜 🁝 🁞 🁟 🁠 🁡 🁢 🁣 🁤 🁥 🁦 🁧 🁨 🁩 🁪 🁫 🁬 🁭 🁮 🁯 🁰 🁱 🁲 🁳 🁴 🁵 🁶 🁷 🁸 🁹 🁺 🁻 🁼 🁽 🁾 🁿 🂀 🂁 🂂 🂃 🂄 🂅 🂆 🂇 🂈 🂉 🂊 🂋 🂌 🂍 🂎 🂏 🂐 🂑 🂒 🂓 🂠 🂡 🂢 🂣 🂤 🂥 🂦 🂧 🂨 🂩 🂪 🂫 🂬 🂭 🂮 🂱 🂲 🂳 🂴 🂵 🂶 🂷 🂸 🂹 🂺 🂻 🂼 🂽 🂾 🃁 🃂 🃃 🃄 🃅 🃆 🃇 🃈 🃉 🃊 🃋 🃌 🃍 🃎 🃑 🃒 🃓 🃔 🃕 🃖 🃗 🃘 🃙 🃚 🃛");
+});
+document.getElementById("btn-block6").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "☰ ≡ Ξ ㊂ ≣ ⁝ 𓃑 ⇶ ☚ ☜ ☟ ☛ ☞ ✒ ✑ ✐ ✏ ✎ x ✈ ✇ ⌨ ☏ ☎ ☊ ⅍ ℆ № ℅ ☂ ☃ ☽ ☾ ♁ ♨ ☇ ☈ ☄ ° ℃ ℉ ϟ ☐ ☑ ☒ ✓ ✔ ✗ ☓ ∨ √ ⌂ ⌒ ⌓ ⌔ ⌕ ⌖ ⌦ ⌧ ⌫ ⌬ ⌭ ⌮ ⌳ ⌯ ⌰ ⌱ ⌲ ⌴ ⌵ ⌶ ⌿ ⍀ ⍁ ⍞ ⍠ ⍡ ⍢ ⍣ ⍤ ⍦ ⍧ ⍨ ⍩ 〶 ⚰ ☡ ⚠ ☤ ☥ ☧ ☪ ☫ ☬ ☭ ♃ ♄ ♅ ♇ ♮ ♯ ♿ ⚐ ⚑ ⚒ ⚘ ⚝ ⚞ ⚟ ⚡ ⚢ ⚣ ⚤ ⚥ ⚦ ⚧ ⚨ ⚩ ⚬ ⚭ ⚮ ⚯ ⚱ ⚲ ⚳ ⚴ ⚵ ⚶ ⚷ ⚸ ⚹ ⚿ ⛇ ⛈ ⛆ ⛉ ⛊ ⛋ ⛌ ⛍ ⛐ ⛑ ⛓ ⛕ ⛖ ⛗ ⛘ ⛙ ⛚ ⛛ ⛜ ⛝ ⛞ ⛟ ⛠ ⛡ ⛢ ⛣ ⛨ ⛩ ⛪ ⛫ ⛬ ⛭ ⛮ ⛯ ⛰ ⛱ ⛻ ⛼ ✉ ➮ ⟀ ⟁ ⟂ ⟃ ⟄ ⟅ ⟆ ⟇ ⟈ ⟉ ⟊ ⟋ ⟌ ⟍ ⟎ ⟏ ⟐ ⟑ ⟒ ⟓ ⟔ ⟕ ⟖ ⟗ ⟘ ⟙ ⟚ ⟛ ⟜ ⟝ ⟞ ⟟ ⟠ ⟡ ⟢ ⟣ ⟤ ⟥ ⍂ ⍃ ⍄ ⍅ ⍆ ⍇ ⍈ ⍊ ⍋ ⍌ ⍍ ⍎ ⍏ ⍐ ⍑ ⍒ ⍓ ⍔ ⍕ ⍖ ⍗ ⍘ ⍙ ⍚ ⍛ ⍜ ⍝ ⛾ ⛿ ✆ ℗ ⌷ ⌸ ⌹ ⌺ ⌻ ⌼");
+});
+document.getElementById("btn-block9").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "⠀ ⠁ ⠂ ⠃ ⠄ ⠅ ⠆ ⠇ ⠈ ⠉ ⠊ ⠋ ⠌ ⠍ ⠎ ⠏ ⠐ ⠑ ⠒ ⠓ ⠔ ⠕ ⠖ ⠗ ⠘ ⠙ ⠚ ⠛ ⠜ ⠝ ⠞ ⠟ ⠠ ⠡ ⠢ ⠣ ⠤ ⠥ ⠦ ⠧ ⠨ ⠩ ⠪ ⠫ ⠬ ⠭ ⠮ ⠯ ⠰ ⠱ ⠲ ⠳ ⠴ ⠵ ⠶ ⠷ ⠸ ⠹ ⠺ ⠻ ⠼ ⠽ ⠾ ⠿ ⡀ ⡁ ⡂ ⡃ ⡄ ⡅ ⡆ ⡇ ⡈ ⡉ ⡊ ⡋ ⡌ ⡍ ⡎ ⡏ ⡐ ⡑ ⡒ ⡓ ⡔ ⡕ ⡖ ⡗ ⡘ ⡙ ⡚ ⡛ ⡜ ⡝ ⡞ ⡟ ⡠ ⡡ ⡢ ⡣ ⡤ ⡥ ⡦ ⡧ ⡨ ⡩ ⡪ ⡫ ⡬ ⡭ ⡮ ⡯ ⡰ ⡱ ⡲ ⡳ ⡴ ⡵ ⡶ ⡷ ⡸ ⡹ ⡺ ⡻ ⡼ ⡽ ⡾ ⡿ ⢀ ⢁ ⢂ ⢃ ⢄ ⢅ ⢆ ⢇ ⢈ ⢉ ⢊ ⢋ ⢌ ⢍ ⢎ ⢏ ⢐ ⢑ ⢒ ⢓ ⢔ ⢕ ⢖ ⢗ ⢘ ⢙ ⢚ ⢛ ⢜ ⢝ ⢞ ⢟ ⢠ ⢡ ⢢ ⢣ ⢤ ⢥ ⢦ ⢧ ⢨ ⢩ ⢪ ⢫ ⢬ ⢭ ⢮ ⢯ ⢰ ⢱ ⢲ ⢳ ⢴ ⢵ ⢶ ⢷ ⢸ ⢹ ⢺ ⢻ ⢼ ⢽ ⢾ ⢿ ⣀ ⣁ ⣂ ⣃ ⣄ ⣅ ⣆ ⣇ ⣈ ⣉ ⣊ ⣋ ⣌ ⣍ ⣎ ⣏ ⣐ ⣑ ⣒ ⣓ ⣔ ⣕ ⣖ ⣗ ⣘ ⣙ ⣚ ⣛ ⣜ ⣝ ⣞ ⣟ ⣠ ⣡ ⣢ ⣣ ⣤ ⣥ ⣦ ⣧ ⣨ ⣩ ⣪ ⣫ ⣬ ⣭ ⣮ ⣯ ⣰ ⣱ ⣲ ⣳ ⣴ ⣵ ⣶ ⣷ ⣸ ⣹ ⣺ ⣻ ⣼ ⣽ ⣾ ⣿");
+});
+document.getElementById("btn-block16").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "𝀀 𝀁 𝀂 𝀃 𝀄 𝀅 𝀆 𝀇 𝀈 𝀉 𝀊 𝀋 𝀌 𝀍 𝀎 𝀏 𝀐 𝀑 𝀒 𝀓 𝀔 𝀕 𝀖 𝀗 𝀘 𝀙 𝀚 𝀛 𝀜 𝀝 𝀞 𝀟 𝀠 𝀡 𝀢 𝀣 𝀤 𝀥 𝀦 𝀧 𝀨 𝀩 𝀪 𝀫 𝀬 𝀭 𝀮 𝀯 𝀰 𝀱 𝀲 𝀳 𝀴 𝀵 𝀶 𝀷 𝀸 𝀹 𝀺 𝀻 𝀼 𝀽 𝀾 𝀿 𝁀 𝁁 𝁂 𝁃 𝁄 𝁅 𝁆 𝁇 𝁈 𝁉 𝁊 𝁋 𝁌 𝁍 𝁎 𝁏 𝁐 𝁑 𝁒 𝁓 𝁔 𝁕 𝁖 𝁗 𝁘 𝁙 𝁚 𝁛 𝁜 𝁝 𝁞 𝁟 𝁠 𝁡 𝁢 𝁣 𝁤 𝁥 𝁦 𝁧 𝁨 𝁩 𝁪 𝁫 𝁬 𝁭 𝁮 𝁯 𝁰 𝁱 𝁲 𝁳 𝁴 𝁵 𝁶 𝁷 𝁸 𝁹 𝁺 𝁻 𝁼 𝁽 𝁾 𝁿 𝂀 𝂁 𝂂 𝂃 𝂄 𝂅 𝂆 𝂇 𝂈 𝂉 𝂊 𝂋 𝂌 𝂍 𝂎 𝂏 𝂐 𝂑 𝂒 𝂓 𝂔 𝂕 𝂖 𝂗 𝂘 𝂙 𝂚 𝂛 𝂜 𝂝 𝂞 𝂟 𝂠 𝂡 𝂢 𝂣 𝂤 𝂥 𝂦 𝂧 𝂨 𝂩 𝂪 𝂫 𝂬 𝂭 𝂮 𝂯 𝂰 𝂱 𝂲 𝂳 𝂴 𝂵 𝂶 𝂷 𝂸 𝂹 𝂺 𝂻 𝂼 𝂽 𝂾 𝂿 𝃀 𝃁 𝃂 𝃃 𝃄 𝃅 𝃆 𝃇 𝃈 𝃉 𝃊 𝃋 𝃌 𝃍 𝃎 𝃏 𝃐 𝃑 𝃒 𝃓 𝃔 𝃕 𝃖 𝃗 𝃘 𝃙 𝃚 𝃛 𝃜 𝃝 𝃞 𝃟 𝃠 𝃡 𝃢 𝃣 𝃤 𝃥 𝃦 𝃧 𝃨 𝃩 𝃪 𝃫 𝃬 𝃭 𝃮 𝃯 𝃰 𝃱 𝃲 𝃳 𝃴 𝃵 𝄀 𝄁 𝄂 𝄃 𝄄 𝄅 𝄆 𝄇 𝄈 𝄉 𝄊 𝄋 𝄌 𝄍 𝄎 𝄏 𝄐 𝄑 𝄒 𝄓 𝄔 𝄕 𝄖 𝄗 𝄘 𝄙 𝄚 𝄛 𝄜 𝄝 𝄞 𝄟 𝄠 𝄡 𝄢 𝄣 𝄤 𝄥 𝄦 𝄩 𝄪 𝄫 𝄬 𝄭 𝄮 𝄯 𝄰 𝄱 𝄲 𝄳 𝄴 𝄵 𝄶 𝄷 𝄸 𝄹 𝄺 𝄻 𝄼 𝄽 𝄾 𝄿 𝅀 𝅁 𝅂 𝅃 𝅄 𝅅 𝅆 𝅇 𝅈 𝅉 𝅊 𝅋 𝅌 𝅍 𝅎 𝅏 𝅐 𝅑 𝅒 𝅓 𝅔 𝅕 𝅖 𝅗 𝅘 𝅙 𝅚 𝅛 𝅜 𝅝 𝅗𝅥 𝅘𝅥 𝅘𝅥𝅮 𝅘𝅥𝅯 𝅘𝅥𝅰 𝅘𝅥𝅱 𝅘𝅥𝅲 𝅥 𝅦 𝅧 𝅨 𝅩 𝅪 𝅫 𝅬 𝅭 𝅮 𝅯 𝅰 𝅱 𝅲 𝅻 𝅼 𝅽 𝅾 𝅿 𝆀 𝆁 𝆂 𝆃 𝆄 𝆅 𝆆 𝆇 𝆈 𝆉 𝆊 𝆋 𝆌 𝆍 𝆎 𝆏 𝆐 𝆑 𝆒 𝆓 𝆔 𝆕 𝆖 𝆗 𝆘 𝆙 𝆚 𝆛 𝆜 𝆝 𝆞 𝆟 𝆠 𝆡 𝆢 𝆣 𝆤 𝆥 𝆦 𝆧 𝆨 𝆩 𝆪 𝆫 𝆬 𝆭 𝆮 𝆯 𝆰 𝆱 𝆲 𝆳 𝆴 𝆵 𝆶 𝆷 𝆸 𝆹 𝆺 𝆹𝅥 𝆺𝅥 𝆹𝅥𝅮 𝆺𝅥𝅮 𝆹𝅥𝅯 𝆺𝅥𝅯 𝇁 𝇂 𝇃 𝇄 𝇅 𝇆 𝇇 𝇈 𝇉 𝇊 𝇋 𝇌 𝇍 𝇎 𝇏 𝇐 𝇑 𝇒 𝇓 𝇔 𝇕 𝇖 𝇗 𝇘 𝇙 𝇚 𝇛 𝇜 𝇝");
+});
+document.getElementById("btn-block17").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "❨ ❩ ❪ ❫ ❬ ❭ ❮ ❯ ❰ ❱ ❲ ❳ ❴ ❵ ⟦ ⟧ ⟨ ⟩ ⟪ ⟫ ⦃ ⦄ ⦅ ⦆ ⦇ ⦈ ⦉ ⦊ ⦋ ⦌ ⦍ ⦎ ⦏ ⦐ ⦑ ⦒ ⦓ ⦔ ⦕ ⦖ ⦗ ⦘ ⦙ ⦚ ⦛ ⦜ ⦝ ⥏ ⥑ ⦞ ⦟ ⦠ ⦡ ⦢ ⦣ ⦤ ⦥ ⦦ ⦧ ⦨ ⦩ ⦪ ⦫ ⦬ ⦭ ⦮ ⦯ ⦰ ⦱ ⦲ ⦳ ⦴ ⦵ ⦶ ⦷ ⦸ ⦹ ⦺ ⦻ ⦼ ⦽ ⦾ ⦿ ⧀ ⧁ ⧂ ⧃ ⧄ ⧅ ⧆ ⧇ ⧈ ⧉ ⧊ ⧋ ⧌ ⧍ ⧎ ⧏ ⧐ ⧑ ⧒ ⧓ ⧔ ⧕ ⧖ ⧗ ⧘ ⧙ ⧚ ⧛ ⧜ ⧝ ⧞ ⧟ ⧠ ⧡ ⧢ ⧣ ⧤ ⧥ ⧦ ⧧ ⧨ ⧩ ⧪ ⧫ ⧬ ⧭ ⧮ ⧯ ⧰ ⧱ ⧲ ⧳ ⧴ ⧵ ⧶ ⧷ ⧸ ⧹ ⧺ ⧻ ⧼ ⧽ ⧾ ⧿ ⨀ ⨁ ⨂ ⨃ ⨄ ⨅ ⨆ ⨇ ⨈ ⨉ ⨊ ⨋ ⨌ ⨍ ⨎ ⨏ ⨐ ⨑ ⨒ ⨓ ⨔ ⨕ ⨖ ⨗ ⨘ ⨙ ⨚ ⨛ ⨜ ⨝ ⨞ ⨟ ⨠ ⨡ ⨢ ⨣ ⨤ ⨥ ⨦ ⨧ ⨨ ⨩ ⨪ ⨫ ⨬ ⨭ ⨮ ⨯ ⨰ ⨱ ⨲ ⨳ ⨴ ⨵ ⨶ ⨷ ⨸ ⨹ ⨺ ⨻ ⨼ ⨽ ⨾ ⨿ ⩀ ⩁ ⩂ ⩃ ⩄ ⩅ ⩆ ⩇ ⩈ ⩉ ⩊ ⩋ ⩌ ⩍ ⩎ ⩏ ⩐ ⩑ ⩒ ⩓ ⩔ ⩕ ⩖ ⩗ ⩘ ⩙ ⩚ ⩛ ⩜ ⩝ ⩞ ⩟ ⩠ ⩡ ⩢ ⩣ ⩤ ⩥ ⩦ ⩧ ⩨ ⩩ ⩪ ⩫ ⩬ ⩭ ⩮ ⩯ ⩰ ⩱ ⩲ ⩳ ⩴ ⩵ ⩶ ⩷ ⩸ ⩹ ⩺ ⩻ ⩼ ⩽ ⩾ ⩿ ⪀ ⪁ ⪂ ⪃ ⪄ ⪅ ⪆ ⪇ ⪈ ⪉ ⪊ ⪋ ⪌ ⪍ ⪎ ⪏ ⪐ ⪑ ⪒ ⪓ ⪔ ⪕ ⪖ ⪗ ⪘ ⪙ ⪚ ⪛ ⪜ ⪝ ⪞ ⪟ ⪠ ⪡ ⪢ ⪣ ⪤ ⪥ ⪦ ⪧ ⪨ ⪩ ⪪ ⪫ ⪬ ⪭ ⪮ ⪯ ⪰ ⪱ ⪲ ⪳ ⪴ ⪵ ⪶ ⪷ ⪸ ⪹ ⪺ ⪻ ⪼ ⪽ ⪾ ⪿ ⫀ ⫁ ⫂ ⫃ ⫄ ⫅ ⫆ ⫇ ⫈ ⫉ ⫊ ⫋ ⫌ ⫍ ⫎ ⫏ ⫐ ⫑ ⫒ ⫓ ⫔ ⫕ ⫖ ⫗ ⫘ ⫙ ⫚ ⫛ ⫝̸ ⫝ ⫞ ⫟ ⫠ ⫡ ⫢ ⫣ ⫤ ⫥ ⫦ ⫧ ⫨ ⫩ ⫪ ⫫ ⫬ ⫭ ⫮ ⫯ ⫰ ⫱ ⫲ ⫳ ⫴ ⫵ ⫶ ⫷ ⫸ ⫹ ⫺ ⫻ ⫼ ⫽ ⫾ ⫿ ⬀ ⬁ ⬂ ⬃ ⬄ ⬅ ⬆ ⬇ ⬈ ⬉ ⬊ ⬋ ⬌ ⬍ ⬎ ⬏ ⬐ ⬑ ⬒ ⬓ ⬔ ⬕ ⬖ ⬗ ⬘ ⬙ ⬚ ⬛ ⬜ ⬝ ⬞ ⬟ ⬠ ⬡ ⬢ ⬣ ⬤ ⬥ ⬦ ⬧ ⬨ ⬩ ⬪ ⬫ ⬬ ⬭ ⬮ ⬯ ⬰ ⬱ ⬲ ⬳ ⬴ ⬵ ⬶ ⬷ ⬸ ⬹ ⬺ ⬻ ⬼ ⬽ ⬾ ⬿ ⭀ ⭁ ⭂ ⭃ ⭄ ⭅ ⭆ ⭇ ⭈ ⭉ ⭊ ⭋ ⭌ ⭐ ⭑ ⭒ ⭓ ⭔ ⭕ ⭖ ⭗ ⭘ ⭙ ⸀ ⸁ ⸂ ⸃ ⸄ ⸅ ⸆ ⸇ ⸈ ⸉ ⸊ ⸋ ⸌ ⸍ ⸎ ⸏ ⸐ ⸑ ⸒ ⸓ ⸔ ⸕ ⸖ ⸗ ⸘ ⸙ ⸚ ⸛ ⸜ ⸝ ⸞ ⸟ ⸠ ⸡ ⸢ ⸣ ⸤ ⸥ ⸦ ⸧ ⸨ ⸩ ⸪ ⸫ ⸬ ⸭ ⸮ ⸯ ⸰ ⸱ ⸲ ⸳ ⸴ ⸵ ⸶ ⸷ ⸸ ⸹ ⸺ ⸻ 〈 〉 ⤀ ⤁ ⤂ ⤃ ⤄ ⤅ ⤆ ⤇ ⤈ ⤉ ⤊ ⤋ ⤌ ⤍ ⤎ ⤏ ⤐ ⤑ ⤒ ⤓ ⤔ ⤕ ⤖ ⤗ ⤘ ⤙ ⤚ ⤛ ⤜ ⤝ ⤞ ⤟ ⤠ ⤡ ⤢ ⤣ ⤤ ⤥ ⤦ ⤧ ⤨ ⤩ ⤪ ⤫ ⤬ ⤭ ⤮ ⤯ ⤰ ⤱ ⤲ ⤳ ⤴ ⤵ ⤶ ⤷ ⤸ ⤹ ⤺ ⤻ ⤼ ⤽ ⤾ ⤿ ⥀ ⥁ ⥂ ⥃ ⥄ ⥅ ⥆ ⥇ ⥈ ⥉ ⥊ ⥋ ⥌ ⥍ ⥎ ⥏ ⥐ ⥑ ⥒ ⥓ ⥔ ⥕ ⥖ ⥗ ⥘ ⥙ ⥚ ⥛ ⥜ ⥝ ⥞ ⥟ ⥠ ⥡ ⥢ ⥣ ⥤ ⥥ ⥦ ⥧ ⥨ ⥩ ⥪ ⥫ ⥬ ⥭ ⥮ ⥯ ⥰ ⥱ ⥲ ⥳ ⥴ ⥵ ⥶ ⥷ ⥸ ⥹ ⥺ ⥻ ⥼ ⥽ ⥾ ⥿ ⦀ ⦁ ⦂");
+});
+document.getElementById("btn-block1").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "🅐 🅑 🅒 🅓 🅔 🅕 🅖 🅗 🅘 🅙 🅚 🅛 🅜 🅝 🅞 🅟 🅠 🅡 🅢 🅣 🅤 🅥 🅦 🅧 🅨 🅩 Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ ⓐ ⓑ ⓒ ⓓ ⓔ ⓕ ⓖ ⓗ ⓘ ⓙ ⓚ ⓛ ⓜ ⓝ ⓞ ⓟ ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ");
+});
+document.getElementById("btn-block2").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "⓿ ❶ ❷ ❸ ❹ ❺ ❻ ❼ ❽ ❾ ❿ ⓫ ⓬ ⓭ ⓮ ⓯ ⓰ ⓱ ⓲ ⓳ ⓴ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ⓵ ⓶ ⓷ ⓸ ⓹ ⓺ ⓻ ⓼ ⓽ ⓾ ⑴ ⑵ ⑶ ⑷ ⑸ ⑹ ⑺ ⑻ ⑼ ⑽ ⑾ ⑿ ⒀ ⒁ ⒂ ⒃ ⒄ ⒅ ⒆ ⒇ ０ １ ２ ３ ４ ５ ６ ７ ８ ９ ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ⒈ ⒉ ⒊ ⒋ ⒌ ⒍ ⒎ ⒏ ⒐ ⒑ ⒒ ⒓ ⒔ ⒕ ⒖ ⒗ ⒘ ⒙ ⒚ ⒛ ↉ ½ ⅓ ¼ ⅕ ⅙ ⅐ ⅛ ⅑ ⅒ ⅔ ⅖ ¾ ⅗ ⅜ ⅘ ⅚ ⅝ ⅞ ㊊ ㊋ ㊌ ㊍ ㊎ ㊏ ㊐ ㊑ ㊒ ㊓ ㊔ ㊕ ㊖ ㊗ ㊘ ㊜ ㊝ ㊞ ㊟ ㊠ ㊡ ㊢ ㊣ ㊤ ㊥ ㊦ ㊧ ㊨ ㊩ ㊪ ㊫ ㊬ ㊭ ㊮ ㊯ ㊰ ¹ ᵏ ⁹ ² ᵏ ² ᵏ ¹ ² ᵏ ²² ᵏ ³² ᵏ ⁴² ᵏ ⁵² ᵏ ⁶² ᵏ ⁷² ᵏ ⁸² ᵏ ⁹² ᵏ ¹⁰² ᵏ ¹¹² ᵏ ¹²² ᵏ ¹³² ᵏ ¹³² ᵏ ¹⁵² ᵏ ¹⁶² ᵏ ¹⁷² ᵏ ¹⁸ ♲ ♳ ♴ ♵ ♶ ♷ ♸ ♹ ♺ ♺ ♻ ♼ ♽");
+});
+document.getElementById("btn-block3").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "🅰 🅱 🅲 🅳 🅴 🅵 🅶 🅷 🅸 🅹 🅻 🅼 🅽 🅾 🅿 🆀 🆁 🆂 🆃 🆄 🆅 🆆 🆇 🆈 🆉 🄰 🄱 🄲 🄳 3 🄵 🄶 🄷 🄸 🄹 🄺 🄻 🄼 🄽 🄾 🄿 🅀 🅁 🅂 🅃 🅄 🅅 🅆 🅇 🅈 🅉 ⿰ ⿱ ⿲ ⿳ ⿴ ⿵ ⿶ ⿷ ⿸ ⿺ ⿺ ⿻");
+});
+document.getElementById("btn-block4").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "🄐 🄑 🄒 🄓 🄔 🄕 🄖 🄗 🄘 🄙 🄚 🄛 🄜 🄝 🄞 🄟 🄠 🄡 🄢 🄣 🄤 🄥 🄦 🄧 🄨 🄩 🄪 ⒜ ⒝ ⒞ ⒟ ⒠ ⒡ ⒢ ⒣ ⒤ ⒥ ⒦ ⒧ ⒨ ⒩ ⒪ ⒫ ⒬ ⒭ ⒮ ⒯ ⒰ ⒱ ⒲ ⒳ ⒴ ⒵");
+});
+document.getElementById("btn-block5").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "Ａ Ｂ Ｃ Ｄ Ｅ Ｆ Ｇ Ｈ Ｉ Ｊ Ｋ Ｌ Ｍ Ｎ Ｏ Ｐ Ｑ Ｒ Ｓ Ｔ Ｕ Ｖ Ｗ Ｘ Ｙ Ｚ ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ ＠ ＃ ＄ ％ ＆ － ＋ （ ） ＜ ＞ ［ ］ ０ １ ２ ３ ４ ５ ６ ７ ８ ９");
+});
+document.getElementById("btn-block7").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "𝓐 𝓑 𝓒 𝓓 𝓔 𝓕 𝓖 𝓗 𝓘 𝓙 𝓚 𝓛 𝓜 𝓝 𝓞 𝓟 𝓠 𝓡 𝓢 𝓣 𝓤 𝓥 𝓦 𝓧 𝓨 𝓩 𝓪 𝓫 𝓬 𝓭 𝓮 𝓯 𝓰 𝓱 𝓲 𝓳 𝓴 𝓵 𝓶 𝓷 𝓸 𝓹 𝓺 𝓻 𝓼 𝓽 𝓾 𝓿 𝓼 𝔀 𝔁 𝔂 𝔃 𝒜 ℬ 𝒞 𝒟 ℰ ℱ 𝒢 ℋ ℐ 𝒥 𝒦 ℒ ℳ 𝒩 𝒪 𝒫 𝒬 ℛ 𝒮 𝒯 𝒰 𝒱 𝒲 𝒳 𝒴 𝒵 𝒶 𝒷 𝒸 𝒹 ℯ 𝒻 ℊ 𝒽 𝒾 𝒿 𝓀 𝓁 𝓂 𝓃 ℴ 𝓅 𝓆 𝓇 𝓈 𝓉 𝓊 𝓋 𝓌 𝓍 𝓎 𝓏");
+});
+document.getElementById("btn-block8").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "𝑨 𝑩 𝑪 𝑫 𝑬 𝑭 𝑮 𝑯 𝑰 𝑱 𝑲 𝑳 𝑴 𝑵 𝑶 𝑷 𝑸 𝑹 𝑺 𝑻 𝑼 𝑽 𝑾 𝑿 𝒀 𝒁 𝒂 𝒃 𝒄 𝒅 𝒆 𝒇 𝒈 𝒉 𝒊 𝒋 𝒌 𝒍 𝒎 𝒏 𝒐 𝒑 𝒒 𝒓 𝒔 𝒕 𝒖 𝒗 𝒘 𝒙 𝒚 𝒛 𝐴 𝐵 𝐶 𝐷 𝐸 𝐹 𝐺 𝐻 𝐼 𝐽 𝐾 𝐿 𝑀 𝑁 𝑂 𝑃 𝑅 𝑆 𝑇 𝑈 𝑉 𝑊 𝑋 𝑌 𝑍 𝑎 𝑏 𝑐 𝑑 𝑒 𝑓 𝑔 ℎ 𝑖 𝑗 𝑘 𝑙 𝑚 𝑛 𝑜 𝑝 𝑞 𝑟 𝑠 𝑡 𝑢 𝑣 𝑤 𝑥 𝑦 𝑧");
+});
+document.getElementById("btn-block11").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "𝘼 𝘽 𝘾 𝘿 𝙀 𝙁 𝙂 𝙃 𝙄 𝙅 𝙆 𝙇 𝙈 𝙉 𝙊 𝙋 𝙌 𝙍 𝙎 𝙏 𝙐 𝙑 𝙒 𝙓 𝙔 𝙕 𝙖 𝙗 𝙘 𝙙 𝙚 𝙛 𝙜 𝙝 𝙞 𝙟 𝙠 𝙡 𝙢 𝙣 𝙤 𝙥 𝙦 𝙧 𝙨 𝙩 𝙪 𝙫 𝙬 𝙭 𝙮 𝙯 𝘈 𝘉 𝘊 𝘋 𝘌 𝘍 𝘎 𝘏 𝘐 𝘑 𝘒 𝘓 𝘔 𝘕 𝘖 𝘗 𝘘 𝘙 𝘚 𝘛 𝘜 𝘝 𝘞 𝘟 𝘠 𝘡 𝘢 𝘣 𝘤 𝘥 𝘦 𝘧 𝘨 𝘩 𝘪 𝘫 𝘬 𝘭 𝘮 𝘯 𝘰 𝘱 𝘲 𝘳 𝘴 𝘵 𝘶 𝘷 𝘸 𝘹 𝘺 𝘻");
+});
+document.getElementById("btn-block12").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "𝗔 𝗕 𝗖 𝗗 𝗘 𝗙 𝗚 𝗛 𝗜 𝗝 𝗞 𝗟 𝗠 𝗡 𝗢 𝗣 𝗤 𝗥 𝗦 𝗧 𝗨 𝗩 𝗪 𝗫 𝗬 𝗭 𝗮 𝗯 𝗰 𝗱 𝗲 𝗳 𝗴 𝗵 𝗶 𝗷 𝗸 𝗹 𝗺 𝗻 𝗼 𝗽 𝗾 𝗿 𝘀 𝘁 𝘂 𝘃 𝘄 𝘅 𝘆 𝘇");
+});
+document.getElementById("btn-block14").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "𝕬 𝖁 𝕮 𝕯 𝕰 𝕱 𝕲 𝕳 𝕴 𝕵 𝕶 𝕷 𝕸 𝕹 𝕺 𝕻 𝕼 𝕽 𝕾 𝕿 𝖀 𝖁 𝖂 𝖃 𝖄 𝖅 𝖆 𝖇 𝖈 𝖉 𝖊 𝖋 𝖌 𝖍 𝖎 𝖏 𝖐 𝖑 𝖒 𝖓 𝖔 𝖕 𝖖 𝖗 𝖘 𝖙 𝖚 𝖛 𝖜 𝖝 𝖞 𝖟 𝔄 𝔅 ℭ 𝔇 𝔈 𝔉 𝔊 ℌ ℑ 𝔍 𝔎 𝔏 𝔐 𝔑 𝔒 𝔓 𝔔 ℜ 𝔖 𝔗 𝔘 𝔙 𝔚 𝔛 𝔜 ℨ 𝔞 𝔟 𝔠 𝔡 𝔢 𝔣 𝔤 𝔥 𝔦 𝔧 𝔨 𝔩 𝔪 𝔫 𝔬 𝔭 𝔮 𝔯 𝔰 𝔱 𝔲 𝔳 𝔴 𝔵 𝔶 𝔷");
+});
+document.getElementById("btn-block10").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "𝐀 𝐁 𝐂 𝐃 𝐄 𝐅 𝐆 𝐇 𝐈 𝐉 𝐊 𝐋 𝐌 𝐍 𝐎 𝐏 𝐐 𝐑 𝐒 𝐓 𝐔 𝐕 𝐖 𝐗 𝐘 𝐙 𝐚 𝐛 𝐜 𝐝 𝐞 𝐟 𝐠 𝐡 𝐢 𝐣 𝐤 𝐥 𝐦 𝐧 𝐨 𝐩 𝐪 𝐫 𝐬 𝐭 𝐮 𝐯 𝐰 𝐱 𝐲 𝐳 𝔸 𝔹 ℂ 𝔻 𝔼 𝔽 𝔾 ℍ 𝕀 𝕁 𝕂 𝕃 𝕄 ℕ 𝕆 ℙ ℚ ℝ 𝕊 𝕋 𝕌 𝕍 𝕎 𝕏 𝕐 ℤ 𝕒 𝕓 𝕔 𝕕 𝕖 𝕗 𝕘 𝕙 𝕚 𝕛 𝕜 𝕝 𝕞 𝕟 𝕠 𝕡 𝕢 𝕣 𝕤 𝕥 𝕦 𝕧 𝕨 𝕩 𝕪 𝕫 ƛ Ɓ Ƈ Ɗ Є Ƒ Ɠ Ӈ Ɩ ʆ Ƙ Լ M Ɲ Ơ Ƥ Ƣ Ʀ Ƨ Ƭ Ʋ Ɣ Ɯ Ҳ Ƴ Ȥ");
+});
+document.getElementById("btn-block19").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "ᗩ ᗷ ᑕ ᗪ ᗴ ᖴ ᘜ ᕼ I ᒍ K ᒪ ᗰ ᑎ O ᑭ ᑫ ᖇ Տ T ᑌ ᐯ ᗯ ᙭ Y ᘔ 卂 丨 乃 匚 ᗪ 乇 千 ᘜ 卄 | ﾌ Ҝ ㄥ 爪 几 ㄖ 卩 Ҩ 尺 丂 ㄒ ㄩ ᐯ 山 乂 ㄚ 乙 ል ጌ ር ዕ ቿ ቻ ኗ ዘ ጎ ጋ ጕ ረ ጠ ሸ ዐ የ ዒ ዪ ነ ቿ ሁ ሀ ሠ ሸ ሃ ጊ Ꭺ Ꮯ Ꭰ Ꭼ Ꮆ Ꭵ Ꮶ Ꮮ Ꮑ Ꮎ Ꮲ Ꮢ Ꮖ Ꮙ Ꮃ Ꮍ Ꮓ");
+});
+document.getElementById("btn-block22").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "ﾆ ネ ノ ハ バ パ ヒ ビ ピ フ ブ プ ヘ ベ ペ ホ ボ ポ マ ミ ム メ モ ャ ヤ ュ ユ ョ ヨ ラ リ ル レ ロ ヮ ワ ヰ ヱ ヲ ン ヴ ヰ ヱ ヲ ン ヴ ヵ ヶ ヷ ヸ ヹ ヺ ・ ー ヽ ヾ ヿ ㍐ ㍿ ぁ あ ぃ い ぅ う ぇ え ぉ お か が き ぎ く ぐ け げ こ ご さ ざ し じ す ず せ ぜ そ ぞ た だ ち ぢ っ つ づ て で と ど な に ぬ ね の は ば ぱ ひ び ぴ ふ ぶ ぷ へ べ ぺ ほ ぼ ぽ ま み む め も ゃ や ゅ ゆ ょ よ ら り る れ を ゎ わ ゐ ゑ を ん ゔ ゕ ゖ ゚ ゛ ゜ ゝ ゞ ゟ ゠ ァ ア ィ イ ゥ ウェ エ ォ オ カ ガ キ ギ ク グ ケ ゲ コ ゴ サ ザ シ ジ ス ズ セ ゼ ソ ゾ タ ダ チ ヂ ッ ツ ヅ テ デ ト ド ナ ニ ヌ ⺀ ⺁ ⺂ ⺃ ⺄ ⺅ ⺆ ⺇ ⺈ ⺉ ⺊ ⺋ ⺌ ⺍ ⺎ ⺏ ⺐ ⺑ ⺒ ⺓ ⺔ ⺕ ⺖ ⺗ ⺘ ⺙ ⺛ ⺜ ⺝ ⺞ ⺟ ⺠ ⺡ ⺢ ⺣ ⺤ ⺥ ⺦ ⺧ ⺨ ⺩ ⺪ ⺫ ⺬ ⺭ ⺮ ⺯ ⺰ ⺱ ⺲ ⺳ ⺴ ⺵ ⺶ ⺷ ⺸ ⺹ ⺺ ⺻ ⺼ ⺽ ⺾ ⺿ ⻀ ⻁ ⻂ ⻃ ⻄ ⻅ ⻆ ⻇ ⻈ ⻉ ⻊ ⻋ ⻌ ⻍ ⻎ ⻏ ⻐ ⻑ ⻒ ⻓ ⻔ ⻕ ⻖ ⻗ ⻘ ⻙ ⻚ ⻛ ⻜ ⻝ ⻞ ⻟ ⻠ ⻡ ⻢ ⻣ ⻤ ⻥ ⻦ ⻧ ⻨ ⻩ ⻪ ⻫ ⻬ ⻭ ⻮ ⻯ ⻰ ⻱ ⻲ ⻳ ⼀ ⼁ ⼂ ⼃ ⼄ ⼅ ⼆ ⼇ ⼈ ⼉ ⼊ ⼋ ⼌ ⼍ ⼎ ⼏ ⼐ ⼑ ⼒ ⼓ ⼔ ⼕ ⼖ ⼗ ⼘ ⼙ ⼚ ⼛ ⼜ ⼝ ⼞ ⼟ ⼠ ⼡ ⼢ ⼣ ⼤ ⼥ ⼦ ⼧ ⼨ ⼩ ⼪ ⼫ ⼬ ⼭ ⼮ ⼯ ⼰ ⼱ ⼲ ⼳ ⼴ ⼵ ⼶ ⼷ ⼸ ⼹ ⼺ ⼻ ⼼ ⼽ ⼾ ⼿ ⽀ ⽁ ⽂ ⽃ ⽄ ⽅ ⽆ ⽇ ⽈ ⽉ ⽊ ⽋ ⽌ ⽍ ⽎ ⽏ ⽐ ⽑ ⽒ ⽓ ⽔ ⽕ ⽖ ⽗ ⽘ ⽙ ⽚ ⽛ ⽜ ⽝ ⽞ ⽟ ⽠ ⽡ ⽢ ⽣ ⽤ ⽥ ⽦ ⽧ ⽨ ⽩ ⽪ ⽫ ⽬ ⽭ ⽮ ⽯ ⽰ ⽱ ⽲ ⽳ ⽴ ⽵ ⽶ ⽷ ⽸ ⽹ ⽺ ⽻ ⽼ ⽽ ⽾ ⽿ ⾀ ⾁ ⾂ ⾃ ⾄ ⾅ ⾆ ⾇ ⾈ ⾉ ⾊ ⾋ ⾌ ⾍ ⾎ ⾏ ⾐ ⾑ ⾒ ⾓ ⾔ ⾕ ⾖ ⾗ ⾘ ⾙ ⾚ ⾛ ⾜ ⾝ ⾞ ⾟ ⾠ ⾡ ⾢ ⾣ ⾤ ⾥ ⾦ ⾧ ⾨ ⾩ ⾪ ⾫ ⾬ ⾭ ⾮ ⾯ ⾰ ⾱ ⾲ ⾳ ⾴ ⾵ ⾶ ⾷ ⾸ ⾹ ⾺ ⾻ ⾼ ⾽ ⾾ ⾿ ⿀ ⿁ ⿂ ⿃ ⿄ ⿅ ⿆ ⿇ ⿈ ⿉ ⿊ ⿋ ⿌ ⿍ ⿎ ⿏ ⿐ ⿑ ⿒ ⿓ ⿔ ⿕ ゛ ゜ ㆐ ㆑ ㆖ ㆗ ㆘ ㆙ ㆚ ㆛ ㆜ ㆝ ㆞ ㆟ ㇀ ㇁ ㇂ ㇃ ㇄ ㇅ ㇆ ㇇ ㇈ ㇉ ㇊ ㇋ ㇌ ㇍ ㇎ ㇏ ㇐ ㇑ ㇒ ㇓ ㇔ ㇕ ㇖ ㇗ ㇘ ㇙ ㇚ ㇛ ㇜ ㇝ ㇞ ㇟ ㇠ ㇡ ㇢ ㇣");
+});
+document.getElementById("btn-block15").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "𝙰 𝙱 𝙲 𝙳 𝙴 𝙵 𝙶 𝙷 𝙸 𝙹 𝙺 𝙻 𝙼 𝙽 𝙾 𝙿 𝚀 𝚁 𝚂 𝚃 𝚄 𝚅 𝚆 𝚇 𝚈 𝚉 𝚊 𝚋 𝚌 𝚍 𝚎 𝚏 𝚐 𝚝 𝚞 𝚟 𝚠 𝚡 𝚢 𝚣 ͣ ͤ ͥ ͦ ͧ ͨ ͩ ͪ ͫ ͬ ͭ ͮ ͯ ᴀ ʙ ᴄ ᴅ ᴇ ғ ɢ ʜ ɪ ᴊ ᴋ ʟ ᴍ ɴ ᴏ ᴘ ǫ ʀ s ᴛ ᴜ ᴠ ᴡ x ʏ ᴢ ᵃ ᵇ ᶜ ᵈ ᵉ ᶠ ᵍ ʰ ⁱ ʲ ᵏ ˡ ᵐ ⁿ ᵒ ᵖ ᵠ ʳ ˢ ᵗ ᵘ ᵛ ʷ ˣ ʸ ᶻ а ә ӕ ҕ в г ґ ғ ҕ д ԁ ђ ԃ ҙ е є җ з ԅ ѕ ӡ ԇ и ҋ і ј к қ ӄ ҡ ҟ ҝ л ӆ љ ԉ м ӎ н ӊ ң ӈ ҥ њ ԋ о ө п ҧ ҁ р ҏ с ԍ у ү ұ ѹ ф ѽ ѻ ц ҵ ч ҷ ӌ ҹ ҽ ҿ џ ш щ ъ ы ь ҍ ѧ ѫ ѩ ѭ ѱ ѳ ѵ ᶏ ᶐ Ⱥ ａ Ａ ᴬ ᵃ ª ᶛ ᵆ ᵄ ᵅ ₐ ᴭ ᴁ ᴂ ᴀ Å ẚ ∆ ∀ α Λ ɐ ɑ ɒ á à ă ắ ằ ẵ ẳ â ấ ầ ẫ ẩ ǎ å ǻ ä ā ả ȁ ȃ ạ ặ ả ȁ ȃ ạ ặ ặ ậ ḁ ǽ ǣ ᶀ ᵬ ｂ Ｂ ᴮ ᵇ ᴯ ᴃ þ ß ƀ Ɓ Ƅ ɓ ɞ ɮ ʙ ҍ Ᏸ ℬ β ḃ ḅ ḇ ᶗ Ȼ ȼ ｃ Ｃ ᶜ ᵓ ᶝ ᴐ ᴒ ᴖ ᵔ ᴗ ᵕ ᴄ © ¢ € Ƈ ɕ ʗ ℂ Č ☪ ℭ ς Ç ć ĉ č ċ ç ḉ ᶑ ᶁ ᵭ ｄ Ｄ ᴰ ᵈ ᶞ ᴅ ȡ ᴆ ǳ ǲ Ǳ ǆ ǅ Ǆ ∂ ɗ ð ď ḋ ḑ ḍ ḓ ḏ ᶒ ᶓ ᶔ ᶕ ᴲ ᵊ ᵋ ᵌ ₑ ₔ ∊ ∈ ᴇ ᴈ Ξ ∃ Ə Ɛ Ǝ ε Σ Ƹ ƺ ɘ ə ξ э ҿ ཇ ℰ ℯ ﾐ € ع έ ɚ é è ĕ ê ế ề ễ ể ě ë ẽ ė ȩ ḝ ę ē ḗ ḕ ẻ ȅ ȇ ẹ ệ ḙ ḛ ᶘ ᶂ ᶋ ᵮ ｆ Ｆ ᶠ ﬂ Ƒ ƒ ℱ ʄ ḟ ᶃ ｇ Ｇ ᴳ ᵍ ᶢ Ɠ Ǥ ǥ ɠ ɡ ɢ ʛ ց Ꮆ ջ ❡ ǵ ğ ĝ ǧ ġ ģ ḡ ｈ Ｈ ʰ ʱ ᴴ ᵸ ᶣ ħ ƕ Ƕ ɦ ɧ ʜ ђ Ᏺ ℋ ℌ ｻ Ҥ Ħ ℏ ĥ ȟ ḧ ḣ ḩ ḥ ḫ ẖ ᶖ ｉ Ｉ ᶧ ᴉ ᵎ ᵎ ⁱ ϊ أ ར ¡ ɩ ĳ Ĳ ᵻ Ɨ ɨ ɪ í ì ĭ î ǐ ï ḯ ĩ į ī ỉ ȉ ȋ ị ḭ ｊ Ｊ ᴶ ʲ ᴊ ᶨ ᶡ ǰ ʝ ز ჟ ĵ ǰ ȷ Ꮰ ᶄ ｋ Ｋ ᴷ ᵏ ᴋ κ Ƙ ƙ ʞ ϗ ҡ ḱ ǩ ķ ḳ ḵ ᶅ Ƚ ｌ Ｌ ᴌ ˡ ᶩ ᶪ ᶫ ǈ ȴ ŀ Ŀ ǉ ǈ Ǉ 廴 £ Ɩ ƪ ɫ ɭ ʆ ʟ Ꮭ ℒ ℓ Ł ₤ ĺ ľ ļ ḷ ḹ ḽ ḻ ᶆ ᵯ ｍ Ｍ ᴹ ᵐ ᶬ ᶭ ᴍ м Ɯ ɱ ʍ ℳ ɷ ḿ ṁ ṃ ᶇ ᵰ ｎ Ｎ ᶰ ⁿ ᴺ ᴻ ᵑ ᶮ ᶯ ᴎ ȵ ǌ ǋ Ǌ ղ ή и η Ɲ ƞ ɲ ɳ ɴ Ϟ ℕ ϰ സ Ո ท ռ ♑ ń ǹ ň ñ ṅ ņ ṇ ṋ ṉ ｏ Ｏ ᴼ ᵒ ᶱ ᶲ ᶿ ₒ ᴏ ᴑ ᴔ ᴓ Θ ᴽ ᴕ º ° ö © ⊙ ō ◐ ◕ ✹ ✪ ☢ ❂ ❍ σ ø ѻ ◯ ó ò ŏ ô ố ồ ỗ ổ ö ȫ ő õ ṍ ṏ ȭ ȯ ȱ ǫ ȍ ȏ ơ ớ ờ ỡ ở ợ ọ ộ ǿ ᶈ ᵽ ᵱ ｐ Ｐ ᴾ ᵖ ᴘ ¶ ρ φ Þ þ Ƥ ƥ ƿ բ ք ℙ ₱ ℘ ṕ ṗ Ꭾ ʠ Ｑ ᵠ Ǫ ǫ ʠ ϥ ℚ ҩ Ҩ ᶉ ᵲ ᵳ ｒ ʶ ᴿ ʳ ᴚ ® Ʀ ɼ ɽ ℝ ℞ я Ř ŕ ř ṙ ŗ ȑ ȓ ṛ ṝ ṟ ᶊ ᵴ ȿ ｓ Ｓ ˢ ᶳ § ẛ ﬆ ﬅ ₷ § ∫ Ƨ ƨ ʂ ʃ ʅ ϛ ֆ ى Ꭶ ʂ Ş $ ی ś ṥ ŝ š ṧ ṡ ş ṣ ṩ ș ᵵ ᵺ ᵼ Ⱦ ｔ Ｔ ᵀ ᵗ ᶵ ᴛ ȶ ح Շ π ŧ Ŧ ƫ Ƭ ƭ Ʈ ǂ ʇ ʈ τ Ϯ ϯ ｨ է ɬ ł ♈ ζ ե Ť ť ẗ ṫ ţ ṭ ț ṱ ṯ ᶙ ᵾ ᵤ ｕ Ｕ ᵁ ᵘ ᵤ ᶶ ᶷ ᶸ ᶹ ᴜ ᴝ ᵙ ᴞ ᵫ ʮ ʯ ʉ ʊ ʋ ŭ ϋ և ú ù ŭ û ǔ ǖ ű ũ ṹ ų ū ṻ ủ ȕ ȗ ư ứ ừ ữ ử ự ụ ṳ ṷ ṵ ๖ ۣ ۜ V ᶌ ｖ Ｖ ᵛ ᵥ ᶺ ᴠ ϑ Ʋ ʋ ν Ѵ ѵ ҩ Ҩ ℣ ✓ Ѷ ṽ ṿ ｗ Ｗ ᵂ ʷ ᵚ ᴟ ᴡ ψ ω ϖ Ɯ ʍ Ѡ ѡ ཡ Ꮚ Ꮤ Ϣ ẃ ẁ ŵ ẘ ẅ ẇ ẉ ᶍ ｘ Ｘ ᵡ ɤ × ˣ ₓ Ҳ ɤ χ ℵ 乂 ✘ メ ẍ ẋ ｙ Ｙ ʸ ˠ ϒ Ÿ Ƴ ƴ γ ʎ ʏ ¥ უ ყ ý ỳ ŷ ẙ ÿ ๖ ۣ ۜ Z ẏ ȳ ᵶ ỵ ᶚ ᶎ ᵶ ᶻ ᶼ ᶽ ᶾ ɀ ｚ Ｚ ᴢ ᴣ ᴤ ŉ ζ ☡ Ƶ ƶ Ȥ ȥ ʐ ʑ Հ ℤ ʓ ح ź ẑ Ⓐ ɐ q ɔ p ǝ ɟ ƃ ɥ ᴉ ɾ ʞ l ɯ u o d b ɹ s ʇ n ʌ ʍ x ʎ z");
+});
+document.getElementById("btn-block18").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "ɑ ҍ ϲ ժ ҽ ƒ ց հ í յ Ƙ Ӏ ʍ ղ օ Թ զ ɾ Տ Ե ւ ѵ ա × վ Հค ๒ ς ๔ є Ŧ ﻮ ђ เ ן к l ๓ ภ ๏ ק ợ г ร t ย ש ฬ ץ א z ᗅ ᙘ ᑤ ᗫ ᙍ ᖴ ᘜ ᕼ ᓿ ᒙ ᖽ ᐸ ᒪ ᙢ ᘉ ᓎ ᕿ ᕴ ᖇ S ᖶ ᑗ ᐻ ᙎ ᙭ ᖻ ᙣ å β ç ď £ ƒ ğ ȟ ȋ j ķ Ƚ ɱ ñ ¤ ק ǭ ȑ § ț ɥ √ Ψ × ÿ ž ά в ς ȡ έ ғ ģ ħ ί ј ķ Ļ м ή ό ρ q ŕ ş ţ ù ν ώ x ч ž Λ Ϧ ㄈ Ð Ɛ F Ɠ н ɪ ﾌ Қ Ł ௱ Л Ø þ Ҩ 尺 ら Ť Ц Ɣ Ɯ χ Ϥ Ẕ ᗩ ᗷ ᑢ ᕲ ᘿ ᖴ ᘜ ᕼ ᓰ ᒚ ᖽ ᐸ ᒪ ᘻ ᘉ ᓍ ᕵ ᕴ ᖇ S ᖶ ᑘ ᐺ ᘺ ᙭ ᖻ ᗱ Թ Յ Շ Ժ ȝ Բ Գ ɧ ɿ ʝ ƙ ʅ ʍ Ռ Ծ ρ φ Ր Տ Ե Մ ע ա Ճ Վ Հ ą ც ƈ ɖ ɛ ʄ ɠ ɧ ı ʝ ƙ Ɩ ɱ ŋ ɔ ℘ զ ཞ ʂ ɬ ų ۷ ῳ ҳ ყ ʑ");
+});
+
+document.getElementById("btn-block118").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "😀 😃 😄 😁 😆 😅 🤣 😂 🙂 🙃 🫠 😉 😊 😇 🥰 😍 🤩 😘 😗 ☺️ 😚 😙 🥲 😋 😛 😜 🤪 😝 🤑 🤗 🤭 🫢 🫣 🤫 🤔 🫡 🤐 🤨 😐 😑 😶 🫥 😶‍🌫️ 😏 😒 🙄 😬 😮‍💨 🤥 😌 😔 😪 🤤 😴 😷 🤒 🤕 🤢 🤮 🤧 🥵 🥶 🥴 😵 😵‍💫 🤯 🤠 🥳 🥸 😎 🤓 🧐 😕 🫤 😟 🙁 ☹️ 😮 😯 😲 😳 🥺 🥹 😦 😧 😨 😰 😥 😢 😭 😱 😖 😣 😞 😓 😩 😫 🥱 😡 😡 😠 🤬 😈 👿 💀 ☠️ 💩 🤡 👹 👺 👻 👽 👾 🤖 😺 😸 😹 😻 😼 😽 🙀 😾 😿 🙈 🙉 🙊 💋 💌 💘 💝 💖 💗 💓 💞 💕 💟 ❣️ 💔 ❤️‍🔥 ❤️‍🩹 ❤️ 🧡 💛 💚 💙 💜 🤎 🖤 🤍 💯 💢 💥 💫 💦 💨 🕳️ 💣 💬 👁️‍🗨️ 🗨️ 🗯️ 💭 💤 🐵 🐒 🦍 🦧 🐶 🐕 🦮 🐕‍🦺 🐩 🐺 🦊 🦝 🐱 🐈 🐈‍⬛ 🦁 🐯 🐅 🐆 🐴 🐎 🦄 🦓 🦌 🦬 🐮 🐂 🐃 🐄 🐷 🐖 🐗 🐽 🐏 🐑 🐐 🐪 🐫 🦙 🦒 🐘 🦣 🦏 🦛 🐭 🐁 🐀 🐹 🐰 🐇 🐿️ 🦫 🦔 🦇 🐻 🐻‍❄️ 🐨 🐼 🦥 🦦 🦨 🦘 🦡 🐾 🦃 🐔 🐓 🐣 🐤 🐥 🐦 🐧 🕊️ 🦅 🦆 🦢 🦉 🦤 🪶 🦩 🦚 🦜 🐸 🐊 🐢 🦎 🐍 🐲 🐉 🦕 🦖 🐳 🐋 🐬 🦭 🐟 🐠 🐡 🦈 🐙 🐚 🪸 🐌 🦋 🐛 🐜 🐝 🪲 🐞 🦗 🪳 🕷️ 🕸️ 🦂 🦟 🪰 🪱 🦠 💐 🌸 💮 🪷 🏵️ 🌹 🥀 🌺 🌻 🌼 🌷 🌱 🪴 🌲 🌳 🌴 🌵 🌾 🌿 ☘️ 🍀 🍁 🍂 🍃 🪹 🪺 👋 🤚 🖐️ ✋ 🖖 🫱 🫲 🫳 🫴 👌 🤌 🤏 ✌️ 🤞 🫰 🤟 🤘 🤙 👈 👉 👆 🖕 👇 ☝️ 🫵 👍 👎 ✊ 👊 🤛 🤜 👏 🙌 🫶 👐 🤲 🤝 🙏 ✍️ 💅 🤳 💪 🦾 🦿 🦵 🦶 👂 🦻 👃 🧠 🫀 🫁 🦷 🦴 👀 👁️ 👅 👄 🫦 👶 🧒 👦 👧 🧑 👱 👨 🧔 🧔‍♂️ 🧔‍♀️ 👨‍🦰 👨‍🦱 👨‍🦳 👨‍🦲 👩 👩‍🦰 🧑‍🦰 👩‍🦱 🧑‍🦱 👩‍🦳 🧑‍🦳 👩‍🦲 🧑‍🦲 👱‍♀️ 👱‍♂️ 🧓 👴 👵 🙍 🙍‍♂️ 🙍‍♀️ 🙎 🙎‍♂️ 🙎‍♀️ 🙅 🙅‍♂️ 🙅‍♀️ 🙆 🙆‍♂️ 🙆‍♀️ 💁 💁‍♂️ 💁‍♀️ 🙋 🙋‍♂️ 🙋‍♀️ 🧏 🧏‍♂️ 🧏‍♀️ 🙇 🙇‍♂️ 🙇‍♀️ 🤦 🤦‍♂️ 🤦‍♀️ 🤷 🤷‍♂️ 🤷‍♀️ 🧑‍⚕️ 👨‍⚕️ 👩‍⚕️ 🧑‍🎓 👨‍🎓 👩‍🎓 🧑‍🏫 👨‍🏫 👩‍🏫 🧑‍⚖️ 👨‍⚖️ 👩‍⚖️ 🧑‍🌾 👨‍🌾 👩‍🌾 🧑‍🍳 👨‍🍳 👩‍🍳 🧑‍🔧 👨‍🔧 👩‍🔧 🧑‍🏭 👨‍🏭 👩‍🏭 🧑‍💼 👨‍💼 👩‍💼 🧑‍🔬 👨‍🔬 👩‍🔬 🧑‍💻 👨‍💻 👩‍💻 🧑‍🎤 👨‍🎤 👩‍🎤 🧑‍🎨 👨‍🎨 👩‍🎨 🧑‍✈️ 👨‍✈️ 👩‍✈️ 🧑‍🚀 👨‍🚀 👩‍🚀 🧑‍🚒 👨‍🚒 👩‍🚒 👮 👮‍♂️ 👮‍♀️ 🕵️ 🕵️‍♂️ 🕵️‍♀️ 💂 💂‍♂️ 💂‍♀️ 🥷 👷 👷‍♂️ 👷‍♀️ 🫅 🤴 👸 👳 👳‍♂️ 👳‍♀️ 👲 🧕 🤵 🤵‍♂️ 🤵‍♀️ 👰 👰‍♂️ 👰‍♀️ 🤰 🫃 🫄 🤱 👩‍🍼 👨‍🍼 🧑‍🍼 👼 🎅 🤶 🧑‍🎄 🦸 🦸‍♂️ 🦸‍♀️ 🦹 🦹‍♂️ 🦹‍♀️ 🧙 🧙‍♂️ 🧙‍♀️ 🧚 🧚‍♂️ 🧚‍♀️ 🧛 🧛‍♂️ 🧛‍♀️ 🧜 🧜‍♂️ 🧜‍♀️ 🧝 🧝‍♂️ 🧝‍♀️ 🧞 🧞‍♂️ 🧞‍♀️ 🧟 🧟‍♂️ 🧟‍♀️ 🧌 💆 💆‍♂️ 💆‍♀️ 💇 💇‍♂️ 💇‍♀️ 🚶 🚶‍♂️ 🚶‍♀️ 🧍 🧍‍♂️ 🧍‍♀️ 🧎 🧎‍♂️ 🧎‍♀️ 🧑‍🦯 👨‍🦯 👩‍🦯 🧑‍🦼 👨‍🦼 👩‍🦼 🧑‍🦽 👨‍🦽 👩‍🦽 🏃 🏃‍♂️ 🏃‍♀️ 💃 🕺 🕴️ 👯 👯‍♂️ 👯‍♀️ 🧖 🧖‍♂️ 🧖‍♀️ 🧗 🧗‍♂️ 🧗‍♀️ 🤺 🏇 ⛷️ 🏂 🏌️ 🏌️‍♂️ 🏌️‍♀️ 🏄 🏄‍♂️ 🏄‍♀️ 🚣 🚣‍♂️ 🚣‍♀️ 🏊 🏊‍♂️ 🏊‍♀️ ⛹️ ⛹️‍♂️ ⛹️‍♀️ 🏋️ 🏋️‍♂️ 🏋️‍♀️ 🚴 🚴‍♂️ 🚴‍♀️ 🚵 🚵‍♂️ 🚵‍♀️ 🤸 🤸‍♂️ 🤸‍♀️ 🤼 🤼‍♂️ 🤼‍♀️ 🤽 🤽‍♂️ 🤽‍♀️ 🤾 🤾‍♂️ 🤾‍♀️ 🤹 🤹‍♂️ 🤹‍♀️ 🧘 🧘‍♂️ 🧘‍♀️ 🛀 🛌 🧑‍🤝‍🧑 👭 👫 👬 💏 👩‍❤️‍💋‍👨 👨‍❤️‍💋‍👨 👩‍❤️‍💋‍👩 💑 👩‍❤️‍👨 👨‍❤️‍👨 👩‍❤️‍👩 👪 👨‍👩‍👦 👨‍👩‍👧 👨‍👩‍👧‍👦 👨‍👩‍👦‍👦 👨‍👩‍👧‍👧 👨‍👨‍👦 👨‍👨‍👧 👨‍👨‍👧‍👦 👨‍👨‍👦‍👦 👨‍👨‍👧‍👧 👩‍👩‍👦 👩‍👩‍👧 👩‍👩‍👧‍👦 👩‍👩‍👦‍👦 👩‍👩‍👧‍👧 👨‍👦 👨‍👦‍👦 👨‍👧 👨‍👧‍👦 👨‍👧‍👧 👩‍👦 👩‍👦‍👦 👩‍👧 👩‍👧‍👦 👩‍👧‍👧 🗣️ 👤 👥 🫂 👣 🦰 🦱 🦳 🦲 🍇 🍈 🍉 🍊 🍋 🍌 🍍 🥭 🍎 🍏 🍐 🍑 🍒 🍓 🫐 🥝 🍅 🫒 🥥 🥑 🍆 🥔 🥕 🌽 🌶️ 🫑 🥒 🥬 🥦 🧄 🧅 🍄 🥜 🫘 🌰 🍞 🥐 🥖 🫓 🥨 🥯 🥞 🧇 🧀 🍖 🍗 🥩 🥓 🍔 🍟 🍕 🌭 🥪 🌮 🌯 🫔 🥙 🧆 🥚 🍳 🥘 🍲 🫕 🥣 🥗 🍿 🧈 🧂 🥫 🍱 🍘 🍙 🍚 🍛 🍜 🍝 🍠 🍢 🍣 🍤 🍥 🥮 🍡 🥟 🥠 🥡 🦀 🦞 🦐 🦑 🦪 🍦 🍧 🍨 🍩 🍪 🎂 🍰 🧁 🥧 🍫 🍬 🍭 🍮 🍯 🍼 🥛 ☕ 🫖 🍵 🍶 🍾 🍷 🍸 🍹 🍺 🍻 🥂 🥃 🫗 🥤 🧋 🧃 🧉 🧊 🥢 🍽️ 🍴 🥄 🔪 🫙 🏺 🌍 🌎 🌏 🌐 🗺️ 🗾 🧭 🏔️ ⛰️ 🌋 🗻 🏕️ 🏖️ 🏜️ 🏝️ 🏞️ 🏟️ 🏛️ 🏗️ 🧱 🪨 🪵 🛖 🏘️ 🏚️ 🏠 🏡 🏢 🏣 🏤 🏥 🏦 🏨 🏩 🏪 🏫 🏬 🏭 🏯 🏰 💒 🗼 🗽 ⛪ 🕌 🛕 🕍 ⛩️ 🕋 ⛲ ⛺ 🌁 🌃 🏙️ 🌄 🌅 🌆 🌇 🌉 ♨️ 🎠 🛝 🎡 🎢 💈 🎪 🚂 🚃 🚄 🚅 🚆 🚇 🚈 🚉 🚊 🚝 🚞 🚋 🚌 🚍 🚎 🚐 🚑 🚒 🚓 🚔 🚕 🚖 🚗 🚘 🚙 🛻 🚚 🚛 🚜 🏎️ 🏍️ 🛵 🦽 🦼 🛺 🚲 🛴 🛹 🛼 🚏 🛣️ 🛤️ 🛢️ ⛽ 🛞 🚨 🚥 🚦 🛑 🚧 ⚓ 🛟 ⛵ 🛶 🚤 🛳️ ⛴️ 🛥️ 🚢 ✈️ 🛩️ 🛫 🛬 🪂 💺 🚁 🚟 🚠 🚡 🛰️ 🚀 🛸 🛎️ 🧳 ⌛ ⏳ ⌚ ⏰ ⏱️ ⏲️ 🕰️ 🕛 🕧 🕐 🕑 🕜 🕝 🕒 🕞 🕓 🕟 🕔 🕠 🕕 🕡 🕖 🕢 🕗 🕣 🕘 🕤 🕙 🕥 🕚 🕦 🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘 🌙 🌚 🌛 🌜 🌡️ ☀️ 🌝 🌞 🪐 ⭐ 🌟 🌠 🌌 ☁️ ⛅ ⛈️ 🌤️ 🌥️ 🌦️ 🌧️ 🌨️ 🌩️ 🌪️ 🌫️ 🌬️ 🌀 🌈 🌂 ☂️ ☔ ⛱️ ⚡ ❄️ ☃️ ⛄ ☄️ 🔥 💧 🌊 🎃 🎄 🎆 🎇 🧨 ✨ 🎈 🎉 🎊 🎋 🎍 🎎 🎏 🎐 🎑 🧧 🎀 🎁 🎗️ 🎟️ 🎫 🎖️ 🏆 🏅 🥇 🥈 🥉 ⚽ ⚾ 🥎 🏀 🏐 🏈 🏉 🎾 🥏 🎳 🏏 🏑 🏒 🥍 🏓 🏸 🥊 🥋 🥅 ⛳ ⛸️ 🎣 🤿 🎽 🎿 🛷 🥌 🎯 🪀 🪁 🎱 🔮 🪄 🧿 🪬 🎮 🕹️ 🎰 🎲 🧩 🧸 🪅 🪩 🪆 ♠️ ♥️ ♦️ ♣️ ♟️ 🃏 🀄 🎴 🎭 🖼️ 🎨 🧵 🪡 🧶 🪢 👓 🕶️ 🥽 🥼 🦺 👔 👕 👖 🧣 🧤 🧥 🧦 👗 👘 🥻 🩱 🩲 🩳 👙 👚 👛 👜 👝 🛍️ 🎒 🩴 👞 👟 🥾 🥿 👠 👡 🩰 👢 👑 👒 🎩 🎓 🧢 🪖 ⛑️ 📿 💄 💍 💎 🔇 🔈 🔉 🔊 📢 📣 📯 🔔 🔕 🎼 🎵 🎶 🎙️ 🎚️ 🎛️ 🎤 🎧 📻 🎷 🪗 🎸 🎹 🎺 🎻 🪕 🥁 🪘 📱 📲 ☎️ 📞 📟 📠 🔋 🪫 🔌 💻 🖥️ 🖨️ ⌨️ 🖱️ 🖲️ 💽 💾 💿 📀 🧮 🎥 🎞️ 📽️ 🎬 📺 📷 📸 📹 📼 🔍 🔎 🕯️ 💡 🔦 🏮 🪔 📔 📕 📖 📗 📘 📙 📚 📓 📒 📃 📜 📄 📰 🗞️ 📑 🔖 🏷️ 💰 🪙 💴 💵 💶 💷 💸 💳 🧾 💹 ✉️ 📧 📨 📩 📤 📥 📦 📫 📪 📬 📭 📮 🗳️ ✏️ ✒️ 🖋️ 🖊️ 🖌️ 🖍️ 📝 💼 📁 📂 🗂️ 📅 📆 🗒️ 🗓️ 📇 📉 📈 📊 📋 📌 📍 📎 🖇️ 📏 📐 ✂️ 🗃️ 🗄️ 🗑️ 🔒 🔓 🔏 🔐 🔑 🗝️ 🔨 🪓 ⛏️ ⚒️ 🛠️ 🗡️ ⚔️ 🔫 🪃 🏹 🛡️ 🪚 🔧 🪛 🔩 ⚙️ 🗜️ ⚖️ 🦯 🔗 ⛓️ 🪝 🧰 🧲 🪜 ⚗️ 🧪 🧫 🧬 🔬 🔭 📡 💉 🩸 💊 🩹 🩼 🩺 🩻 🚪 🛗 🪞 🪟 🛏️ 🛋️ 🪑 🚽 🪠 🚿 🛁 🪤 🪒 🧴 🧷 🧹 🧺 🧻 🪣 🧼 🫧 🪥 🧽 🧯 🛒 🚬 ⚰️ 🪦 ⚱️ 🗿 🪧 🪪 🏧 🚮 🚰 ♿ 🚹 🚺 🚻 🚼 🚾 🛂 🛃 🛄 🛅 ⚠️ 🚸 ⛔ 🚫 🚳 🚭 🚯 🚱 🚷 📵 🔞 ☢️ ☣️ ⬆️ ↗️ ➡️ ↘️ ⬇️ ↙️ ⬅️ ↖️ ↕️ ↔️ ↩️ ↪️ ⤴️ ⤵️ 🔃 🔄 🔙 🔚 🔛 🔜 🔝 🛐 ⚛️ 🕉️ ✡️ ☸️ ☯️ ✝️ ☦️ ☪️ ☮️ 🕎 🔯 ♈ ♉ ♊ ♋ ♌ ♍ ♎ ♏ ♐ ♑ ♒ ♓ ⛎ 🔀 🔁 🔂 ▶️ ⏩ ⏭️ ⏯️ ◀️ ⏪ ⏮️ 🔼 ⏫ 🔽 ⏬ ⏸️ ⏹️ ⏺️ ⏏️ 🎦 🔅 🔆 📶 📳 📴 ♀️ ♂️ ⚧️ ✖️ ➕ ➖ ➗ 🟰 ♾️ ‼️ ⁉️ ❓ ❔ ❕ ❗ 〰️ 💱 💲 ⚕️ ♻️ ⚜️ 🔱 📛 🔰 ⭕ ✅ ☑️ ✔️ ❌ ❎ ➰ ➿ 〽️ ✳️ ✴️ ❇️ ©️ ®️ ™️ #️⃣ *️⃣ 0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟 🔠 🔡 🔢 🔣 🔤 🅰️ 🆎 🅱️ 🆑 🆒 🆓 ℹ️ 🆔 Ⓜ️ 🆕 🆖 🅾️ 🆗 🅿️ 🆘 🆙 🆚 🈁 🈂️ 🈷️ 🈶 🈯 🉐 🈹 🈚 🈲 🉑 🈸 🈴 🈳 ㊗️ ㊙️ 🈺 🈵 🔴 🟠 🟡 🟢 🔵 🟣 🟤 ⚫ ⚪ 🟥 🟧 🟨 🟩 🟦 🟪 🟫 ⬛ ⬜ ◼️ ◻️ ◾ ◽ ▪️ ▫️ 🔶 🔷 🔸 🔹 🔺 🔻 💠 🔘 🔳 🔲 🏁 🚩 🎌 🏴 🏳️ 🏳️‍🌈 🏳️‍⚧️ 🏴‍☠️ 🇦🇨 🇦🇩 🇦🇪 🇦🇫 🇦🇬 🇦🇮 🇦🇱 🇦🇲 🇦🇴 🇦🇶 🇦🇷 🇦🇸 🇦🇹 🇦🇺 🇦🇼 🇦🇽 🇦🇿 🇧🇦 🇧🇧 🇧🇩 🇧🇪 🇧🇫 🇧🇬 🇧🇭 🇧🇮 🇧🇯 🇧🇱 🇧🇲 🇧🇳 🇧🇴 🇧🇶 🇧🇷 🇧🇸 🇧🇹 🇧🇻 🇧🇼 🇧🇾 🇧🇿 🇨🇦 🇨🇨 🇨🇩 🇨🇫 🇨🇬 🇨🇭 🇨🇮 🇨🇰 🇨🇱 🇨🇲 🇨🇳 🇨🇴 🇨🇵 🇨🇷 🇨🇺 🇨🇻 🇨🇼 🇨🇽 🇨🇾 🇨🇿 🇩🇪 🇩🇬 🇩🇯 🇩🇰 🇩🇲 🇩🇴 🇩🇿 🇪🇦 🇪🇨 🇪🇪 🇪🇬 🇪🇭 🇪🇷 🇪🇸 🇪🇹 🇪🇺 🇫🇮 🇫🇯 🇫🇰 🇫🇲 🇫🇴 🇫🇷 🇬🇦 🇬🇧 🇬🇩 🇬🇪 🇬🇫 🇬🇬 🇬🇭 🇬🇮 🇬🇱 🇬🇲 🇬🇳 🇬🇵 🇬🇶 🇬🇷 🇬🇸 🇬🇹 🇬🇺 🇬🇼 🇬🇾 🇭🇰 🇭🇲 🇭🇳 🇭🇷 🇭🇹 🇭🇺 🇮🇨 🇮🇩 🇮🇪 🇮🇱 🇮🇲 🇮🇳 🇮🇴 🇮🇶 🇮🇷 🇮🇸 🇮🇹 🇯🇪 🇯🇲 🇯🇴 🇯🇵 🇰🇪 🇰🇬 🇰🇭 🇰🇮 🇰🇲 🇰🇳 🇰🇵 🇰🇷 🇰🇼 🇰🇾 🇰🇿 🇱🇦 🇱🇧 🇱🇨 🇱🇮 🇱🇰 🇱🇷 🇱🇸 🇱🇹 🇱🇺 🇱🇻 🇱🇾 🇲🇦 🇲🇨 🇲🇩 🇲🇪 🇲🇫 🇲🇬 🇲🇭 🇲🇰 🇲🇱 🇲🇲 🇲🇳 🇲🇴 🇲🇵 🇲🇶 🇲🇷 🇲🇸 🇲🇹 🇲🇺 🇲🇻 🇲🇼 🇲🇽 🇲🇾 🇲🇿 🇳🇦 🇳🇨 🇳🇪 🇳🇫 🇳🇬 🇳🇮 🇳🇱 🇳🇴 🇳🇵 🇳🇷 🇳🇺 🇳🇿 🇴🇲 🇵🇦 🇵🇪 🇵🇫 🇵🇬 🇵🇭 🇵🇰 🇵🇱 🇵🇲 🇵🇳 🇵🇷 🇵🇸 🇵🇹 🇵🇼 🇵🇾 🇶🇦 🇷🇪 🇷🇴 🇷🇸 🇷🇺 🇷🇼 🇸🇦 🇸🇧 🇸🇨 🇸🇩 🇸🇪 🇸🇬 🇸🇭 🇸🇮 🇸🇯 🇸🇰 🇸🇱 🇸🇲 🇸🇳 🇸🇴 🇸🇷 🇸🇸 🇸🇹 🇸🇻 🇸🇽 🇸🇾 🇸🇿 🇹🇦 🇹🇨 🇹🇩 🇹🇫 🇹🇬 🇹🇭 🇹🇯 🇹🇰 🇹🇱 🇹🇲 🇹🇳 🇹🇴 🇹🇷 🇹🇹 🇹🇻 🇹🇼 🇹🇿 🇺🇦 🇺🇬 🇺🇲 🇺🇳 🇺🇸 🇺🇾 🇺🇿 🇻🇦 🇻🇨 🇻🇪 🇻🇬 🇻🇮 🇻🇳 🇻🇺 🇼🇫 🇼🇸 🇽🇰 🇾🇪 🇾🇹 🇿🇦 🇿🇲 🇿🇼");
+});
+
+document.getElementById("btn-block119").addEventListener("click", () => {
+  renderCharsFromString("Simbol", `A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i k j l m n o p q r s t u v w x y z 1 2 3 4 5 6 7 8 9 0 @ # $ _ & - + ( ) / * " ' : ; ! ? ~ \` | • √ π ÷ × ¶ ∆ £ ¢ € ¥ ^ ° = { } \\ % © ® ™ ✓ [ ]`);
+});
+
+
+
+
+document.getElementById("btn-block21").addEventListener("click", () => {
+  renderCharsFromString("Simbol", "ꁲ ꃳ ꏳ ꀷ ꑀ ꊯ ꁅ ꁝ ꒐ ꒑ ꈵ ꒒ ꂵ ꃔ ꊿ ꉣ ꋠ ꌅ ꈜ ꋖ ꌈ ꒦ ꅐ ꉤ ꐔ ꑒ ꍏ ꌃ ꏳ ꀷ ꏂ ꎇ ꁅ ꀍ ꀤ ꒻ ꀘ ꒒ ꎭ ꈤ ꂦ ᖘ ꆰ ꋪ ꌚ ꓄ ꀎ ꒦ ꅐ ꉧ ꌩ ꁴ ꋫ ꃲ ꉓ ꃸ ꑾ ꄘ ꁅ ꃄ ꒐ ꒑ ꀗ ꒒ ꂵ ꁹ ꄱ ꉣ ꋟ ꋪ ꇘ ꓅ ꌇ ꒦ ꅏ ꋋ ꌥ ꒗ Ꮧ Ᏸ Ꮄ Ꮛ ጀ Ꮆ Ꮒ Ꭵ Ꮰ Ꮶ Ꮭ Ꮇ Ꮑ Ꭷ Ꭾ Ꭴ Ꮢ Ꮥ Ꮦ Ꮼ Ꮙ Ꮗ ፈ Ꭹ ፚ");
+});
+
+document.getElementById("copy-message").style.display = "none"
+
+
+
+// ======================
+// LEFT - RIGHT
+// ======================
+function moveCaretLeft() {
+  const caret = document.getElementById("fake-caret");
+  const notes = document.getElementById("notes");
+  if (!caret || !notes) return;
+
+  const allNodes = Array.from(notes.childNodes).filter(n => n.id !== "fake-caret");
+  const currentIndex = allNodes.indexOf(caret.previousSibling);
+  const newIndex = currentIndex - 1;
+
+  if (newIndex < 0) {
+    notes.appendChild(caret); // wrap ke akhir
+  } else {
+    allNodes[newIndex].after(caret);
+  }
+}
+
+function moveCaretRight() {
+  const caret = document.getElementById("fake-caret");
+  const notes = document.getElementById("notes");
+  if (!caret || !notes) return;
+
+  const allNodes = Array.from(notes.childNodes).filter(n => n.id !== "fake-caret");
+  const currentIndex = allNodes.indexOf(caret.previousSibling);
+  const newIndex = currentIndex + 1;
+
+  if (newIndex >= allNodes.length) {
+    notes.prepend(caret); // wrap ke awal
+  } else {
+    allNodes[newIndex].after(caret);
+  }
+}
+
+// ======================
+// UP - DOWN (visual)
+// ======================
+
+function moveCaretUp() {
+  const caret = document.getElementById("fake-caret");
+  if (!caret) return;
+
+  const caretRect = caret.getBoundingClientRect();
+  const caretX = caretRect.left + caretRect.width / 2;
+  const caretY = caretRect.top;
+
+  const range = document.caretRangeFromPoint
+    ? document.caretRangeFromPoint(caretX, caretY - 5)
+    : document.caretPositionFromPoint(caretX, caretY - 5); // fallback
+
+  if (!range) return;
+
+  placeCaretAtRange(range, caret);
+}
+
+function moveCaretDown() {
+  const caret = document.getElementById("fake-caret");
+  if (!caret) return;
+
+  const caretRect = caret.getBoundingClientRect();
+  const caretX = caretRect.left + caretRect.width / 2;
+  const caretY = caretRect.bottom;
+
+  const range = document.caretRangeFromPoint
+    ? document.caretRangeFromPoint(caretX, caretY + 5)
+    : document.caretPositionFromPoint(caretX, caretY + 5); // fallback
+
+  if (!range) return;
+
+  placeCaretAtRange(range, caret);
+}
+
+function placeCaretAtRange(range, caret) {
+  if (range.startContainer.nodeType === 3) {
+    const textNode = range.startContainer;
+    const offset = range.startOffset;
+    const newText = textNode.textContent;
+
+    const before = document.createTextNode(newText.slice(0, offset));
+    const after = document.createTextNode(newText.slice(offset));
+    const parent = textNode.parentNode;
+
+    parent.replaceChild(after, textNode);
+    parent.insertBefore(before, after);
+    parent.insertBefore(caret, after);
+  } else {
+    const container = range.startContainer;
+    if (container.childNodes.length > range.startOffset) {
+      container.insertBefore(caret, container.childNodes[range.startOffset]);
+    } else {
+      container.appendChild(caret);
+    }
+  }
+}
+
+
+</script>
+
+
+
+
+
+
+<script>
+document.querySelectorAll(".key-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.classList.add("blink");
+    setTimeout(() => {
+      btn.classList.remove("blink");
+    }, 100); // durasi animasi (0.4s * 2 kali)
+  });
+});
+</script>
+<script>
+  const toggleBtn = document.getElementById('darkModeToggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
+<script>
+  document.body.style.overflow = "hidden";
+
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+
+    setTimeout(() => {
+      preloader.classList.add("blur-out");
+
+      setTimeout(() => {
+        preloader.style.display = "none";
+        document.body.style.overflow = "auto";
+      }, 600);
+    }, 600);
+  });
+  
+  
+</script>
+
+</body>
+</html>
