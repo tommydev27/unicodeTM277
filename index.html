@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -509,60 +510,7 @@
       color: #22d607;
     }
     
-    #preloader {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100vh;
-    
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      transition: opacity 50s ease;
-    }
-    
-    .dot-loader {
-      display: flex;
-      gap: 8px;
-    }
-    
-    .dot-loader span {
-      width: 8px;
-      height: 8px;
-      background: #1b74e4;
-      border-radius: 50%;
-      opacity: 0;
-      animation: blink 1.5s infinite;
-    }
-    
-    .dot-loader span:nth-child(1) {
-      animation-delay: 0.1s;
-    }
-    
-    .dot-loader span:nth-child(2) {
-      animation-delay: 0.3s;
-    }
-    
-    .dot-loader span:nth-child(3) {
-      animation-delay: 0.6s;
-    }
-    
-    .dot-loader span:nth-child(4) {
-      animation-delay: 0.9s;
-    }
-    
-    .dot-loader span:nth-child(5) {
-      animation-delay: 1.2s;
-    }
-    
-    @keyframes blink {
-      0% { opacity: 0; }
-      20% { opacity: 1; }
-      40% { opacity: 0; }
-      100% { opacity: 0; }
-    }
-    
+
     #fake-caret {
       width: 2px;
       height: 1.2em;
@@ -592,24 +540,52 @@
     }
 
   </style>
-  </head>
-      <body>
+  
+    <style>
 
-    <div id="preloader">
-      <div style="position: absolute; top: -48px; left: 40px; transform: translateX(-50%);">
-        <span class="native-text" style="color:#1b74e4; font-size: 40px; vertical-align: 1px; font-weight: normal;">󰟰</span>
-      </div>
-    
-      <div style="display: flex; justify-content: center; align-items: center; margin-left: -46px;">
-        <div class="dot-loader">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
+    #preloader {
+      background: ;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100vh;
+    }
+
+    /* Spinner */
+    .spinner {
+      width: 10px;
+      height: 10px;
+      border: 5px solid #ddd;
+      border-top: 5px solid #1b74e4;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    /* Animasi berputar */
+    @keyframes spin {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="preloader">
+    <div class="spinner"></div>
+  </div>
+
+  <script>
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("preloader").style.display = "none";
+        document.getElementById("content").style.display = "block";
+      }, 3000); // 3000ms = 3 detik
+    });
+  </script>
 
       <div id="main-container">
        <div style="display: flex; gap: 12px; color: #007bff; font-size: 20px; ">
@@ -1355,8 +1331,11 @@ document.getElementById("btn-block4").addEventListener("click", () => {
   renderCharsFromString("Simbol", "🄐 🄑 🄒 🄓 🄔 🄕 🄖 🄗 🄘 🄙 🄚 🄛 🄜 🄝 🄞 🄟 🄠 🄡 🄢 🄣 🄤 🄥 🄦 🄧 🄨 🄩 🄪 ⒜ ⒝ ⒞ ⒟ ⒠ ⒡ ⒢ ⒣ ⒤ ⒥ ⒦ ⒧ ⒨ ⒩ ⒪ ⒫ ⒬ ⒭ ⒮ ⒯ ⒰ ⒱ ⒲ ⒳ ⒴ ⒵");
 });
 document.getElementById("btn-block5").addEventListener("click", () => {
-  renderCharsFromString("Simbol", "Ａ Ｂ Ｃ Ｄ Ｅ Ｆ Ｇ Ｈ Ｉ Ｊ Ｋ Ｌ Ｍ Ｎ Ｏ Ｐ Ｑ Ｒ Ｓ Ｔ Ｕ Ｖ Ｗ Ｘ Ｙ Ｚ ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ ＠ ＃ ＄ ％ ＆ － ＋ （ ） ＜ ＞ ［ ］ ０ １ ２ ３ ４ ５ ６ ７ ８ ９");
+  const string = "ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ＠＃＄％＆－￣＿﹏﹋︵︶＼／＋（）＜＞［］０１２３４５６７８９";
+  const spaced = string.split('').join('\u2009'); // Thin space antar karakter
+  renderCharsFromString("Simbol", spaced);
 });
+
 document.getElementById("btn-block7").addEventListener("click", () => {
   renderCharsFromString("Simbol", "𝓐 𝓑 𝓒 𝓓 𝓔 𝓕 𝓖 𝓗 𝓘 𝓙 𝓚 𝓛 𝓜 𝓝 𝓞 𝓟 𝓠 𝓡 𝓢 𝓣 𝓤 𝓥 𝓦 𝓧 𝓨 𝓩 𝓪 𝓫 𝓬 𝓭 𝓮 𝓯 𝓰 𝓱 𝓲 𝓳 𝓴 𝓵 𝓶 𝓷 𝓸 𝓹 𝓺 𝓻 𝓼 𝓽 𝓾 𝓿 𝓼 𝔀 𝔁 𝔂 𝔃 𝒜 ℬ 𝒞 𝒟 ℰ ℱ 𝒢 ℋ ℐ 𝒥 𝒦 ℒ ℳ 𝒩 𝒪 𝒫 𝒬 ℛ 𝒮 𝒯 𝒰 𝒱 𝒲 𝒳 𝒴 𝒵 𝒶 𝒷 𝒸 𝒹 ℯ 𝒻 ℊ 𝒽 𝒾 𝒿 𝓀 𝓁 𝓂 𝓃 ℴ 𝓅 𝓆 𝓇 𝓈 𝓉 𝓊 𝓋 𝓌 𝓍 𝓎 𝓏");
 });
@@ -1379,7 +1358,7 @@ document.getElementById("btn-block19").addEventListener("click", () => {
   renderCharsFromString("Simbol", "ᗩ ᗷ ᑕ ᗪ ᗴ ᖴ ᘜ ᕼ I ᒍ K ᒪ ᗰ ᑎ O ᑭ ᑫ ᖇ Տ T ᑌ ᐯ ᗯ ᙭ Y ᘔ 卂 丨 乃 匚 ᗪ 乇 千 ᘜ 卄 | ﾌ Ҝ ㄥ 爪 几 ㄖ 卩 Ҩ 尺 丂 ㄒ ㄩ ᐯ 山 乂 ㄚ 乙 ል ጌ ር ዕ ቿ ቻ ኗ ዘ ጎ ጋ ጕ ረ ጠ ሸ ዐ የ ዒ ዪ ነ ቿ ሁ ሀ ሠ ሸ ሃ ጊ Ꭺ Ꮯ Ꭰ Ꭼ Ꮆ Ꭵ Ꮶ Ꮮ Ꮑ Ꮎ Ꮲ Ꮢ Ꮖ Ꮙ Ꮃ Ꮍ Ꮓ");
 });
 document.getElementById("btn-block22").addEventListener("click", () => {
-  renderCharsFromString("Simbol", "ネ ノ ハ バ パ ヒ ビ ピ フ ブ プ ヘ ベ ペ ホ ボ ポ マ ミ ム メ モ ャ ヤ ュ ユ ョ ヨ ラ リ ル レ ロ ヮ ワ ヰ ヱ ヲ ン ヴ ヰ ヱ ヲ ン ヴ ヵ ヶ ヷ ヸ ヹ ヺ ・ ー ヽ ヾ ヿ ㍐ ㍿ ぁ あ ぃ い ぅ う ぇ え ぉ お か が き ぎ く ぐ け げ こ ご さ ざ し じ す ず せ ぜ そ ぞ た だ ち ぢ っ つ づ て で と ど な に ぬ ね の は ば ぱ ひ び ぴ ふ ぶ ぷ へ べ ぺ ほ ぼ ぽ ま み む め も ゃ や ゅ ゆ ょ よ ら り る れ を ゎ わ ゐ ゑ を ん ゔ ゕ ゖ ゚ ゛ ゜ ゝ ゞ ゟ ゠ ァ ア ィ イ ゥ ウェ エ ォ オ カ ガ キ ギ ク グ ケ ゲ コ ゴ サ ザ シ ジ ス ズ セ ゼ ソ ゾ タ ダ チ ヂ ッ ツ ヅ テ デ ト ド ナ ニ ヌ ⺀ ⺁ ⺂ ⺃ ⺄ ⺅ ⺆ ⺇ ⺈ ⺉ ⺊ ⺋ ⺌ ⺍ ⺎ ⺏ ⺐ ⺑ ⺒ ⺓ ⺔ ⺕ ⺖ ⺗ ⺘ ⺙ ⺛ ⺜ ⺝ ⺞ ⺟ ⺠ ⺡ ⺢ ⺣ ⺤ ⺥ ⺦ ⺧ ⺨ ⺩ ⺪ ⺫ ⺬ ⺭ ⺮ ⺯ ⺰ ⺱ ⺲ ⺳ ⺴ ⺵ ⺶ ⺷ ⺸ ⺹ ⺺ ⺻ ⺼ ⺽ ⺾ ⺿ ⻀ ⻁ ⻂ ⻃ ⻄ ⻅ ⻆ ⻇ ⻈ ⻉ ⻊ ⻋ ⻌ ⻍ ⻎ ⻏ ⻐ ⻑ ⻒ ⻓ ⻔ ⻕ ⻖ ⻗ ⻘ ⻙ ⻚ ⻛ ⻜ ⻝ ⻞ ⻟ ⻠ ⻡ ⻢ ⻣ ⻤ ⻥ ⻦ ⻧ ⻨ ⻩ ⻪ ⻫ ⻬ ⻭ ⻮ ⻯ ⻰ ⻱ ⻲ ⻳ ⼀ ⼁ ⼂ ⼃ ⼄ ⼅ ⼆ ⼇ ⼈ ⼉ ⼊ ⼋ ⼌ ⼍ ⼎ ⼏ ⼐ ⼑ ⼒ ⼓ ⼔ ⼕ ⼖ ⼗ ⼘ ⼙ ⼚ ⼛ ⼜ ⼝ ⼞ ⼟ ⼠ ⼡ ⼢ ⼣ ⼤ ⼥ ⼦ ⼧ ⼨ ⼩ ⼪ ⼫ ⼬ ⼭ ⼮ ⼯ ⼰ ⼱ ⼲ ⼳ ⼴ ⼵ ⼶ ⼷ ⼸ ⼹ ⼺ ⼻ ⼼ ⼽ ⼾ ⼿ ⽀ ⽁ ⽂ ⽃ ⽄ ⽅ ⽆ ⽇ ⽈ ⽉ ⽊ ⽋ ⽌ ⽍ ⽎ ⽏ ⽐ ⽑ ⽒ ⽓ ⽔ ⽕ ⽖ ⽗ ⽘ ⽙ ⽚ ⽛ ⽜ ⽝ ⽞ ⽟ ⽠ ⽡ ⽢ ⽣ ⽤ ⽥ ⽦ ⽧ ⽨ ⽩ ⽪ ⽫ ⽬ ⽭ ⽮ ⽯ ⽰ ⽱ ⽲ ⽳ ⽴ ⽵ ⽶ ⽷ ⽸ ⽹ ⽺ ⽻ ⽼ ⽽ ⽾ ⽿ ⾀ ⾁ ⾂ ⾃ ⾄ ⾅ ⾆ ⾇ ⾈ ⾉ ⾊ ⾋ ⾌ ⾍ ⾎ ⾏ ⾐ ⾑ ⾒ ⾓ ⾔ ⾕ ⾖ ⾗ ⾘ ⾙ ⾚ ⾛ ⾜ ⾝ ⾞ ⾟ ⾠ ⾡ ⾢ ⾣ ⾤ ⾥ ⾦ ⾧ ⾨ ⾩ ⾪ ⾫ ⾬ ⾭ ⾮ ⾯ ⾰ ⾱ ⾲ ⾳ ⾴ ⾵ ⾶ ⾷ ⾸ ⾹ ⾺ ⾻ ⾼ ⾽ ⾾ ⾿ ⿀ ⿁ ⿂ ⿃ ⿄ ⿅ ⿆ ⿇ ⿈ ⿉ ⿊ ⿋ ⿌ ⿍ ⿎ ⿏ ⿐ ⿑ ⿒ ⿓ ⿔ ⿕ ゛ ゜ ㆐ ㆑ ㆖ ㆗ ㆘ ㆙ ㆚ ㆛ ㆜ ㆝ ㆞ ㆟ ㇀ ㇁ ㇂ ㇃ ㇄ ㇅ ㇆ ㇇ ㇈ ㇉ ㇊ ㇋ ㇌ ㇍ ㇎ ㇏ ㇐ ㇑ ㇒ ㇓ ㇔ ㇕ ㇖ ㇗ ㇘ ㇙ ㇚ ㇛ ㇜ ㇝ ㇞ ㇟ ㇠ ㇡ ㇢ ㇣");
+  renderCharsFromString("Simbol", "卝 ネ ノ ハ バ パ ヒ ビ ピ フ ブ プ ヘ ベ ペ ホ ボ ポ マ ミ ム メ モ ャ ヤ ュ ユ ョ ヨ ラ リ ル レ ロ ヮ ワ ヰ ヱ ヲ ン ヴ ヰ ヱ ヲ ン ヴ ヵ ヶ ヷ ヸ ヹ ヺ ・ ー ヽ ヾ ヿ ㍐ ㍿ ぁ あ ぃ い ぅ う ぇ え ぉ お か が き ぎ く ぐ け げ こ ご さ ざ し じ す ず せ ぜ そ ぞ た だ ち ぢ っ つ づ て で と ど な に ぬ ね の は ば ぱ ひ び ぴ ふ ぶ ぷ へ べ ぺ ほ ぼ ぽ ま み む め も ゃ や ゅ ゆ ょ よ ら り る れ を ゎ わ ゐ ゑ を ん ゔ ゕ ゖ ゚ ゛ ゜ ゝ ゞ ゟ ゠ ァ ア ィ イ ゥ ウェ エ ォ オ カ ガ キ ギ ク グ ケ ゲ コ ゴ サ ザ シ ジ ス ズ セ ゼ ソ ゾ タ ダ チ ヂ ッ ツ ヅ テ デ ト ド ナ ニ ヌ ⺀ ⺁ ⺂ ⺃ ⺄ ⺅ ⺆ ⺇ ⺈ ⺉ ⺊ ⺋ ⺌ ⺍ ⺎ ⺏ ⺐ ⺑ ⺒ ⺓ ⺔ ⺕ ⺖ ⺗ ⺘ ⺙ ⺛ ⺜ ⺝ ⺞ ⺟ ⺠ ⺡ ⺢ ⺣ ⺤ ⺥ ⺦ ⺧ ⺨ ⺩ ⺪ ⺫ ⺬ ⺭ ⺮ ⺯ ⺰ ⺱ ⺲ ⺳ ⺴ ⺵ ⺶ ⺷ ⺸ ⺹ ⺺ ⺻ ⺼ ⺽ ⺾ ⺿ ⻀ ⻁ ⻂ ⻃ ⻄ ⻅ ⻆ ⻇ ⻈ ⻉ ⻊ ⻋ ⻌ ⻍ ⻎ ⻏ ⻐ ⻑ ⻒ ⻓ ⻔ ⻕ ⻖ ⻗ ⻘ ⻙ ⻚ ⻛ ⻜ ⻝ ⻞ ⻟ ⻠ ⻡ ⻢ ⻣ ⻤ ⻥ ⻦ ⻧ ⻨ ⻩ ⻪ ⻫ ⻬ ⻭ ⻮ ⻯ ⻰ ⻱ ⻲ ⻳ ⼀ ⼁ ⼂ ⼃ ⼄ ⼅ ⼆ ⼇ ⼈ ⼉ ⼊ ⼋ ⼌ ⼍ ⼎ ⼏ ⼐ ⼑ ⼒ ⼓ ⼔ ⼕ ⼖ ⼗ ⼘ ⼙ ⼚ ⼛ ⼜ ⼝ ⼞ ⼟ ⼠ ⼡ ⼢ ⼣ ⼤ ⼥ ⼦ ⼧ ⼨ ⼩ ⼪ ⼫ ⼬ ⼭ ⼮ ⼯ ⼰ ⼱ ⼲ ⼳ ⼴ ⼵ ⼶ ⼷ ⼸ ⼹ ⼺ ⼻ ⼼ ⼽ ⼾ ⼿ ⽀ ⽁ ⽂ ⽃ ⽄ ⽅ ⽆ ⽇ ⽈ ⽉ ⽊ ⽋ ⽌ ⽍ ⽎ ⽏ ⽐ ⽑ ⽒ ⽓ ⽔ ⽕ ⽖ ⽗ ⽘ ⽙ ⽚ ⽛ ⽜ ⽝ ⽞ ⽟ ⽠ ⽡ ⽢ ⽣ ⽤ ⽥ ⽦ ⽧ ⽨ ⽩ ⽪ ⽫ ⽬ ⽭ ⽮ ⽯ ⽰ ⽱ ⽲ ⽳ ⽴ ⽵ ⽶ ⽷ ⽸ ⽹ ⽺ ⽻ ⽼ ⽽ ⽾ ⽿ ⾀ ⾁ ⾂ ⾃ ⾄ ⾅ ⾆ ⾇ ⾈ ⾉ ⾊ ⾋ ⾌ ⾍ ⾎ ⾏ ⾐ ⾑ ⾒ ⾓ ⾔ ⾕ ⾖ ⾗ ⾘ ⾙ ⾚ ⾛ ⾜ ⾝ ⾞ ⾟ ⾠ ⾡ ⾢ ⾣ ⾤ ⾥ ⾦ ⾧ ⾨ ⾩ ⾪ ⾫ ⾬ ⾭ ⾮ ⾯ ⾰ ⾱ ⾲ ⾳ ⾴ ⾵ ⾶ ⾷ ⾸ ⾹ ⾺ ⾻ ⾼ ⾽ ⾾ ⾿ ⿀ ⿁ ⿂ ⿃ ⿄ ⿅ ⿆ ⿇ ⿈ ⿉ ⿊ ⿋ ⿌ ⿍ ⿎ ⿏ ⿐ ⿑ ⿒ ⿓ ⿔ ⿕ ゛ ゜ ㆐ ㆑ ㆖ ㆗ ㆘ ㆙ ㆚ ㆛ ㆜ ㆝ ㆞ ㆟ ㇀ ㇁ ㇂ ㇃ ㇄ ㇅ ㇆ ㇇ ㇈ ㇉ ㇊ ㇋ ㇌ ㇍ ㇎ ㇏ ㇐ ㇑ ㇒ ㇓ ㇔ ㇕ ㇖ ㇗ ㇘ ㇙ ㇚ ㇛ ㇜ ㇝ ㇞ ㇟ ㇠ ㇡ ㇢ ㇣");
 });
 document.getElementById("btn-block15").addEventListener("click", () => {
   renderCharsFromString("Simbol", "𝙰 𝙱 𝙲 𝙳 𝙴 𝙵 𝙶 𝙷 𝙸 𝙹 𝙺 𝙻 𝙼 𝙽 𝙾 𝙿 𝚀 𝚁 𝚂 𝚃 𝚄 𝚅 𝚆 𝚇 𝚈 𝚉 𝚊 𝚋 𝚌 𝚍 𝚎 𝚏 𝚐 𝚝 𝚞 𝚟 𝚠 𝚡 𝚢 𝚣 ͣ ͤ ͥ ͦ ͧ ͨ ͩ ͪ ͫ ͬ ͭ ͮ ͯ ᴀ ʙ ᴄ ᴅ ᴇ ғ ɢ ʜ ɪ ᴊ ᴋ ʟ ᴍ ɴ ᴏ ᴘ ǫ ʀ s ᴛ ᴜ ᴠ ᴡ x ʏ ᴢ ᵃ ᵇ ᶜ ᵈ ᵉ ᶠ ᵍ ʰ ⁱ ʲ ᵏ ˡ ᵐ ⁿ ᵒ ᵖ ᵠ ʳ ˢ ᵗ ᵘ ᵛ ʷ ˣ ʸ ᶻ а ә ӕ ҕ в г ґ ғ ҕ д ԁ ђ ԃ ҙ е є җ з ԅ ѕ ӡ ԇ и ҋ і ј к қ ӄ ҡ ҟ ҝ л ӆ љ ԉ м ӎ н ӊ ң ӈ ҥ њ ԋ о ө п ҧ ҁ р ҏ с ԍ у ү ұ ѹ ф ѽ ѻ ц ҵ ч ҷ ӌ ҹ ҽ ҿ џ ш щ ъ ы ь ҍ ѧ ѫ ѩ ѭ ѱ ѳ ѵ ᶏ ᶐ Ⱥ ａ Ａ ᴬ ᵃ ª ᶛ ᵆ ᵄ ᵅ ₐ ᴭ ᴁ ᴂ ᴀ Å ẚ ∆ ∀ α Λ ɐ ɑ ɒ á à ă ắ ằ ẵ ẳ â ấ ầ ẫ ẩ ǎ å ǻ ä ā ả ȁ ȃ ạ ặ ả ȁ ȃ ạ ặ ặ ậ ḁ ǽ ǣ ᶀ ᵬ ｂ Ｂ ᴮ ᵇ ᴯ ᴃ þ ß ƀ Ɓ Ƅ ɓ ɞ ɮ ʙ ҍ Ᏸ ℬ β ḃ ḅ ḇ ᶗ Ȼ ȼ ｃ Ｃ ᶜ ᵓ ᶝ ᴐ ᴒ ᴖ ᵔ ᴗ ᵕ ᴄ © ¢ € Ƈ ɕ ʗ ℂ Č ☪ ℭ ς Ç ć ĉ č ċ ç ḉ ᶑ ᶁ ᵭ ｄ Ｄ ᴰ ᵈ ᶞ ᴅ ȡ ᴆ ǳ ǲ Ǳ ǆ ǅ Ǆ ∂ ɗ ð ď ḋ ḑ ḍ ḓ ḏ ᶒ ᶓ ᶔ ᶕ ᴲ ᵊ ᵋ ᵌ ₑ ₔ ∊ ∈ ᴇ ᴈ Ξ ∃ Ə Ɛ Ǝ ε Σ Ƹ ƺ ɘ ə ξ э ҿ ཇ ℰ ℯ ﾐ € ع έ ɚ é è ĕ ê ế ề ễ ể ě ë ẽ ė ȩ ḝ ę ē ḗ ḕ ẻ ȅ ȇ ẹ ệ ḙ ḛ ᶘ ᶂ ᶋ ᵮ ｆ Ｆ ᶠ ﬂ Ƒ ƒ ℱ ʄ ḟ ᶃ ｇ Ｇ ᴳ ᵍ ᶢ Ɠ Ǥ ǥ ɠ ɡ ɢ ʛ ց Ꮆ ջ ❡ ǵ ğ ĝ ǧ ġ ģ ḡ ｈ Ｈ ʰ ʱ ᴴ ᵸ ᶣ ħ ƕ Ƕ ɦ ɧ ʜ ђ Ᏺ ℋ ℌ ｻ Ҥ Ħ ℏ ĥ ȟ ḧ ḣ ḩ ḥ ḫ ẖ ᶖ ｉ Ｉ ᶧ ᴉ ᵎ ᵎ ⁱ ϊ أ ར ¡ ɩ ĳ Ĳ ᵻ Ɨ ɨ ɪ í ì ĭ î ǐ ï ḯ ĩ į ī ỉ ȉ ȋ ị ḭ ｊ Ｊ ᴶ ʲ ᴊ ᶨ ᶡ ǰ ʝ ز ჟ ĵ ǰ ȷ Ꮰ ᶄ ｋ Ｋ ᴷ ᵏ ᴋ κ Ƙ ƙ ʞ ϗ ҡ ḱ ǩ ķ ḳ ḵ ᶅ Ƚ ｌ Ｌ ᴌ ˡ ᶩ ᶪ ᶫ ǈ ȴ ŀ Ŀ ǉ ǈ Ǉ 廴 £ Ɩ ƪ ɫ ɭ ʆ ʟ Ꮭ ℒ ℓ Ł ₤ ĺ ľ ļ ḷ ḹ ḽ ḻ ᶆ ᵯ ｍ Ｍ ᴹ ᵐ ᶬ ᶭ ᴍ м Ɯ ɱ ʍ ℳ ɷ ḿ ṁ ṃ ᶇ ᵰ ｎ Ｎ ᶰ ⁿ ᴺ ᴻ ᵑ ᶮ ᶯ ᴎ ȵ ǌ ǋ Ǌ ղ ή и η Ɲ ƞ ɲ ɳ ɴ Ϟ ℕ ϰ സ Ո ท ռ ♑ ń ǹ ň ñ ṅ ņ ṇ ṋ ṉ ｏ Ｏ ᴼ ᵒ ᶱ ᶲ ᶿ ₒ ᴏ ᴑ ᴔ ᴓ Θ ᴽ ᴕ º ° ö © ⊙ ō ◐ ◕ ✹ ✪ ☢ ❂ ❍ σ ø ѻ ◯ ó ò ŏ ô ố ồ ỗ ổ ö ȫ ő õ ṍ ṏ ȭ ȯ ȱ ǫ ȍ ȏ ơ ớ ờ ỡ ở ợ ọ ộ ǿ ᶈ ᵽ ᵱ ｐ Ｐ ᴾ ᵖ ᴘ ¶ ρ φ Þ þ Ƥ ƥ ƿ բ ք ℙ ₱ ℘ ṕ ṗ Ꭾ ʠ Ｑ ᵠ Ǫ ǫ ʠ ϥ ℚ ҩ Ҩ ᶉ ᵲ ᵳ ｒ ʶ ᴿ ʳ ᴚ ® Ʀ ɼ ɽ ℝ ℞ я Ř ŕ ř ṙ ŗ ȑ ȓ ṛ ṝ ṟ ᶊ ᵴ ȿ ｓ Ｓ ˢ ᶳ § ẛ ﬆ ﬅ ₷ § ∫ Ƨ ƨ ʂ ʃ ʅ ϛ ֆ ى Ꭶ ʂ Ş $ ی ś ṥ ŝ š ṧ ṡ ş ṣ ṩ ș ᵵ ᵺ ᵼ Ⱦ ｔ Ｔ ᵀ ᵗ ᶵ ᴛ ȶ ح Շ π ŧ Ŧ ƫ Ƭ ƭ Ʈ ǂ ʇ ʈ τ Ϯ ϯ ｨ է ɬ ł ♈ ζ ե Ť ť ẗ ṫ ţ ṭ ț ṱ ṯ ᶙ ᵾ ᵤ ｕ Ｕ ᵁ ᵘ ᵤ ᶶ ᶷ ᶸ ᶹ ᴜ ᴝ ᵙ ᴞ ᵫ ʮ ʯ ʉ ʊ ʋ ŭ ϋ և ú ù ŭ û ǔ ǖ ű ũ ṹ ų ū ṻ ủ ȕ ȗ ư ứ ừ ữ ử ự ụ ṳ ṷ ṵ ๖ ۣ ۜ V ᶌ ｖ Ｖ ᵛ ᵥ ᶺ ᴠ ϑ Ʋ ʋ ν Ѵ ѵ ҩ Ҩ ℣ ✓ Ѷ ṽ ṿ ｗ Ｗ ᵂ ʷ ᵚ ᴟ ᴡ ψ ω ϖ Ɯ ʍ Ѡ ѡ ཡ Ꮚ Ꮤ Ϣ ẃ ẁ ŵ ẘ ẅ ẇ ẉ ᶍ ｘ Ｘ ᵡ ɤ × ˣ ₓ Ҳ ɤ χ ℵ 乂 ✘ メ ẍ ẋ ｙ Ｙ ʸ ˠ ϒ Ÿ Ƴ ƴ γ ʎ ʏ ¥ უ ყ ý ỳ ŷ ẙ ÿ ๖ ۣ ۜ Z ẏ ȳ ᵶ ỵ ᶚ ᶎ ᵶ ᶻ ᶼ ᶽ ᶾ ɀ ｚ Ｚ ᴢ ᴣ ᴤ ŉ ζ ☡ Ƶ ƶ Ȥ ȥ ʐ ʑ Հ ℤ ʓ ح ź ẑ Ⓐ ɐ q ɔ p ǝ ɟ ƃ ɥ ᴉ ɾ ʞ l ɯ u o d b ɹ s ʇ n ʌ ʍ x ʎ z");
