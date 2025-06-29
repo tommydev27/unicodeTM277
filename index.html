@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -994,7 +995,7 @@
   // Ambil teks bersih tanpa glitch
   let total = 0;
   charNodes.forEach((node) => {
-    node.textContent = node.textContent.replace(/̳̿/g, ''); // bersihkan glitch lama
+    node.textContent = node.textContent.replace(/͟͞/g, ''); // bersihkan glitch lama
     total += node.textContent.length;
   });
 
@@ -1007,7 +1008,7 @@
     let newText = '';
     for (const ch of node.textContent) {
       if (count < strikeLength) {
-        newText += ch + '̳̿';
+        newText += ch + '͟͞';
         count++;
       } else {
         newText += ch;
@@ -1042,16 +1043,32 @@ function updateStrikethroughPercentage() {
     const chars = [...node.textContent];
     const fragment = document.createDocumentFragment();
 
-    for (const ch of chars) {
-      const span = document.createElement("span");
-      span.className = "native-text";
+for (const node of nodes) {
+  if (node.id === "fake-caret") continue;
+
+  // Hapus garis tengah Unicode sebelumnya
+  node.textContent = node.textContent.replace(/\u0338/g, '');
+
+  const chars = [...node.textContent];
+  const fragment = document.createDocumentFragment();
+
+  for (const ch of chars) {
+    const span = document.createElement("span");
+    span.className = "native-text";
+
+    if (count < maxStrike) {
+      span.textContent = ch + '̸';
+    } else {
       span.textContent = ch;
-      if (count < maxStrike) {
-        span.style.textDecoration = "line-through";
-      }
-      fragment.appendChild(span);
-      count++;
     }
+
+    fragment.appendChild(span);
+    count++;
+  }
+
+  node.replaceWith(fragment);
+}
+
 
     node.replaceWith(fragment);
   }
@@ -1071,7 +1088,8 @@ function updateCounter() {
   let charCount = 0;
   const walker = document.createTreeWalker(notes, NodeFilter.SHOW_TEXT, null, false);
   while (walker.nextNode()) {
-    charCount += walker.currentNode.textContent.length;
+    charCount += Array.from(walker.currentNode.textContent).length;
+
   }
 
   const raw = notes.innerHTML;
@@ -1322,7 +1340,7 @@ document.getElementById("btn-block1").addEventListener("click", () => {
   renderCharsFromString("Simbol", "🅐 🅑 🅒 🅓 🅔 🅕 🅖 🅗 🅘 🅙 🅚 🅛 🅜 🅝 🅞 🅟 🅠 🅡 🅢 🅣 🅤 🅥 🅦 🅧 🅨 🅩 Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ ⓐ ⓑ ⓒ ⓓ ⓔ ⓕ ⓖ ⓗ ⓘ ⓙ ⓚ ⓛ ⓜ ⓝ ⓞ ⓟ ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ");
 });
 document.getElementById("btn-block2").addEventListener("click", () => {
-  renderCharsFromString("Simbol", "⓿ ❶ ❷ ❸ ❹ ❺ ❻ ❼ ❽ ❾ ❿ ⓫ ⓬ ⓭ ⓮ ⓯ ⓰ ⓱ ⓲ ⓳ ⓴ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ⓵ ⓶ ⓷ ⓸ ⓹ ⓺ ⓻ ⓼ ⓽ ⓾ ⑴ ⑵ ⑶ ⑷ ⑸ ⑹ ⑺ ⑻ ⑼ ⑽ ⑾ ⑿ ⒀ ⒁ ⒂ ⒃ ⒄ ⒅ ⒆ ⒇ ０ １ ２ ３ ４ ５ ６ ７ ８ ９ ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ⒈ ⒉ ⒊ ⒋ ⒌ ⒍ ⒎ ⒏ ⒐ ⒑ ⒒ ⒓ ⒔ ⒕ ⒖ ⒗ ⒘ ⒙ ⒚ ⒛ ↉ ½ ⅓ ¼ ⅕ ⅙ ⅐ ⅛ ⅑ ⅒ ⅔ ⅖ ¾ ⅗ ⅜ ⅘ ⅚ ⅝ ⅞ ㊊ ㊋ ㊌ ㊍ ㊎ ㊏ ㊐ ㊑ ㊒ ㊓ ㊔ ㊕ ㊖ ㊗ ㊘ ㊜ ㊝ ㊞ ㊟ ㊠ ㊡ ㊢ ㊣ ㊤ ㊥ ㊦ ㊧ ㊨ ㊩ ㊪ ㊫ ㊬ ㊭ ㊮ ㊯ ㊰ ¹ ᵏ ⁹ ² ᵏ ² ᵏ ¹ ² ᵏ ²² ᵏ ³² ᵏ ⁴² ᵏ ⁵² ᵏ ⁶² ᵏ ⁷² ᵏ ⁸² ᵏ ⁹² ᵏ ¹⁰² ᵏ ¹¹² ᵏ ¹²² ᵏ ¹³² ᵏ ¹³² ᵏ ¹⁵² ᵏ ¹⁶² ᵏ ¹⁷² ᵏ ¹⁸ ♲ ♳ ♴ ♵ ♶ ♷ ♸ ♹ ♺ ♺ ♻ ♼ ♽");
+  renderCharsFromString("Simbol", "⓿ ❶ ❷ ❸ ❹ ❺ ❻ ❼ ❽ ❾ ❿ ⓫ ⓬ ⓭ ⓮ ⓯ ⓰ ⓱ ⓲ ⓳ ⓴ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ⓵ ⓶ ⓷ ⓸ ⓹ ⓺ ⓻ ⓼ ⓽ ⓾ ⑴ ⑵ ⑶ ⑷ ⑸ ⑹ ⑺ ⑻ ⑼ ⑽ ⑾ ⑿ ⒀ ⒁ ⒂ ⒃ ⒄ ⒅ ⒆ ⒇ ０ １ ２ ３ ４ ５ ６ ７ ８ ９ ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ⒈ ⒉ ⒊ ⒋ ⒌ ⒍ ⒎ ⒏ ⒐ ⒑ ⒒ ⒓ ⒔ ⒕ ⒖ ⒗ ⒘ ⒙ ⒚ ⒛ ↉ ½ ⅓ ¼ ⅕ ⅙ ⅐ ⅛ ⅑ ⅒ ⅔ ⅖ ¾ ⅗ ⅜ ⅘ ⅚ ⅝ ⅞ ㊊ ㊋ ㊌ ㊍ ㊎ ㊏ ㊐ ㊑ ㊒ ㊓ ㊔ ㊕ ㊖ ㊗ ㊘ ㊜ ㊝ ㊞ ㊟ ㊠ ㊡ ㊢ ㊣ ㊤ ㊥ ㊦ ㊧ ㊨ ㊩ ㊪ ㊫ ㊬ ㊭ ㊮ ㊯ ㊰ ♳ ♴ ♵ ♶ ♷ ♸ ♹ ♺ ♺ ♻ ♼ ♽");
 });
 document.getElementById("btn-block3").addEventListener("click", () => {
   renderCharsFromString("Simbol", "🅰 🅱 🅲 🅳 🅴 🅵 🅶 🅷 🅸 🅹 🅻 🅼 🅽 🅾 🅿 🆀 🆁 🆂 🆃 🆄 🆅 🆆 🆇 🆈 🆉 🄰 🄱 🄲 🄳 3 🄵 🄶 🄷 🄸 🄹 🄺 🄻 🄼 🄽 🄾 🄿 🅀 🅁 🅂 🅃 🅄 🅅 🅆 🅇 🅈 🅉 ⿰ ⿱ ⿲ ⿳ ⿴ ⿵ ⿶ ⿷ ⿸ ⿺ ⿺ ⿻");
@@ -1331,7 +1349,7 @@ document.getElementById("btn-block4").addEventListener("click", () => {
   renderCharsFromString("Simbol", "🄐 🄑 🄒 🄓 🄔 🄕 🄖 🄗 🄘 🄙 🄚 🄛 🄜 🄝 🄞 🄟 🄠 🄡 🄢 🄣 🄤 🄥 🄦 🄧 🄨 🄩 🄪 ⒜ ⒝ ⒞ ⒟ ⒠ ⒡ ⒢ ⒣ ⒤ ⒥ ⒦ ⒧ ⒨ ⒩ ⒪ ⒫ ⒬ ⒭ ⒮ ⒯ ⒰ ⒱ ⒲ ⒳ ⒴ ⒵");
 });
 document.getElementById("btn-block5").addEventListener("click", () => {
-  const string = "ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ＠＃＄％＆－￣＿﹏﹋︵︶＼／＋（）＜＞［］０１２３４５６７８９";
+  const string = "ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ＠＃＄％＆－⏤￣＿﹏﹋︵︶＼／＋（）＜＞［］０１２３４５６７８９";
   const spaced = string.split('').join('\u2009'); // Thin space antar karakter
   renderCharsFromString("Simbol", spaced);
 });
