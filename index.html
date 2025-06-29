@@ -112,21 +112,36 @@
       align-items: center;
       margin: 2px;
       padding: 14px 0px;
-      font-size: 25px;
+      font-size: 20px;
       width: 100%;
       max-width: 50px;
       height: 0px;
-      color: #636363;
+      color: #333;
       background: linear-gradient(to bottom right, #e8e8e8, #ffffff); 
       border: 2px solid #c4c2c290;
       border-radius: 5px; 
       cursor: pointer;
     }
     
+    @keyframes flashRedThenBlack {
+      0% {
+        background: #fb4f4f; /* merah */
+        transform: scale(1);
+      }
+      50% {
+        
+        transform: scale(1.1); /* detak */
+      }
+      100% {
+        background: #2d2d2d; /* hitam */
+        transform: scale(1);
+      }
+    }
+    
     .key:hover {
-      background: #2d2d2d;
       border: 2px solid #fb4f4f;
       color: #fff267;
+      animation: flashRedThenBlack 0.2s ease-in-out forwards;
     }
 
     .tambahan-container {
@@ -162,7 +177,7 @@
       padding: 0px;
       justify-content: center;
       margin-top: 5px;
-      gap: 3px;
+      gap: 6px;
     }
     
     .key-btn {
@@ -171,11 +186,11 @@
       color: white;
       font-weight: bold;
       border: 2px solid #24242490;
-      border-radius: 5px;
-      background: #616161;
+      border-radius: 10px;
+      background: #333;
       box-shadow: 1px 2px 4px #b8b8b8, -1px -1px 1px white;
       cursor: pointer;
-      height: 28px;
+      height: 34px;
       width: 100%;
       text-align: center;
     }
@@ -923,7 +938,7 @@
       max="100"
       value="0"
       oninput="updateStrikethroughPercentage()">
-        <div id="strike-value">Digaris Tengah: 0%</div>
+        <div id="strike-value">Tengah: 0%</div>
       </div>
 
         <button class="key-btn" onclick="insertText(' ')">⎵</button>
@@ -1349,7 +1364,7 @@ document.getElementById("btn-block4").addEventListener("click", () => {
   renderCharsFromString("Simbol", "🄐 🄑 🄒 🄓 🄔 🄕 🄖 🄗 🄘 🄙 🄚 🄛 🄜 🄝 🄞 🄟 🄠 🄡 🄢 🄣 🄤 🄥 🄦 🄧 🄨 🄩 🄪 ⒜ ⒝ ⒞ ⒟ ⒠ ⒡ ⒢ ⒣ ⒤ ⒥ ⒦ ⒧ ⒨ ⒩ ⒪ ⒫ ⒬ ⒭ ⒮ ⒯ ⒰ ⒱ ⒲ ⒳ ⒴ ⒵");
 });
 document.getElementById("btn-block5").addEventListener("click", () => {
-  const string = "ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ＠＃＄％＆－⏤￣＿﹏﹋︵︶＼／＋（）＜＞［］０１２３４５６７８９";
+  const string = "ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ＠＃＄％＆－⏤￣＿﹏﹋︵︶＼／＋（）＜＞⧹⧸［］０１２３４５６７８９";
   const spaced = string.split('').join('\u2009'); // Thin space antar karakter
   renderCharsFromString("Simbol", spaced);
 });
