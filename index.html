@@ -1,456 +1,349 @@
 
 
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="pwKvYalfLxSFwpDlCsan4yS_mEsUdJvUDrI2wKiIHXk" />
+    
     <meta property="og:title" content="Tommy Website">
     <meta property="og:description" content="Create stunning AI-generated images with ease using Tommy APP.">
     <meta property="og:image" content="https://iili.io/3IFLCH7.png">
     <meta property="og:url" content="https://tommydev27.github.io/tommy.fb-web/">
     <meta property="og:type" content="website">
     <meta property="fb:app_id" content="1245016886587008">
+    
     <title>Tommy Website</title>
-    <link rel="stylesheet" href="https://static.xx.fbcdn.net/rsrc.php/v5/y2/l/0,cross/nC2XYYUISfm.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://static.xx.fbcdn.net/rsrc.php/v5/y2/l/0,cross/nC2XYYUISfm.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://static.xx.fbcdn.net/rsrc.php/v5/y8/l/0,cross/Z39OoPuXzgz.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
-
-<link href="https://static.xx.fbcdn.net/rsrc.php/v5/yv/l/0,cross/VraZqV-tU8r.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="https://static.xx.fbcdn.net/rsrc.php/v5/yv/l/0,cross/VraZqV-tU8r.css" rel="stylesheet" crossorigin="anonymous" />
  <style>
-    @font-face {
-      font-family: 'FBDink';
-      src: url('https://static.xx.fbcdn.net/assets/?font=fbdink') format('truetype');
-    }
-
-    body {
-    font-family:'CustomFont','Arial','Segoe UI','Noto Sans',sans-serif;
-      margin: 0;
-      padding: 12px;
-      background: #ebf5f6;
-    }
-    @font-face {
-      font-family: 'CustomFont';
-      src: url('CustomFont.woff2') format('woff2');
-    }
-
-    .native-text {
-      font-family: 'FBDink', Arial, sans-serif;
-      line-height: 1.0;
-    }
-
-      #notes {
-        width: 100%;
-        height: 150px;
-        margin: 0 auto;
-        background-color: white;
-        padding: 8px 8px;
-        border-radius: 10px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        word-break: break-word;
-        overflow-wrap: break-word;
-        white-space: pre-wrap;
-        box-sizing: border-box;
-        user-select: text !important;
-        -webkit-user-select: text !important;
-        -webkit-touch-callout: none !important;
-        position: relative !important;
-        text-align: justify;
-        text-justify: inter-word;
-        font-size: 19px;
-        border: 1px solid #3e8ede;
-        box-shadow: 2px 2px 2px #b1b1b1, -3px -3px 5px white;
-      }
-      
-      #notes span {
-        color: black;
-        display: inline-block;
-        word-break: break-word;
-        white-space: pre-wrap;
-        line-height: 1.1;
-      }
-      
-      body.dark-mode #notes span {
-        color: #ffffff !important;
-      }
-
-    .keyboard-wrapper {
+  body {
+  font-family: sans-serif;
+      margin: 12px;
       display: flex;
-      justify-content: center; 
+        background-color: #ebf5f6; 
+      flex-direction: column;
       align-items: center;
-      margin-top: 10px;
-      background: #616161;
-      border: 1px solid #262626;
-      border-radius: 6px;
-      padding: 2px;
-      max-width: 100%;
-      box-sizing: border-box;
-      border: 2px solid #333;
-      box-shadow: 1px 2px 5px #5c5a5a, -1px -1px 5px white;
-    }
-    
-    .keyboard-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;  
-      max-height: 290px;
-      overflow-y: auto;
-      width: fit-content; 
-      gap: 0px;
-    }
-    .keyboard-wrapper, .keyboard-bar {
-      text-align: center !important;
-    }
-    
-     .key {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      margin: 2px;
-      padding: 14px 0px;
-      font-size: 20px;
-      width: 100%;
-      max-width: 50px;
-      height: 0px;
-      color: #333;
-      background: linear-gradient(to bottom right, #e8e8e8, #ffffff); 
-      border: 2px solid #c4c2c290;
-      border-radius: 5px; 
-      cursor: pointer;
-    }
-    
-    @keyframes flashRedThenBlack {
-      0% {
-        background: #fb4f4f; /* merah */
-        transform: scale(1);
-      }
-      50% {
-        
-        transform: scale(1.1); /* detak */
-      }
-      100% {
-        background: #2d2d2d; /* hitam */
-        transform: scale(1);
-      }
-    }
-    
-    .key:hover {
-      border: 2px solid #fb4f4f;
-      color: #fff267;
-      animation: flashRedThenBlack 0.2s ease-in-out forwards;
-    }
-
-    .tambahan-container {
-      margin-top: 0px;
-    }
-
-    .key, span, button {
-        pointer-events: auto !important;
-        user-select: none !important;
-          -webkit-user-select: none !important;
-          -webkit-touch-callout: none !important;
-        z-index: 10 !important;
-          position: relative !important;
-        }
-    
-     body * {
-          position: relative !important;
-        }
-        
-      #notes-container {
-        width: 100%;
-        font-family: 'VT323', monospace;
-        font-weight: bold;
-        color: #bf0000;
-        padding: 5px 0px;
-        font-size: 13px;
-        margin-top: 4px;
-      }
-      
-    .keyboard-extra {
-      display: flex;
-      width: 100%;
-      padding: 0px;
-      justify-content: center;
-      margin-top: 5px;
-      gap: 6px;
-    }
-    
-    .key-btn {
-      text-align: justify;
-      text-justify: inter-word;
-      color: white;
-      font-weight: bold;
-      border: 2px solid #24242490;
-      border-radius: 10px;
-      background: #333;
-      box-shadow: 1px 2px 4px #b8b8b8, -1px -1px 1px white;
-      cursor: pointer;
-      height: 34px;
-      width: 100%;
-      text-align: center;
-    }
-    
-    .key-btn:hover {
-      background: #333;
-      color: #fff267;
-    }
-    @keyframes blink-red-blue {
-      0% { background: red; color: white; }
-      50% { background: #a1cffd; color: white; }
-      100% { background: red; color: white; }
-    }
-    
-    .key-btn.blink {
-      animation: blink-red-blue 0.4s ease-in-out 2;
-    }
-    
-    
-    .tambahan-container {
-      display: flex;
-      overflow-x: auto;
-      gap: 10px;
-      padding: 1px;
-      border: 2px solid #c4c2c290;
-      border-radius: 10px;
-      margin: 10px 0;
-      background:  #616161;
-      direction: ltr;
-    }
-    
-    .tambahan-container button {
-      flex: 0 0 auto;
-      width: 80px;
-      color: #4e4e4e;
-      height: 30px;
-      background-color: #e9f4fc;
-      border: 3px solid #c4c2c290;
-      border-radius: 8px;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    
-    .tambahan-container button:hover {
-      background-color: #434242;
-      color: #02d1ff;
-        border: 3px solid #fc5c5c;
-    }
-    
-    .tambahan-container button span {
-      line-height: 1;
-      font-size: 16px;
-    }
-    
-    .button, a {
       -webkit-tap-highlight-color: transparent;
       -webkit-touch-callout: none;
       outline: none;
       touch-action: manipulation;
+  
     }
+
+      @font-face {
+      font-family: 'FBDink';
+      src: url('https://static.xx.fbcdn.net/assets/?font=fbdink') format('truetype');
+    }
+
+      #main-container {
+        width: 100%;
+        max-width: 600px;
+      }
+
+
+    .native-text {
+  font-family: 'FBDink', Arial, sans-serif;
+  font-size: 20px;
+}
+
+  #notes-container {
+    width: 100%;
+    font-size: 15px;
+    margin-bottom: 15px;
     
-    .key, span, button {
-      user-select: none !important;
-      -webkit-user-select: none !important;
-      -webkit-touch-callout: none !important;
+  }
+
+  select {
+    padding: 5px;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 0; /* ubah dari sebelumnya */
+  }
+
+  #notes {
+    width: 100%;
+    font-family:'CustomFont','Arial','Segoe UI','Noto Sans',sans-serif;
+    height: 160px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 18px;
+    border: 2px solid #c4c2c290;
+    box-shadow: 2px 2px 3px #b7b7b7,
+    -3px -2px 1px white;
+    resize: none; /* kunci agar tidak bisa di-resize */
+    padding: 5px;
+    box-sizing: border-box;
+  }
+
+    #notes {
+      user-select: auto !important;
       pointer-events: auto !important;
       z-index: 10 !important;
       position: relative !important;
     }
     
-    * {
-      -webkit-tap-highlight-color: transparent;
-      -webkit-user-select: none;
-      user-select: none;
-      margin: 0;
-      padding: 0;
-    }
     
-      #notes {
-        user-select: auto !important;
-        pointer-events: auto !important;
-        z-index: 10 !important;
-        position: relative !important;
-      }
-  
-      body * {
-        position: relative !important;
-      }
-  
-      #counter-info {
-        padding: 2px 2px;
-        display: flex;
-        font-weight: bold;
-        background: ;
-        top: -10px;
-        border-radius: 8px;
-        right: 0px;
-        white-space: nowrap;
-        box-shadow: 1px 2px 2px #8b8b8b, -5px -2px 5px white;
-      }
-      
-      .parent-container {
-        position: relative;
-      }
-      
-      .counter-box {
-        font-family: ;
-        max-width: 58px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;  
-        position: absolute;
-        font-size: 12px;
-        color: #282828; 
-        padding: 5px 5px;
-        border-radius: 8px;
-        font-weight: bold;
-        background: ;
-        border: 1px solid #f04369;
-      
-      }
+    
+  #controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+    justify-content: space-between;
+  }
 
-      #copy-btn, #clear-btn {
-        padding: 7px 10px;
-        margin-top: 8px;
-        font-size: 13px;
-        font-weight: bold;
-        background: #616161;
-        border: 2px solid #3e8ede;
-        box-shadow: 2px 2px 2px #d3d3d3,
-        -3px -2px 4px white;
-        color: white;
-        border-radius: 10px;
-        cursor: pointer;
-        white-space: nowrap;
-      }
+#counter-info {
+  display: flex;
+  gap: 8px; /* jarak antar kotak */
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.counter-box {
+  font-size: 12px;
+  color: #333;
+  padding: 10px 5px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-top: -8px;
+  background: #fff;
+  border: 2px solid #d6eaff;
+    box-shadow: 2px 2px 3px #b7b7b7,
+    -3px -2px 1px white;
     
-      #clear-btn {
-        background: ;
-      }
-        #clear-btn:hover {
-        background: #2d2d2d;
-        border: 2px solid #fa6c6c;
-        color: #76eefb;
-      }
-      
-        #copy-btn:hover {
-        background: #2d2d2d;
-            border: 2px solid #fa6c6c;
-            color: #76eefb;
-      }
-      
-        #copy-message {
-          display: ;
-          margin-top: -2px;
-          font-size: 14px;
-          vertical-align: middle;
-        }
-              
-        .checkmark {
-          margin-bottom: -3px;
-          stroke: white;
-          stroke-width: 4;
-          padding: 1px;
-          background-color: green;
-          border-radius: 50px;
-          stroke-linecap: round;
-          fill: none;
-          animation: none;
-        }
-        
-        .checkmark__circle {
-          stroke-dasharray: 157;
-          stroke-dashoffset: 157;
-          animation: dash 0.9s ease-out forwards;
-        }
-        
-        .checkmark__check {
-          stroke-dasharray: 36;
-          stroke-dashoffset: 36;
-          animation: dash-check 0.4s 0.6s ease forwards;
-        }
-        
-        #copy-message:not(.show) .checkmark__circle,
-        #copy-message:not(.show) .checkmark__check {
-          stroke-dashoffset: 157; /* reset saat tidak tampil */
-        }
-        
-        @keyframes dash {
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-        
-        @keyframes dash-check {
-          to {
-            stroke-dashoffset: 0;
-          }
-        }
-        
-      .control-row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-bottom: 10px;
-      }
-    
-      .control-row > * {
-        flex: 1;
-        border: 2px solid #e3e3e3;
-        min-width: 90px;
-        margin-top: 8px;
-        padding: 5px 10px;
-        background: #424242;
-        color: #f6bf50;
-        border-radius: 10px;
-        box-shadow: 2px 2px 2px #d3d3d3,
-        -3px -2px 4px white;
-        font-weight: bold;
-        box-sizing: border-box;
-        border: 2px solid #3e8ede;
-      }
-      
-       .control-row :hover {
-        background: #2d2d2d;
+}
+
+#counter-info {
+  top: 10px;
+  right: 5px;
+}
+.counter-box {
+  max-width: 56px;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+}
+
+#copy-btn,
+#clear-btn {
+  padding: 7px 10px;
+  font-size: 13px;
+  font-weight: bold;
+  background: #26a9a3;
+  border: 2px solid #d6eaff;
+  box-shadow: 2px 2px 2px #b7b7b7,
+              -3px -2px 4px white;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+#clear-btn {
+  background: #f66050;
+}
+
+#clear-btn:hover {
+  background: #2d2d2d;
+  border: 2px solid #ff3232;
+  color: #76eefb;
+}
+
+#copy-btn:hover {
+  background: #2d2d2d;
+  border: 2px solid #ff3232;
+  color: #76eefb;
+}
+
+/* Tambahan dark mode: tombol jadi hijau */
+.dark-mode #copy-btn,
+.dark-mode #clear-btn {
+  background: #333;
+  color: #eaffea;
+}
+
+#copy-message {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  color: #787777;
+  padding: 7px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.checkmark {
+  width: 16px;
+  height: 16px;
+  stroke: white;
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: round;
+  background-color: green;
+  border-radius: 50%;
+  border: 1px solid #565656;
+}
+
+.checkmark__circle {
+  stroke-dasharray: 157;
+  stroke-dashoffset: 157;
+}
+
+.checkmark__check {
+  stroke-dasharray: 36;
+  stroke-dashoffset: 36;
+}
+
+#copy-message.show {
+  opacity: 1;
+}
+
+#copy-message.show .checkmark__circle {
+  animation: dash 0.6s ease-out forwards;
+}
+
+#copy-message.show .checkmark__check {
+  animation: dash-check 0.4s 0.6s ease forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash-check {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+  
+  #container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 3px;
+    font-family: 'Times New Roman', serif;
+    margin-top: 10px;
+    max-height: 35.5vh;
+    overflow-y: auto;
+    background: #e5edf1;
+    box-shadow: 2px 2px 3px #b7b7b7,
+    -3px -2px 1px white;
+    border-radius: 10px;
+    border: 5px solid #c4c2c290;
+    padding: 5px;
+  }
+.dark-mode #container {
+  background: #333 !important;
+}
+
+
+  .char {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    margin: 3px;
+    border-radius: 8px;
+    font-size: 20px;
+    box-shadow: 2px 2px 5px #9f9e9e,
+    -1px -1px 2px white;
+    background: #fff;
+    border: 2px solid #a3a3a3;
+    cursor: pointer;
+    transition: background 0.2s;
+    user-select: none;
+  }
+.dark-mode .char {
+  background: black !important;
+}
+
+.char:hover {
+  background: #2d2d2d;
+  border: 2px solid #fa6c6c;
+  color: #fff267;
+  animation: flashRedThenBlack 0.2s ease-in-out;
+}
+
+@keyframes flashRedThenBlack {
+  0% {
+    background: red;
+    transform: scale(1.1);
+  }
+  50% {
+    background: #267fdd;
+    transform: scale(1.1);
+  }
+  100% {
+    background: #2d2d2d;
+    transform: scale(1.1);
+  }
+}
+
+
+  .control-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+.control-row > * {
+  flex: 1;
+  border: 2px solid #d6eaff;
+  min-width: 90px;
+  padding: 5px 10px;
+  background: #6e6e6e;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px #b7b7b7,
+              -2px -2px 2px white;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+/* Dark mode override */
+.dark-mode .control-row > * {
+  background: #333; 
+  color: #00ff00; 
+}
+
+   .control-row :hover {
+    background: #2d2d2d;
         border: 2px solid #fa6c6c;
         color: #fff267;
-        
-      }
+  }
   
-      .keyboard-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 6px; /* Jarak antar keyboard dan tombol ekstra */
-        }
-      
-      .keyboard-bar {
-        display: flex;
-        
-        }
-      .enter-icon {
-        color: #79fa40; /* Biru terang */
-        font-weight: bold;
-      }
-      
-      .backspace-icon {
-        color: #fadc4c; /* Hijau terang */
-        font-weight: bold;
-      }
+.block-label {
+  grid-column: 1 / -1;
+  background: #d6eaff;
+  padding: 1px 6px;
+  font-size: 10px;
+  color: #333333;
+  font-family: Orbitron;
+  font-weight: bold;
+  border: 1px solid #c4c2c290;
+  border-radius: 5px;
+  margin: 1px 0;
+  user-select: none;
+  pointer-events: none; 
+}
 
- </style>
-    <style>
+</style>
+
+      <style>
     #darkModeToggle {
       position: fixed;
       display: flex;
@@ -468,7 +361,7 @@
       height: 8px;
       background: red;
       border-radius: 50%;
-      margin-left: 1px;
+      margin-left: -5px;
     }
 
   
@@ -492,166 +385,87 @@
     
     body.dark-mode #darkModeToggle::before {
       transform: translateX(20px);
-      background: #1da1f2;
+      background: white;
     }
     
-    body.dark-mode h1 {
-      color: #ff6b6b !important;
-    }
-    
-    body.dark-mode h2 {
-      color: #3df840 !important;
-    }
-    
-    body.dark-mode label {
-      color: #1dd1a1 !important;
-    }
-    
-    body.dark-mode span {
-      color: #07aacc !important;
-    }
-    
-    body.dark-mode .native-text {
-      color: #0373ab !important;
-    }
-    
-    body.dark-mode button {
-      color: #3df840 !important;
-    }
-    
-    body.dark-mode .counter-box {
-      color: #ffffff !important;
-      background-color: #2a2a2a !important;
-      border-color: red !important;
-    }
-    
-    body.dark-mode a {
-      color: #22d607;
-    }
-    
+  /* Loader full screen */
+  #loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease; /* Biar memudar saat hilang */
+  }
 
-    #fake-caret {
-      width: 2px;
-      height: 1.2em;
-      background: #5a7bf8;
-      animation: blink 0.9s steps(1) infinite;
-      display: inline-block;
-    }
-    .strike {
-      text-decoration: line-through;
-      color: inherit; /* pastikan warnanya tidak jadi hitam atau tidak terlihat */
-    }
-    .native-text {
-      caret-color: transparent;
-      user-select: none;
-      -webkit-user-select: none;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-    
-    #fake-caret {
-      display: inline-block;
-      width: 2px;
-      height: 1em;
-      background: black;
-      animation: blink 1s step-start infinite;
-      vertical-align: bottom;
-    }
+  /* Spinner animasi */
+  .spinner {
+    width: 10px;
+    height: 10px;
+    border: 4px solid #ccc;
+    border-top-color: #8e8484;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
 
-  </style>
-  
-    <style>
-
-    #preloader {
-      background: ;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100vh;
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
     }
+  }
 
-    /* Spinner */
-    .spinner {
-      width: 10px;
-      height: 10px;
-      border: 5px solid #ddd;
-      border-top: 5px solid #1b74e4;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
+  #content {
+    display: none;
+  }
+</style>
 
-    /* Animasi berputar */
-    @keyframes spin {
-      0%   { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
 </head>
 <body>
+  <!-- Loader -->
+<div id="loading-overlay">
+  <div class="spinner"></div>
+</div>
 
-  <div id="preloader">
-    <div class="spinner"></div>
-  </div>
-
-  <script>
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        document.getElementById("preloader").style.display = "none";
-        document.getElementById("content").style.display = "block";
-      }, 3000); // 3000ms = 3 detik
-    });
-  </script>
-
-      <div id="main-container">
+    <div id="main-container">
+       <h3 style="margin-top: 0px; margin-bottom: 10px;">
        <div style="display: flex; gap: 12px; color: #007bff; font-size: 20px; ">
-        <span class="native-text" style="color:#575252; font-size: 15px !important; font-weight: bold; ">Tommy website</span>
-        
-           </div>
+        <span class="native-text" style="color:#575252; font-size: 17px !important; font-weight: bold;">Tommy website</span>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: -5px;">
-          <h2 style="color:#3f5ff7; font-size: 10px; font-weight: bold; margin: 0;">
-            Design: Tommy web · v1.0.0 ©
-          </h2>
-          
-          <div id="counter-info">
-            <span class="counter-box" id="char-count">0 Karakter</span> 
-            </div>
-          <div id="counter-info">
-            <span class="counter-box" id="line-count">0 Paragraf</span>
-                  </div>
-          <div style=" top: -10px; right: 0px; text-align: center;">
+
+        
+        <div id="counter-info">
+        <span class="counter-box" id="char-count">0 Karakter</span>
+        <span class="counter-box" id="line-count">0 Paragraf</span>
+      
+         <div style=" top: -5px; right: 0px; text-align: center;">
             <button id="darkModeToggle" title="Toggle Mode Gelap"></button>
             <div style="font-size: 10px; color: gray; margin-top: 0px;">mode●</div>
           </div>
+          
+      </h3>
+       <h2 style="color:#3f5ff7; padding: 0px; margin-top: -12px; font-size: 10px !important; font-weight: bold;">Design: Tommy · v1.0.0 © 2025
+    </h2>
+       
+      <textarea id="notes" placeholder="Klik karakter untuk menambah ke catatan..."></textarea>
 
-          </div>
-        </div>
+    <div id="notes-container">
+      <label for="block-select">Pilih Blok Teks</label>
+      
+    <span id="copy-message">Berhasil disalin!
+      <svg viewBox="0 0 52 52" class="checkmark">
+        <circle class="checkmark__circle" cx="26" cy="26" r="25" />
+        <path class="checkmark__check" d="M14 27 l7 7 l17 -17" />
+      </svg>
+    </span>
 
-    <div id="notes" class="native-text" tabindex="0">
-      <span id="fake-caret"></span>
-    </div>
-
-    </div>
-  
-      <div id="notes-container">
-        <div style="display: flex; align-items: center; gap: 30px;">
-          <label for="block-select">Insert Unicode Character</label>
-          <span id="copy-message" style="display: flex; align-items: center; gap: 4px;">
-             Di salin!
-            <svg id="check-icon" viewBox="0 0 52 52" class="checkmark" style="width: 13px; height: 13px;">
-              <path class="checkmark__circle" d="M26,1 a25,25 0 1,0 0.00001,0" />
-              <path class="checkmark__check" d="M14 27 l7 7 l17 -17" />
-            </svg>
-          </span>
-        </div>
-
-        <div class="control-row">
+    <div class="control-row">
         <select id="block-select">
-        <option value="0041-007A">Latin Letters (A–Z, a–z)</option>
+          <option value="1F000-1F02F">Mahjong Tiles</option>
         <option value="1F0A0-1F0FF">Playing Cards</option>
         <option value="1F300-1F5FF">Misc Symbols & Pictographs</option>
         <option value="1F600-1F64F">Emoticons (Emoji)</option>
@@ -764,8 +578,81 @@
     <button id="clear-btn">Clear</button>
 
         </div>
+        
+    <style>
+    .tambahan-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 2px;
+      border: 2px solid #c4c2c290;
+      border-radius: 10px;
+      margin: 10px 0;
+      background:  #d6eaff;
+      scroll-behavior: smooth;
+          box-shadow: 2px 2px 2px #b7b7b7,
+        -3px -2px 1px white;
+      direction: ltr;
+    }
+    
+    .tambahan-container button {
+      flex: 0 0 auto;
+      width: 80px;
+      color: #393838;
+      font-family: normal;
+      height: 30px;
+      background-color: white;
+      border: 2px solid #c4c2c290;
+      scroll-behavior: smooth;
+          box-shadow: 1px 1px 2px #b7b7b7,
+        -1px -1px 1px white;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .tambahan-container button:hover {
+      background-color: #434242;
+      color: #76eefb;
+        border: 3px solid #fc5c5c;
+    }
+    
+    .tambahan-container button span {
+      line-height: 1;
+      font-size: 16px;
+    }
+    
+    .button, a {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      outline: none;
+      touch-action: manipulation;
+    }
+    
+    .key, span, button {
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      -webkit-touch-callout: none !important;
+      pointer-events: auto !important;
+      z-index: 10 !important;
+      position: relative !important;
+    }
+    
+    /* Khusus untuk textarea tetap bisa salin */
 
-      <div id="symbol-bar" class="tambahan-container">
+    
+        body * {
+          position: relative !important;
+        }
+    </style>
+    
+    <div id="symbol-bar" class="tambahan-container">
+
         <button id="btn-bloc">
           <span class="native-text">󰎈 󱢏 󰞦</span>
         </button>
@@ -847,27 +734,6 @@
             <span>ᕱꀷꋫ</span>
           </button>
         </div>
-
-      <div class="keyboard-extra">
-
-      <button class="key-btn" id="btn-block119">
-        <span class="native-text">Aa</span>
-      </button>
-              
-      <button class="key-btn" id="btn-block118">
-        <span class="native-text">😃</span>
-      </button>
-        <button class="key-btn" onclick="moveCaretToEnd()">↓</button>
-        <button class="key-btn" onclick="moveCaretToStart()">↑</button>
-       <button class="key-btn" onclick="moveCaretLeft()">←</button>
-       <button class="key-btn" onclick="moveCaretRight()">→</button>
-        <button class="key-btn" onclick="backspace()">
-          <span class="backspace-icon">⌫</span>
-        </button>
-      </div>
-
-
-
 <style>
   .slider-container {
     width: 100%;
@@ -877,25 +743,37 @@
 
   .styled-slider {
     width: 100%;
-    height: 19px;
+    height: 9px;
     -webkit-appearance: none;
     background: transparent;
   }
 
-  .styled-slider::-webkit-slider-runnable-track {
-    height: 12px;
-    background: #cad7da;
-    border-radius: 34px;
-  }
+/* Style default (mode terang) */
+.styled-slider::-webkit-slider-runnable-track {
+  height: 11px;
+  border-radius: 34px;
+  background: #6e6e6e;
+  border: 2px solid #d6eaff;
+  box-shadow: 2px 2px 3px #b7b7b7,
+              -3px -2px 1px white;
+}
+
+.dark-mode .styled-slider::-webkit-slider-runnable-track {
+  box-shadow: none !important;
+}
+
+
 
   .styled-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 14px;
     height: 14px;
-    background: #2c3e50;
+    background: #fff;
     border-radius: 50%;
-    margin-top: -1px;
-    border: 1px solid white;
+    margin-left: -1.1px;
+    margin-top: -3.5px;
+    border: 4px solid #003e57;
+    
   }
 
   .line {
@@ -907,259 +785,287 @@
   
     #percent-value,
     #strike-value {
-      text-align: right;
-      font-size: 8px;
+      text-align: left;
+      font-size: 11px;
+      user-select: none;
+      pointer-events: none; 
       margin-top: 3px;
-      color: #888;
+      color: #333;
+    }
+    
+    .dark-mode #percent-value,
+    .dark-mode #strike-value {
+      color: #00ff00;
+    }
+
+    .keyboard-extra {
+      display: flex;
+      width: 100%;
+      padding: 0px;
+      justify-content: center;
+      margin-top: 5px;
+      gap: 6px;
+    }
+    
+    .key-btn {
+      text-align: justify;
+      text-justify: inter-word;
+      color: white;
+      font-weight: bold;
+      border: 3px solid #c1e8fc;
+      background: #6e6e6e;
+      border: 2px solid #d6eaff;
+        box-shadow: 2px 2px 3px #b7b7b7,
+        -3px -2px 1px white;
+      
+      border-radius: 10px;
+      cursor: pointer;
+      height: 35px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .key-btn:hover {
+      background: #333;
+      color: #fff267;
+    }
+    @keyframes blink-red-blue {
+      0% { background: red; color: white; }
+      50% { background: #a1cffd; color: white; }
+      100% { background: red; color: white; }
+    }
+    
+    .key-btn.blink {
+      animation: blink-red-blue 0.4s ease-in-out 2;
     }
 
   </style>
 
-      <div class="keyboard-extra">
-<div class="slider-container">
-  <!-- Slider 1: Glitch -->
 
-    <input
-      type="range"
-      id="caret-slider"
-      class="styled-slider"
-      min="0"
-      max="100"
-      value="0"
+<div class="keyboard-extra">
+      <button class="key-btn" id="btn-block119">
+        <span class="native-text">Aa</span>
+      </button>
+      <button class="key-btn" id="btn-block118">
+        <span class="native-text">😃</span>
+      </button>
+  <button class="key-btn" onclick="moveCaretToEnd()">↓</button>
+  <button class="key-btn" onclick="moveCaretToStart()">↑</button>
+  <button class="key-btn" onclick="moveCaretLeft()">←</button>
+  <button class="key-btn" onclick="moveCaretRight()">→</button>
+  <button class="key-btn" onclick="backspace()">
+    <span class="backspace-icon">⌫</span>
+  </button>
+</div>
+
+
+
+<!-- Preview garis tengah -->
+
+<div class="keyboard-extra">
+  <div class="slider-container">
+    <input type="range" id="caret-slider" class="styled-slider" min="0" max="100" value="0"
       oninput="updateStrikeByPercentage()">
     <div id="percent-value">Digaris: 0%</div>
   </div>
 
-  <!-- Slider 2: Garis Tengah -->
-<div class="slider-container">
-    <input
-      type="range"
-      id="strike-slider"
-      class="styled-slider"
-      min="0"
-      max="100"
-      value="0"
+  <div class="slider-container">
+    <input type="range" id="strike-slider" class="styled-slider" min="0" max="100" value="0"
       oninput="updateStrikethroughPercentage()">
-        <div id="strike-value">Tengah: 0%</div>
-      </div>
+    <div id="strike-value">Tengah: 0%</div>
+  </div>
 
-        <button class="key-btn" onclick="insertText(' ')">⎵</button>
+  <button class="key-btn" onclick="insertText(' ')">⎵</button>
+  <button class="key-btn" onclick="insertText('\n')">
+    <span class="enter-icon">↲ Enter</span>
+  </button>
+</div>
 
-        <button class="key-btn" onclick="insertText('\n')">
-         <span class="enter-icon">⏎ Enter</span>
-        </button>
-      </div>
+<div id="container"></div>
+</div>
 
-      <div class="keyboard-wrapper">
-        <div id="keyboard" class="keyboard-bar"></div>
-          </div>
+<script>
+  const textarea = document.getElementById('notes');
 
-  <script>
-  function renderMultipleEmojiRanges(ranges) {
-    const chars = [];
-    for (const range of ranges) {
-      const [start, end] = range.split('-').map(hex => parseInt(hex, 16));
-      for (let code = start; code <= end; code++) {
-        chars.push(String.fromCodePoint(code));
-      }
+  function insertText(text) {
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const before = textarea.value.substring(0, start);
+    const after = textarea.value.substring(end);
+    textarea.value = before + text + after;
+    textarea.selectionStart = textarea.selectionEnd = start + text.length;
+    textarea.focus();
+    textarea.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }
+
+  function moveCaretToStart() {
+    textarea.focus();
+    textarea.selectionStart = textarea.selectionEnd = 0;
+    textarea.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }
+
+  function moveCaretToEnd() {
+    textarea.focus();
+    const end = textarea.value.length;
+    textarea.selectionStart = textarea.selectionEnd = end;
+    textarea.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }
+
+  function moveCaretLeft() {
+    const pos = textarea.selectionStart;
+    const newPos = (pos > 0) ? pos - 1 : textarea.value.length;
+    textarea.focus();
+    textarea.setSelectionRange(newPos, newPos);
+    textarea.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }
+
+  function moveCaretRight() {
+    const pos = textarea.selectionStart;
+    const newPos = (pos < textarea.value.length) ? pos + 1 : 0;
+    textarea.focus();
+    textarea.setSelectionRange(newPos, newPos);
+    textarea.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }
+
+  function backspace() {
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const valueArray = Array.from(textarea.value);
+
+    if (start === end && start > 0) {
+      const realStart = Array.from(textarea.value.slice(0, start)).length;
+      valueArray.splice(realStart - 1, 1);
+      const newValue = valueArray.join('');
+      textarea.value = newValue;
+
+      const newCursor = [...newValue].slice(0, realStart - 1).join('').length;
+      textarea.selectionStart = textarea.selectionEnd = newCursor;
+    } else {
+      const before = Array.from(textarea.value.slice(0, start));
+      const after = Array.from(textarea.value.slice(end));
+      const newValue = before.concat(after).join('');
+      textarea.value = newValue;
+
+      const newCursor = before.join('').length;
+      textarea.selectionStart = textarea.selectionEnd = newCursor;
     }
-    renderCharsFromString('Emoji', chars.join(' '));
+
+    textarea.focus();
+    textarea.scrollIntoView({ block: "nearest", inline: "nearest" });
   }
-  
-  function renderCharsFromString(label, str) {
-    const list = str.trim().split(/\s+/);
-    const keyboard = document.getElementById('keyboard');
-    keyboard.innerHTML = '';
-    keyboard.style.display = 'block';
-    for (const char of list) {
-    const span = document.createElement('span');
-    span.className = 'key native-text';
-    span.textContent = char;
-    span.title = label + ': ' + char;
-    span.addEventListener('click', () => {
-      insertText(char);
-    });
-    keyboard.appendChild(span);
+
+  function updateStrikeByPercentage() {
+    const value = document.getElementById('caret-slider').value;
+    document.getElementById('percent-value').textContent = 'Digaris: ' + value + '%';
   }
+
+  function updateStrikethroughPercentage() {
+    const value = document.getElementById('strike-slider').value;
+    document.getElementById('strike-value').textContent = 'Tengah: ' + value + '%';
+  }
+
+  window.addEventListener("load", () => {
+  setTimeout(() => {
+    textarea.focus();
+  }, 10);
+});
+
+
+</script>
+
+
+<script>
+const notes = document.getElementById("notes");
+const caretSlider = document.getElementById("caret-slider");
+const percentLabel = document.getElementById("percent-value");
+const strikeSlider = document.getElementById("strike-slider");
+const strikeLabel = document.getElementById("strike-value");
+
+function applyEffects() {
+  const glitchPercent = parseInt(caretSlider.value, 10);
+  const strikePercent = parseInt(strikeSlider.value, 10);
+
+  percentLabel.textContent = `Digaris: ${glitchPercent}%`;
+  strikeLabel.textContent = `Tengah: ${strikePercent}%`;
+
+  // Bersihkan teks dari efek lama
+  let cleanText = notes.value.replace(/͟͞/g, '').replace(/\u0338/g, '');
+  const chars = Array.from(cleanText);
+
+
+  const glitchLength = Math.floor((glitchPercent / 100) * chars.length);
+  const strikeLength = Math.floor((strikePercent / 100) * chars.length);
+
+  let newText = '';
+  for (let i = 0; i < chars.length; i++) {
+    let ch = chars[i];
+    if (i < glitchLength) ch += '͟͞';
+    if (i < strikeLength) ch += '\u0338';
+    newText += ch;
+  }
+
+  notes.value = newText;
+  updateCounter();
 }
 
-  function insertText(str) {
-    insertTextAtFakeCaret(str);
-  }
-
-  const notes = document.getElementById("notes");
-  const slider = document.getElementById("caret-slider");
-  const percentLabel = document.getElementById("percent-value");
-  
-  function updateStrikeByPercentage() {
-    const percentage = parseInt(slider.value, 10);
-  percentLabel.textContent = `Digaris: ${percentage}%`;
-
-  // Ambil semua karakter dari node asli (tanpa glitch)
-  const charNodes = [];
-  const walker = document.createTreeWalker(notes, NodeFilter.SHOW_ELEMENT, null, false);
-  while (walker.nextNode()) {
-    const node = walker.currentNode;
-    if (
-      node.classList &&
-      node.classList.contains("native-text") &&
-      node.id !== "fake-caret"
-    ) {
-      charNodes.push(node);
-    }
-  }
-
-  // Ambil teks bersih tanpa glitch
-  let total = 0;
-  charNodes.forEach((node) => {
-    node.textContent = node.textContent.replace(/͟͞/g, ''); // bersihkan glitch lama
-    total += node.textContent.length;
-  });
-
-  const maxGlitch = Math.min(100, total);
-  const strikeLength = Math.floor((percentage / 100) * maxGlitch);
-
-  // Tambahkan glitch ke jumlah karakter yang ditentukan
-  let count = 0;
-  for (const node of charNodes) {
-    let newText = '';
-    for (const ch of node.textContent) {
-      if (count < strikeLength) {
-        newText += ch + '͟͞';
-        count++;
-      } else {
-        newText += ch;
-      }
-    }
-    node.textContent = newText;
-  }
-
-  updateCounter();
+function updateStrikeByPercentage() {
+  applyEffects();
 }
 
 function updateStrikethroughPercentage() {
-  const slider = document.getElementById("strike-slider");
-  const label = document.getElementById("strike-value");
-  const percentage = parseInt(slider.value, 10);
-  label.textContent = `Digaris Tengah: ${percentage}%`;
-
-  const nodes = [...notes.querySelectorAll(".native-text")];
-  let total = 0;
-
-  // Bersihkan efek garis tengah lama
-  nodes.forEach(node => {
-    node.style.textDecoration = "";
-    total += node.textContent.length;
-  });
-
-  const maxStrike = Math.floor((percentage / 100) * total);
-  let count = 0;
-
-  for (const node of nodes) {
-    if (node.id === "fake-caret") continue;
-    const chars = [...node.textContent];
-    const fragment = document.createDocumentFragment();
-
-for (const node of nodes) {
-  if (node.id === "fake-caret") continue;
-
-  // Hapus garis tengah Unicode sebelumnya
-  node.textContent = node.textContent.replace(/\u0338/g, '');
-
-  const chars = [...node.textContent];
-  const fragment = document.createDocumentFragment();
-
-  for (const ch of chars) {
-    const span = document.createElement("span");
-    span.className = "native-text";
-
-    if (count < maxStrike) {
-      span.textContent = ch + '̸';
-    } else {
-      span.textContent = ch;
-    }
-
-    fragment.appendChild(span);
-    count++;
-  }
-
-  node.replaceWith(fragment);
+  applyEffects();
 }
 
-
-    node.replaceWith(fragment);
-  }
-
-  updateCounter();
+function resetGlitchSlider() {
+  caretSlider.value = 0;
+  percentLabel.textContent = "Digaris: 0%";
+  applyEffects();
 }
+
 function resetStrikeSlider() {
-  const slider = document.getElementById("strike-slider");
-  const label = document.getElementById("strike-value");
-  slider.value = 0;
-  label.textContent = "Digaris Tengah: 0%";
-  updateStrikethroughPercentage();
-}
-
-
-function updateCounter() {
-  let charCount = 0;
-  const walker = document.createTreeWalker(notes, NodeFilter.SHOW_TEXT, null, false);
-  while (walker.nextNode()) {
-    charCount += Array.from(walker.currentNode.textContent).length;
-
-  }
-
-  const raw = notes.innerHTML;
-  const brMatches = raw.match(/<br\s*\/?>/gi) || [];
-  const hasContent = raw.replace(/<br\s*\/?>/gi, '').trim() !== "";
-  const paragraphCount = brMatches.length + (hasContent ? 1 : 0);
-
-  document.getElementById("char-count").textContent = charCount + " Karakter";
-  document.getElementById("line-count").textContent = paragraphCount + " Paragraf";
+  strikeSlider.value = 0;
+  strikeLabel.textContent = "Tengah: 0%";
+  applyEffects();
 }
 
 function insertTextAtFakeCaret(str) {
-  const caret = document.getElementById("fake-caret");
-  if (!caret || !caret.parentNode) return;
+  const start = notes.selectionStart;
+  const end = notes.selectionEnd;
+  const before = notes.value.slice(0, start);
+  const after = notes.value.slice(end);
+  notes.value = before + str + after;
 
-  let node;
-  if (str === "\n") {
-    node = document.createElement("br");
-  } else {
-    node = document.createElement("span");
-    node.className = "native-text";
-    node.textContent = str;
-  }
-
-  caret.parentNode.insertBefore(node, caret.nextSibling);
-  caret.parentNode.insertBefore(caret, node.nextSibling);
+  const cursorPos = start + str.length;
+  notes.setSelectionRange(cursorPos, cursorPos);
+  notes.focus();
 
   updateCounter();
-  resetGlitchSlider(); // ⬅️ Ganti ini dari updateStrikeByPercentage()
+  resetGlitchSlider();
+  resetStrikeSlider();
 }
-function resetGlitchSlider() {
-  slider.value = 0;
-  percentLabel.textContent = "Digaris: 0%";
-  updateStrikeByPercentage();
-}
-
 
 function backspaceAtFakeCaret() {
-  const caret = document.getElementById("fake-caret");
-  if (!caret || !caret.previousSibling) return;
+  const pos = notes.selectionStart;
+  if (pos === 0) return;
 
-  const prev = caret.previousSibling;
-  if (prev.nodeType === 3) {
-    prev.textContent = prev.textContent.slice(0, -1);
-  } else {
-    prev.remove();
-  }
+  const before = notes.value.slice(0, pos);
+  const chars = Array.from(before);
+
+  chars.pop();
+  const newBefore = chars.join('');
+
+  const after = notes.value.slice(notes.selectionEnd);
+  notes.value = newBefore + after;
+
+  const newPos = [...newBefore].length;
+  notes.setSelectionRange(newPos, newPos);
+  notes.focus();
 
   updateCounter();
-  updateStrikeByPercentage();
+  applyEffects();
 }
 
-document.getElementById("notes").addEventListener("keydown", function (e) {
+notes.addEventListener("keydown", function (e) {
   if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) {
     e.preventDefault();
     insertTextAtFakeCaret(e.key);
@@ -1172,142 +1078,304 @@ document.getElementById("notes").addEventListener("keydown", function (e) {
   }
 });
 
-function renderCharsFromString(label, str) {
-  const list = str.trim().split(/\s+/);
-  const keyboard = document.getElementById('keyboard');
-  keyboard.innerHTML = '';
-  keyboard.style.display = 'block';
-  for (const char of list) {
-    const span = document.createElement('span');
-    span.className = 'key native-text';
+function updateCounter() {
+  const text = notes.value.replace(/͟͞/g, '').replace(/\u0338/g, '');
+  const charCount = [...text].length;
+  const paragraphCount = text.trim().split(/\n+/).filter(Boolean).length;
+
+  document.getElementById("char-count").textContent = charCount + " Karakter";
+  document.getElementById("line-count").textContent = paragraphCount + " Paragraf";
+}
+</script>
+
+<script>
+const unicodeBlocks = {
+  "1F600-1F64F": [0x1F600, 0x1F64F],
+  "1F680-1F6FF": [0x1F680, 0x1F6FF],
+  "1F900-1F9FF": [0x1F900, 0x1F9FF],
+  "1FA70-1FAFF": [0x1FA70, 0x1FAFF],
+  "1F300-1F5FF": [0x1F300, 0x1F5FF],
+    "2300-23FF": [0x2300, 0x23FF],
+  "2600-26FF": [0x2600, 0x26FF],
+    "2700-27BF": [0x2700, 0x27BF],
+  "20D0-20FF": [0x20D0, 0x20FF],
+  "2460-24FF": [0x2460, 0x24FF],
+  "2500-257F": [0x2500, 0x257F],
+  "2580-259F": [0x2580, 0x259F],
+  "25A0-25FF": [0x25A0, 0x25FF],
+  "27C0-27EF": [0x27C0, 0x27EF],
+  "27F0-27FF": [0x27F0, 0x27FF],
+  "2800-28FF": [0x2800, 0x28FF],
+  "2200-22FF": [0x2200, 0x22FF],
+  "2400-243F": [0x2400, 0x243F],
+  "1F0A0-1F0FF": [0x1F0A0, 0x1F0FF],
+  "2190-21FF": [0x2190, 0x21FF],
+  "2440-245F": [0x2440, 0x245F],
+  "2900-297F": [0x2900, 0x297F],
+  "2980-29FF": [0x2980, 0x29FF],
+  "2A00-2AFF": [0x2A00, 0x2AFF],
+  "2B00-2BFF": [0x2B00, 0x2BFF],
+  "1F000-1F02F": [0x1F000, 0x1F02F],
+  "1F700-1F77F": [0x1F700, 0x1F77F],
+  "FF00-FFEF": [0xFF00, 0xFFEF],
+  "0000-007F": [0x0000, 0x007F],
+  "0080-00FF": [0x0080, 0x00FF],
+  "0100-017F": [0x0100, 0x017F],
+  "0180-024F": [0x0180, 0x024F],
+  "0250-02AF": [0x0250, 0x02AF],
+  "02B0-02FF": [0x02B0, 0x02FF],
+  "0300-036F": [0x0300, 0x036F],
+  "0370-03FF": [0x0370, 0x03FF],
+  "2100-214F": [0x2100, 0x214F],
+  "2150-218F": [0x2150, 0x218F],
+  "0400-04FF": [0x0400, 0x04FF],
+  "0500-052F": [0x0500, 0x052F],
+  "0530-058F": [0x0530, 0x058F],
+  "0590-05FF": [0x0590, 0x05FF],
+  "0600-06FF": [0x0600, 0x06FF],
+  "0700-074F": [0x0700, 0x074F],
+  "0750-077F": [0x0750, 0x077F],
+  "0780-07BF": [0x0780, 0x07BF],
+  "07C0-07FF": [0x07C0, 0x07FF],
+  "0800-083F": [0x0800, 0x083F],
+  "0840-085F": [0x0840, 0x085F],
+  "0860-086F": [0x0860, 0x086F],
+  "08A0-08FF": [0x08A0, 0x08FF],
+  "0900-097F": [0x0900, 0x097F],
+  "0980-09FF": [0x0980, 0x09FF],
+  "0A00-0A7F": [0x0A00, 0x0A7F],
+  "0A80-0AFF": [0x0A80, 0x0AFF],
+  "0B00-0B7F": [0x0B00, 0x0B7F],
+  "0B80-0BFF": [0x0B80, 0x0BFF],
+  "0C00-0C7F": [0x0C00, 0x0C7F],
+  "0C80-0CFF": [0x0C80, 0x0CFF],
+  "0D00-0D7F": [0x0D00, 0x0D7F],
+  "0D80-0DFF": [0x0D80, 0x0DFF],
+  "0E00-0E7F": [0x0E00, 0x0E7F],
+  "0E80-0EFF": [0x0E80, 0x0EFF],
+  "0F00-0FFF": [0x0F00, 0x0FFF],
+  "1000-109F": [0x1000, 0x109F],
+  "10A0-10FF": [0x10A0, 0x10FF],
+  "1100-11FF": [0x1100, 0x11FF],
+  "1200-137F": [0x1200, 0x137F],
+  "1380-139F": [0x1380, 0x139F],
+  "13A0-13FF": [0x13A0, 0x13FF],
+  "1400-167F": [0x1400, 0x167F],
+  "1680-169F": [0x1680, 0x169F],
+  "16A0-16FF": [0x16A0, 0x16FF],
+  "1700-171F": [0x1700, 0x171F],
+  "1720-173F": [0x1720, 0x173F],
+  "1740-175F": [0x1740, 0x175F],
+  "1760-177F": [0x1760, 0x177F],
+  "1780-17FF": [0x1780, 0x17FF],
+  "1800-18AF": [0x1800, 0x18AF],
+  "18B0-18FF": [0x18B0, 0x18FF],
+  "1900-194F": [0x1900, 0x194F],
+  "1950-197F": [0x1950, 0x197F],
+  "1980-19DF": [0x1980, 0x19DF],
+  "19E0-19FF": [0x19E0, 0x19FF],
+  "1A00-1A1F": [0x1A00, 0x1A1F],
+  "1A20-1AAF": [0x1A20, 0x1AAF],
+  "1AB0-1AFF": [0x1AB0, 0x1AFF],
+  "1B00-1B7F": [0x1B00, 0x1B7F],
+  "1B80-1BBF": [0x1B80, 0x1BBF],
+  "1BC0-1BFF": [0x1BC0, 0x1BFF],
+  "1C00-1C4F": [0x1C00, 0x1C4F],
+  "1C50-1C7F": [0x1C50, 0x1C7F],
+  "1C80-1C8F": [0x1C80, 0x1C8F],
+  "1C90-1CBF": [0x1C90, 0x1CBF],
+  "1CC0-1CCF": [0x1CC0, 0x1CCF],
+  "1CD0-1CFF": [0x1CD0, 0x1CFF],
+  "1D00-1D7F": [0x1D00, 0x1D7F],
+  "1D80-1DBF": [0x1D80, 0x1DBF],
+  "1DC0-1DFF": [0x1DC0, 0x1DFF],
+  "1E00-1EFF": [0x1E00, 0x1EFF],
+  "1F00-1FFF": [0x1F00, 0x1FFF],
+  "2000-206F": [0x2000, 0x206F],
+  "2070-209F": [0x2070, 0x209F],
+  "20A0-20CF": [0x20A0, 0x20CF],
+  "2C00-2C5F": [0x2C00, 0x2C5F],
+  "2C60-2C7F": [0x2C60, 0x2C7F],
+  "2C80-2CFF": [0x2C80, 0x2CFF],
+  "2D00-2D2F": [0x2D00, 0x2D2F],
+  "2D30-2D7F": [0x2D30, 0x2D7F],
+  "2D80-2DDF": [0x2D80, 0x2DDF],
+  "2DE0-2DFF": [0x2DE0, 0x2DFF],
+  "2E00-2E7F": [0x2E00, 0x2E7F],
+  "2E80-2EFF": [0x2E80, 0x2EFF],
+  "2F00-2FDF": [0x2F00, 0x2FDF],
+  "2FF0-2FFF": [0x2FF0, 0x2FFF],
+  "3000-303F": [0x3000, 0x303F],
+  "3040-309F": [0x3040, 0x309F],
+  "30A0-30FF": [0x30A0, 0x30FF],
+  "3100-312F": [0x3100, 0x312F],
+  "3130-318F": [0x3130, 0x318F],
+  "3190-319F": [0x3190, 0x319F],
+  "31A0-31BF": [0x31A0, 0x31BF],
+  "31C0-31EF": [0x31C0, 0x31EF],
+  "31F0-31FF": [0x31F0, 0x31FF],
+  "3200-32FF": [0x3200, 0x32FF],
+  "3300-33FF": [0x3300, 0x33FF],
+  "4DC0-4DFF": [0x4DC0, 0x4DFF],
+  "A000-A48F": [0xA000, 0xA48F],
+  "A490-A4CF": [0xA490, 0xA4CF],
+  "A4D0-A4FF": [0xA4D0, 0xA4FF],
+  "A500-A63F": [0xA500, 0xA63F],
+  "A640-A69F": [0xA640, 0xA69F],
+  "A6A0-A6FF": [0xA6A0, 0xA6FF],
+  "A700-A71F": [0xA700, 0xA71F],
+  "A720-A7FF": [0xA720, 0xA7FF],
+  "A800-A82F": [0xA800, 0xA82F],
+  "A830-A83F": [0xA830, 0xA83F],
+  "A840-A87F": [0xA840, 0xA87F],
+  "A880-A8DF": [0xA880, 0xA8DF],
+  "A8E0-A8FF": [0xA8E0, 0xA8FF],
+  "A900-A92F": [0xA900, 0xA92F],
+  "A930-A95F": [0xA930, 0xA95F],
+  "A960-A97F": [0xA960, 0xA97F],
+  "A980-A9DF": [0xA980, 0xA9DF],
+  "A9E0-A9FF": [0xA9E0, 0xA9FF],
+  "AA00-AA5F": [0xAA00, 0xAA5F],
+  "AA60-AA7F": [0xAA60, 0xAA7F],
+  "AAE0-AAFF": [0xAAE0, 0xAAFF],
+  "AB00-AB2F": [0xAB00, 0xAB2F],
+  "AB30-AB6F": [0xAB30, 0xAB6F],
+  "AB70-ABBF": [0xAB70, 0xABBF],
+  "ABC0-ABFF": [0xABC0, 0xABFF],
+  "FB00-FB4F": [0xFB00, 0xFB4F],
+  "FB50-FDFF": [0xFB50, 0xFDFF],
+  "FE00-FE0F": [0xFE00, 0xFE0F],
+  "FE10-FE1F": [0xFE10, 0xFE1F],
+  "FE20-FE2F": [0xFE20, 0xFE2F],
+  "FE30-FE4F": [0xFE30, 0xFE4F],
+  "FE50-FE6F": [0xFE50, 0xFE6F],
+  "FE70-FEFF": [0xFE70, 0xFEFF],
+  "FF00-FFEF": [0xFF00, 0xFFEF],
+  "FFF0-FFFF": [0xFFF0, 0xFFFF]
+    };
+
+const container = document.getElementById("container");
+const notesTextarea = document.getElementById("notes");
+const copyBtn = document.getElementById("copy-btn");
+const clearBtn = document.getElementById("clear-btn");
+const copyMsg = document.getElementById("copy-message");
+const blockSelect = document.getElementById("block-select");
+const charCount = document.getElementById("char-count");
+const lineCount = document.getElementById("line-count");
+const loadingOverlay = document.getElementById("loading-overlay");
+
+function updateCounter() {
+  const text = notesTextarea.value;
+  const charLength = [...text].length; // Akurat, termasuk emoji
+  const lineLength = (text.match(/\n/g) || []).length + 1;
+  charCount.textContent = `${charLength} Karakter`;
+  lineCount.textContent = `${lineLength} Paragraf`;
+}
+
+function insertCharAtCaret(char) {
+  const textarea = notesTextarea;
+  const start = textarea.selectionStart;
+  const end = textarea.selectionEnd;
+
+  const chars = Array.from(textarea.value);
+  const before = chars.slice(0, [...Array.from(textarea.value.slice(0, start))].length);
+  const after = chars.slice([...Array.from(textarea.value.slice(0, end))].length);
+
+  const newChars = [...before, char, ...after];
+  const newValue = newChars.join('');
+  textarea.value = newValue;
+
+  const newPos = before.length + 1;
+  textarea.setSelectionRange(
+    [...newValue].slice(0, newPos).join('').length,
+    [...newValue].slice(0, newPos).join('').length
+  );
+
+  textarea.focus();
+  updateCounter();
+}
+
+
+function renderCharsFromString(label, chars) {
+  container.innerHTML = "";
+  const blockLabel = document.createElement("div");
+  blockLabel.textContent = `Blok: ${label}`;
+  blockLabel.className = "block-label";
+  container.appendChild(blockLabel);
+
+  for (const char of chars.split(" ")) {
+    const span = document.createElement("span");
+    span.className = "char key native-text";
     span.textContent = char;
-    span.title = label + ': ' + char;
-    span.addEventListener('click', () => {
-      insertTextAtFakeCaret(char);
+    span.title = char;
+    span.addEventListener("click", (e) => {
+      e.preventDefault();
+      insertCharAtCaret(char);
     });
-    keyboard.appendChild(span);
+    container.appendChild(span);
   }
 }
 
-function insertText(str) {
-  insertTextAtFakeCaret(str);
-}
+function renderBlockByKey(blockKey) {
+  const [start, end] = unicodeBlocks[blockKey] || [];
+  if (start == null || end == null) return;
 
-function backspace() {
-  backspaceAtFakeCaret();
-}
-
-function ensureCaretInNotes() {
-  let caret = document.getElementById("fake-caret");
-  if (!caret) {
-    caret = document.createElement("span");
-    caret.id = "fake-caret";
-    caret.textContent = "\u200B";
-    caret.style.display = "inline-block";
-    caret.style.width = "1px";
-  }
-
-  if (!notes.contains(caret)) {
-    notes.appendChild(caret);
-  }
-
-  if (notes.innerHTML.trim() === "" || notes.textContent.trim() === "") {
-    notes.innerHTML = '<span><wbr></wbr></span>';
-    notes.appendChild(caret);
-  }
-}
-
-document.getElementById("block-select").addEventListener("change", function () {
-  const [startHex, endHex] = this.value.split('-');
-  const start = parseInt(startHex, 16);
-  const end = parseInt(endHex, 16);
-  const chars = [];
+  container.innerHTML = "";
+  const blockLabel = document.createElement("div");
+  blockLabel.textContent = `Blok: ${blockKey}`;
+  blockLabel.className = "block-label";
+  container.appendChild(blockLabel);
 
   for (let code = start; code <= end; code++) {
+    if (code === 0xFEFF) continue;
     const char = String.fromCodePoint(code);
-    if (/[\p{L}\p{N}\p{P}\p{S}]/u.test(char)) {
-      chars.push(char);
-    }
+    const span = document.createElement("span");
+    span.className = "char";
+    span.textContent = char;
+    span.title = "U+" + code.toString(16).toUpperCase().padStart(4, '0');
+    span.addEventListener("click", (e) => {
+      e.preventDefault();
+      insertCharAtCaret(char);
+    });
+    container.appendChild(span);
   }
+}
 
-  renderCharsFromString(this.value, chars.join(' '));
+blockSelect.addEventListener("change", () => {
+  const blockKey = blockSelect.value;
+  renderBlockByKey(blockKey);
 });
 
-window.addEventListener("DOMContentLoaded", () => {
-  const select = document.getElementById("block-select");
-  if (select) {
-    select.dispatchEvent(new Event("change"));
-  }
-  ensureCaretInNotes();
+copyBtn.addEventListener("click", () => {
+  if (!notesTextarea.value) return;
+  navigator.clipboard.writeText(notesTextarea.value)
+    .then(() => {
+      copyMsg.classList.remove("show");
+      void copyMsg.offsetWidth;
+      copyMsg.classList.add("show");
+      copyMsg.style.opacity = "1";
+      setTimeout(() => {
+        copyMsg.classList.remove("show");
+        copyMsg.style.opacity = "0";
+      }, 2000);
+    })
+    .catch(err => console.error("Copy gagal:", err));
+});
+
+clearBtn.addEventListener("click", () => {
+  notesTextarea.value = "";
   updateCounter();
-
-  // Tambahkan label awal tanpa efek
-  percentLabel.textContent = "Digaris: 0%";
 });
 
+notesTextarea.addEventListener("input", updateCounter);
 
-notes.addEventListener("input", () => {
+async function init() {
+  loadingOverlay.style.display = "flex";
+  await new Promise(resolve => requestAnimationFrame(resolve));
+  await new Promise(resolve => setTimeout(resolve, 10));
+  renderAllDefault();
   updateCounter();
-  updateStrikeByPercentage();
-});
-notes.addEventListener("keyup", () => {
-  updateCounter();
-  updateStrikeByPercentage();
-});
-
-document.addEventListener("click", function (e) {
-  if (!notes.contains(e.target)) {
-    notes.blur();
-  }
-});
-
-document.getElementById("clear-btn").addEventListener("click", () => {
-  notes.innerHTML = "";
-  ensureCaretInNotes();
-  updateCounter();
-  updateStrikeByPercentage();
-  notes.focus();
-});
-
-notes.addEventListener("click", () => {
-  let caret = document.getElementById("fake-caret");
-  if (!caret) {
-    caret = document.createElement("span");
-    caret.id = "fake-caret";
-    notes.appendChild(caret);
-  }
-  notes.focus();
-});
-
-document.getElementById("copy-btn").addEventListener("click", () => {
-  const temp = document.createElement("div");
-  temp.innerHTML = notes.innerHTML;
-  temp.querySelectorAll("br").forEach(br => {
-    br.replaceWith("\n");
-  });
-  const text = temp.textContent;
-
-  navigator.clipboard.writeText(text).then(() => {
-    const msg = document.getElementById("copy-message");
-    msg.style.display = "inline-block";
-    setTimeout(() => {
-      msg.style.display = "none";
-    }, 1500);
-  });
-});
-
-slider.addEventListener("input", updateStrikeByPercentage);
-
-document.getElementById("block-select").addEventListener("change", (e) => {
-  const range = e.target.value.split("-");
-  const from = parseInt(range[0], 16);
-  const to = parseInt(range[1], 16);
-  const chars = [];
-  for (let i = from; i <= to; i++) {
-    chars.push(String.fromCodePoint(i));
-  }
-  renderCharsFromString(e.target.options[e.target.selectedIndex].text, chars.join(" "));
-});
+  loadingOverlay.style.display = "none";
 
 document.getElementById("btn-bloc").addEventListener("click", () => {
   renderCharsFromString("Simbol 1", "󰂆 󰥬 󱢏 󰟺 󰟯 󰟱 󰟰 󰟪 󰟫 󰟵 󰟤 󰥼 󰦉 󰠏 󰟴 󰟳 󰟭 󰟮 󰟩 󰟨 󰟧 󰟲 󰟸 󰟦 󰟥 󰟣 󰟢 󰟡 󰟠 󰞦 󰥦 󰥖 󰥗 󰥚 󰥞 󰥧 󰥠 󰥡 󰥥 󰥤 󰥨 󰥩 󰥪 󰥫 󰥭 󰥮 󰥯 󰥰 󰥱 󰥺 󰥳 󰥴 󰥵 󰥶 󰥷 󰥸 󰦈 󰥔 󰥻 󰦄 󰥽 󰥾 󰥿 󰦀 󰦁 󰦂 󰦃 󰦅 󰦆 󰦇 󰦍 󰦌 󰦋 󰦊 󰦖 󰦏 󰦐 󰦑 󰝂 󰦕 󰦔 󰦓 󰦒 󰝃 󰝄 󰝅 󰝆 󰝇 󰝈 󰝉 󰝊 󰝋 󰝌 󰝍 󰝎 󰝏 󰝐 󰝑 󰝒 󰝓 󰝔 󰝕 󰝖 󰝗 󰝘 󰝙 󰝚 󰝛 󰝜 󰝝 󰝞 󰝟 󰝠 󰝡 󰝢 󰝣 󰝤 󰝥 󰝦 󰝧 󰝨 󰝩 󰝪 󰝫 󰝬 󰝭 󰝸 󰝹 󰝺 󰝻 󰝼 󰝽 󰝾 󰝿 󰞀 󰞁 󰞂 󰞃 󰞄 󰞅 󰞆 󰞇 󰞈 󰞔 󰞕 󰞖 󰞗 󰞘 󰞙 󰞚 󰞛 󰞜 󰞝 󰞞 󰞟 󰞡 󰞠 󰞣 󰞤 󰞥 󰞧 󰞨 󰞩 󰞪 󰞫 󰞬 󰞭 󰞮 󰞯 󰞰 󰞱 󰞲 󰞳 󰞴 󰞵 󰞶 󰞷 󰞸 󰞹 󰞺 󰞻 󰞼 󰞽 󰞾 󰞿 󰟀 󰟂 󰟁 󰟃 󰟄 󰟅 󰟆 󰟇 󰟈 󰟉 󰟊 󰟋 󰟌 󰟍 󰟎 󰟏 󰟐 󰟑 󰟒 󰟓 󰟔 󰟕 󰟖 󰟗 󰟘 󰟙 󰟚 󰟛 󰟜 󰟝 󰟞 󰟟 󰟠 󰟹 󰟻 󰟼 󰟽 󰟾 󰟿 󰠀 󰠁 󰠂 󰠃 󰠄 󰠅 󰠆 󰠈 󰠇 󰠉 󰠊 󰠋 󰠌 󰠍 󰠎 󰠐 󰠑 󰠒 󰠓 󰠔 󰠕 󰠖 󰠗 󰠘 󰠙 󰠚 󰠛 󰠜 󰠝 󰠞 󰠟 󰠠 󰠡 󰠢 󰠣 󰠤 󰠥 󰠦 󰠧 󰠨 󰠩 󰠪 󰠫 󰠭 󰠬 󰠮 󰠯 󰠰 󰠱 󰠲 󰠳 󰠴 󰠵 󰠶 󰠷 󰠸 󰠹 󰠺 󰠻 󰠼 󰠽 󰠾 󰠿 󰡀 󰡁 󰡄 󰟬 󰟷 󰥲 󰈃 󰊑 󰈄 󰁁 󰊑 󰂕 󰂃")
@@ -1360,16 +1428,15 @@ document.getElementById("btn-block2").addEventListener("click", () => {
   renderCharsFromString("Simbol", "⓿ ❶ ❷ ❸ ❹ ❺ ❻ ❼ ❽ ❾ ❿ ⓫ ⓬ ⓭ ⓮ ⓯ ⓰ ⓱ ⓲ ⓳ ⓴ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ⓵ ⓶ ⓷ ⓸ ⓹ ⓺ ⓻ ⓼ ⓽ ⓾ ⑴ ⑵ ⑶ ⑷ ⑸ ⑹ ⑺ ⑻ ⑼ ⑽ ⑾ ⑿ ⒀ ⒁ ⒂ ⒃ ⒄ ⒅ ⒆ ⒇ ０ １ ２ ３ ４ ５ ６ ７ ８ ９ ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ⒈ ⒉ ⒊ ⒋ ⒌ ⒍ ⒎ ⒏ ⒐ ⒑ ⒒ ⒓ ⒔ ⒕ ⒖ ⒗ ⒘ ⒙ ⒚ ⒛ ↉ ½ ⅓ ¼ ⅕ ⅙ ⅐ ⅛ ⅑ ⅒ ⅔ ⅖ ¾ ⅗ ⅜ ⅘ ⅚ ⅝ ⅞ ㊊ ㊋ ㊌ ㊍ ㊎ ㊏ ㊐ ㊑ ㊒ ㊓ ㊔ ㊕ ㊖ ㊗ ㊘ ㊜ ㊝ ㊞ ㊟ ㊠ ㊡ ㊢ ㊣ ㊤ ㊥ ㊦ ㊧ ㊨ ㊩ ㊪ ㊫ ㊬ ㊭ ㊮ ㊯ ㊰ ♳ ♴ ♵ ♶ ♷ ♸ ♹ ♺ ♺ ♻ ♼ ♽");
 });
 document.getElementById("btn-block3").addEventListener("click", () => {
-  renderCharsFromString("Simbol", "🅰 🅱 🅲 🅳 🅴 🅵 🅶 🅷 🅸 🅹 🅻 🅼 🅽 🅾 🅿 🆀 🆁 🆂 🆃 🆄 🆅 🆆 🆇 🆈 🆉 🄰 🄱 🄲 🄳 3 🄵 🄶 🄷 🄸 🄹 🄺 🄻 🄼 🄽 🄾 🄿 🅀 🅁 🅂 🅃 🅄 🅅 🅆 🅇 🅈 🅉 ⿰ ⿱ ⿲ ⿳ ⿴ ⿵ ⿶ ⿷ ⿸ ⿺ ⿺ ⿻");
+  renderCharsFromString("Simbol", "🅰 🅱 🅲 🅳 🅴 🅵 🅶 🅷 🅸 🅹 🅻 🅼 🅽 🅾 🅿 🆀 🆁 🆂 🆃 🆄 🆅 🆆 🆇 🆈 🆉 🄰 🄱 🄲 🄳 🄴 🄵 🄶 🄷 🄸 🄹 🄺 🄻 🄼 🄽 🄾 🄿 🅀 🅁 🅂 🅃 🅄 🅅 🅆 🅇 🅈 🅉 ⿰ ⿱ ⿲ ⿳ ⿴ ⿵ ⿶ ⿷ ⿸ ⿺ ⿺ ⿻");
 });
 document.getElementById("btn-block4").addEventListener("click", () => {
   renderCharsFromString("Simbol", "🄐 🄑 🄒 🄓 🄔 🄕 🄖 🄗 🄘 🄙 🄚 🄛 🄜 🄝 🄞 🄟 🄠 🄡 🄢 🄣 🄤 🄥 🄦 🄧 🄨 🄩 🄪 ⒜ ⒝ ⒞ ⒟ ⒠ ⒡ ⒢ ⒣ ⒤ ⒥ ⒦ ⒧ ⒨ ⒩ ⒪ ⒫ ⒬ ⒭ ⒮ ⒯ ⒰ ⒱ ⒲ ⒳ ⒴ ⒵");
 });
 document.getElementById("btn-block5").addEventListener("click", () => {
-  const string = "ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ＠＃＄％＆－⏤￣＿﹏﹋︵︶＼／＋（）＜＞⧹⧸［］０１２３４５６７８９";
-  const spaced = string.split('').join('\u2009'); // Thin space antar karakter
-  renderCharsFromString("Simbol", spaced);
+  renderCharsFromString("Simbol", "Ａ Ｂ Ｃ Ｄ Ｅ Ｆ Ｇ Ｈ Ｉ Ｊ Ｋ Ｌ Ｍ Ｎ Ｏ Ｐ Ｑ Ｒ Ｓ Ｔ Ｕ Ｖ Ｗ Ｘ Ｙ Ｚ ａ ｂ ｃ ｄ ｅ ｆ ｇ ｈ ｉ ｊ ｋ ｌ ｍ ｎ ｏ ｐ ｑ ｒ ｓ ｔ ｕ ｖ ｗ ｘ ｙ ｚ ＠ ＃ ＄ ％ ＆ － ⏤ ￣ ＿ ﹏ ﹋ ︵ ︶ ＼ ／ ＋ （ ） ＜ ＞ ⧹ ⧸ ［ ］ ０ １ ２ ３ ４ ５ ６ ７ ８ ９");
 });
+
 
 document.getElementById("btn-block7").addEventListener("click", () => {
   renderCharsFromString("Simbol", "𝓐 𝓑 𝓒 𝓓 𝓔 𝓕 𝓖 𝓗 𝓘 𝓙 𝓚 𝓛 𝓜 𝓝 𝓞 𝓟 𝓠 𝓡 𝓢 𝓣 𝓤 𝓥 𝓦 𝓧 𝓨 𝓩 𝓪 𝓫 𝓬 𝓭 𝓮 𝓯 𝓰 𝓱 𝓲 𝓳 𝓴 𝓵 𝓶 𝓷 𝓸 𝓹 𝓺 𝓻 𝓼 𝓽 𝓾 𝓿 𝓼 𝔀 𝔁 𝔂 𝔃 𝒜 ℬ 𝒞 𝒟 ℰ ℱ 𝒢 ℋ ℐ 𝒥 𝒦 ℒ ℳ 𝒩 𝒪 𝒫 𝒬 ℛ 𝒮 𝒯 𝒰 𝒱 𝒲 𝒳 𝒴 𝒵 𝒶 𝒷 𝒸 𝒹 ℯ 𝒻 ℊ 𝒽 𝒾 𝒿 𝓀 𝓁 𝓂 𝓃 ℴ 𝓅 𝓆 𝓇 𝓈 𝓉 𝓊 𝓋 𝓌 𝓍 𝓎 𝓏");
@@ -1410,64 +1477,22 @@ document.getElementById("btn-block21").addEventListener("click", () => {
   renderCharsFromString("Simbol", "ꁲ ꃳ ꏳ ꀷ ꑀ ꊯ ꁅ ꁝ ꒐ ꒑ ꈵ ꒒ ꂵ ꃔ ꊿ ꉣ ꋠ ꌅ ꈜ ꋖ ꌈ ꒦ ꅐ ꉤ ꐔ ꑒ ꍏ ꌃ ꏳ ꀷ ꏂ ꎇ ꁅ ꀍ ꀤ ꒻ ꀘ ꒒ ꎭ ꈤ ꂦ ᖘ ꆰ ꋪ ꌚ ꓄ ꀎ ꒦ ꅐ ꉧ ꌩ ꁴ ꋫ ꃲ ꉓ ꃸ ꑾ ꄘ ꁅ ꃄ ꒐ ꒑ ꀗ ꒒ ꂵ ꁹ ꄱ ꉣ ꋟ ꋪ ꇘ ꓅ ꌇ ꒦ ꅏ ꋋ ꌥ ꒗ Ꮧ Ᏸ Ꮄ Ꮛ ጀ Ꮆ Ꮒ Ꭵ Ꮰ Ꮶ Ꮭ Ꮇ Ꮑ Ꭷ Ꭾ Ꭴ Ꮢ Ꮥ Ꮦ Ꮼ Ꮙ Ꮗ ፈ Ꭹ ፚ");
 });
 
-document.getElementById("copy-message").style.display = "none"
+}
 
-function moveCaretLeft() {
-  const caret = document.getElementById("fake-caret")
-  const notes = document.getElementById("notes")
-  if (!caret || !caret.parentNode) return
+function renderAllDefault() {
+  const firstKey = Object.keys(unicodeBlocks)[0];
+  renderBlockByKey(firstKey);
+  blockSelect.value = firstKey;
+}
 
-  const allNodes = Array.from(notes.childNodes).filter(n => n.id !== "fake-caret")
-  const currentIndex = allNodes.indexOf(caret.previousSibling)
-  const newIndex = currentIndex - 1
+window.addEventListener("DOMContentLoaded", init);
 
-  if (newIndex < 0) {
-    notes.appendChild(caret) // wrap ke akhir
-  } else {
-    allNodes[newIndex].after(caret)
+document.addEventListener("click", function (e) {
+  if (!notesTextarea.contains(e.target)) {
+    notesTextarea.blur(); // hilangkan fokus dari textarea = keyboard menghilang
   }
-}
-
-function moveCaretRight() {
-  const caret = document.getElementById("fake-caret")
-  const notes = document.getElementById("notes")
-  if (!caret || !caret.parentNode) return
-
-  const allNodes = Array.from(notes.childNodes).filter(n => n.id !== "fake-caret")
-  const currentIndex = allNodes.indexOf(caret.previousSibling)
-  const newIndex = currentIndex + 1
-
-  if (newIndex >= allNodes.length) {
-    notes.prepend(caret) // wrap ke awal
-  } else {
-    allNodes[newIndex].after(caret)
-  }
-}
-
-function moveCaretToStart() {
-  const caret = document.getElementById("fake-caret")
-  const notes = document.getElementById("notes")
-  if (!caret) return
-  notes.prepend(caret)
-}
-
-function moveCaretToEnd() {
-  const caret = document.getElementById("fake-caret")
-  const notes = document.getElementById("notes")
-  if (!caret) return
-  notes.appendChild(caret)
-}
-
-</script>
-<script>
-document.querySelectorAll(".key-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    btn.classList.add("blink");
-    setTimeout(() => {
-      btn.classList.remove("blink");
-    }, 100); // durasi animasi (0.4s * 2 kali)
-  });
 });
+
 </script>
 <script>
   const toggleBtn = document.getElementById('darkModeToggle');
@@ -1476,85 +1501,22 @@ document.querySelectorAll(".key-btn").forEach(btn => {
   });
 </script>
 <script>
-  document.body.style.overflow = "hidden";
-
-  window.addEventListener("load", () => {
-    const preloader = document.getElementById("preloader");
-
-    setTimeout(() => {
-      preloader.classList.add("blur-out");
-
+  // Tahan loader selama 36 detik (3.6 putaran), lalu blur hilang 2 detik
+  window.addEventListener("DOMContentLoaded", () => {
+    requestAnimationFrame(() => {
       setTimeout(() => {
-        preloader.style.display = "none";
-        document.body.style.overflow = "auto";
-      }, 600);
-    }, 600);
+        const overlay = document.getElementById("loading-overlay");
+        overlay.style.transition = "opacity 2s ease";
+        overlay.style.opacity = 0;
+        setTimeout(() => {
+          overlay.style.display = "none";
+          document.getElementById("main-container").style.display = "block";
+        }, 300); // Fade-out selesai
+      }, 300); // 10 detik x 3.6 putaran
+    });
   });
   
   
-</script>
-<script>
-  const notes = document.getElementById("notes");
-const caret = document.getElementById("fake-caret");
-
-notes.addEventListener("touchstart", (e) => {
-  e.preventDefault(); // blok keyboard & caret asli
-  placeFakeCaret(e);
-});
-
-notes.addEventListener("mousedown", (e) => {
-  e.preventDefault(); // blok klik native
-  placeFakeCaret(e);
-});
-
-function placeFakeCaret(e) {
-  notes.focus();
-  const range = document.caretRangeFromPoint
-    ? document.caretRangeFromPoint(e.clientX, e.clientY)
-    : document.caretPositionFromPoint(e.clientX, e.clientY);
-
-  if (range) {
-    if (range.insertNode) range.insertNode(caret);
-    else if (range.offsetNode) {
-      const refNode = range.offsetNode;
-      const offset = range.offset;
-      if (refNode.nodeType === 3) {
-        const text = refNode;
-        const before = text.data.slice(0, offset);
-        const after = text.data.slice(offset);
-        const beforeNode = document.createTextNode(before);
-        const afterNode = document.createTextNode(after);
-        const parent = text.parentNode;
-        parent.replaceChild(afterNode, text);
-        parent.insertBefore(caret, afterNode);
-        parent.insertBefore(beforeNode, caret);
-      } else {
-        refNode.insertBefore(caret, refNode.childNodes[offset]);
-      }
-    }
-  }
-}
-
-document.addEventListener("selectionchange", () => {
-  const sel = window.getSelection();
-  if (sel) sel.removeAllRanges();
-});
-
-notes.addEventListener("keydown", (e) => {
-  e.preventDefault(); // blok input asli
-  const key = e.key;
-  if (key.length === 1) {
-    const span = document.createElement("span");
-    span.textContent = key;
-    caret.parentNode.insertBefore(span, caret);
-  } else if (key === "Enter") {
-    caret.parentNode.insertBefore(document.createElement("br"), caret);
-  } else if (key === "Backspace") {
-    const prev = caret.previousSibling;
-    if (prev) prev.remove();
-  }
-});
-
 </script>
 
 </body>
